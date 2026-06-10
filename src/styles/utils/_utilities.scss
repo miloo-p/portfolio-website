@@ -8,11 +8,11 @@
   width: 100%;
   max-width: var(--container-content-md);
   margin: 0 auto;
-  padding: 0 var(--space-lg); // 24px Rand auf Mobile, damit nichts klebt
+  padding: 0 var(--space-lg);
 }
 
 .section-padding {
-  padding-top: var(--space-4xl); // 96px
+  padding-top: var(--space-4xl);
   padding-bottom: var(--space-4xl);
 }
 
