@@ -1,10 +1,12 @@
+@use '../abstracts/variables' as *;
+
 // ==========================================
 // GLOBALE UTILITY-KLASSEN
 // ==========================================
 
 .content-container {
   width: 100%;
-  max-width: var(--container-width); // Greift auf deine 1400px zu
+  max-width: var(--container-content-md);
   margin: 0 auto;
   padding: 0 var(--space-lg); // 24px Rand auf Mobile, damit nichts klebt
 }
@@ -14,7 +16,7 @@
   padding-bottom: var(--space-4xl);
 }
 
-Flexbox .flex-center {
+.flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
