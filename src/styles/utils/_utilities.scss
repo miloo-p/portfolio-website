@@ -1,0 +1,43 @@
+// ==========================================
+// GLOBALE UTILITY-KLASSEN
+// ==========================================
+
+.content-container {
+  width: 100%;
+  max-width: var(--container-width); // Greift auf deine 1400px zu
+  margin: 0 auto;
+  padding: 0 var(--space-lg); // 24px Rand auf Mobile, damit nichts klebt
+}
+
+.section-padding {
+  padding-top: var(--space-4xl); // 96px
+  padding-bottom: var(--space-4xl);
+}
+
+Flexbox .flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden-mobile {
+  @media (max-width: $breakpoint-md) {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @media (min-width: $breakpoint-md) {
+    display: none !important;
+  }
+}
