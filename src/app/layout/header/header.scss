@@ -1,5 +1,11 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
+.header__container {
+  height: 10rem;
+
+  background-color: var(--neutral-900);
+}
+
 .header__wrapper {
   @include mixin.flexbox(row, space-evenly, center, 0);
   @include mixin.global_content_wrapper();
