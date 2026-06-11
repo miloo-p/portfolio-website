@@ -18,13 +18,13 @@
   &::before,
   &::after {
     content: '';
-    content: '';
     position: absolute;
     top: calc(anchor(bottom) - 15px);
     left: calc(anchor(left) + 1rem);
     right: calc(anchor(right) + 1rem);
     bottom: calc(anchor(bottom) + 11px);
     border-radius: 10px;
+    max-width: 30rem;
 
     position-anchor: --hovered-link;
 
@@ -55,6 +55,16 @@
   &::after {
     z-index: -2;
     background-color: var(--neutral-200);
+  }
+
+  // ==========================================
+  // NEU: Der Resize-Killswitch
+  // ==========================================
+  &.is-resizing {
+    &::before,
+    &::after {
+      transition: none !important;
+    }
   }
 
   &:has(a:hover)::before,
@@ -102,6 +112,7 @@
     padding: 1rem;
     text-decoration: none;
     color: var(--neutral-200);
+    font-weight: var(--fw-bold);
   }
 
   a:hover {

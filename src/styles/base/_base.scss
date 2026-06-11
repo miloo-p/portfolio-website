@@ -51,15 +51,16 @@ a {
   transition: color var(--transition-fast);
 
   &:hover {
-    color: var(--primary-500);
+    color: var(--secondary-500);
+  }
+  &:active {
+    text-decoration: underline;
   }
 }
 
 // ==========================================
 // DISPLAY KLASSEN (Knewave)
 // ==========================================
-// Da es in HTML keine <display> Tags gibt, machen wir daraus Klassen.
-// Nutze diese z. B. in der Hero-Sektion: <h1 class="display-1">Bear in Mind</h1>
 
 .display-1,
 .display-2,

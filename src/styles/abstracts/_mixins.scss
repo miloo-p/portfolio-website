@@ -5,6 +5,7 @@
   align-items: $alignItems;
   gap: $gap;
 }
+
 @mixin global_content_wrapper() {
   max-width: var(--container-content-md);
   margin: 0 auto;

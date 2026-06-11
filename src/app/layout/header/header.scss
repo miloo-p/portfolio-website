@@ -30,6 +30,7 @@
 .header__tranlate {
   @include mixin.flexbox(row, space-evenly, center, 0.7rem);
   color: var(--neutral-200);
+  font-weight: var(--fw-bold);
 
   & svg {
     color: var(--neutral-200);
