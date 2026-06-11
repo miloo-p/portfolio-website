@@ -7,11 +7,25 @@
   padding-block: var(--space-md);
 }
 
-.header__navigation {
-  @include mixin.flexbox(row, space-evenly, center, 3rem);
+.header__logo {
+  height: 6rem;
+  width: 100%;
+  color: var(--neutral-200);
 }
 
-.header__logo {
-  width: 10rem;
-  color: var(--secondary-500);
+.header__sound-btn {
+  background: none;
+  text-decoration: none;
+  border: none;
+
+  color: var(--neutral-200);
+}
+
+.header__tranlate {
+  @include mixin.flexbox(row, space-evenly, center, 0.7rem);
+  color: var(--neutral-200);
+
+  &svg {
+    color: var(--neutral-200);
+  }
 }

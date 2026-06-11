@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { BearLogo } from '../../shared/components/bear-logo/bear-logo';
+import { PageNavigation } from '../../shared/components/page-navigation/page-navigation';
 
 @Component({
   selector: 'app-header',
-  imports: [BearLogo],
+  imports: [PageNavigation],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
