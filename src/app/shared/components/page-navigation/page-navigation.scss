@@ -57,13 +57,10 @@
     background-color: var(--neutral-200);
   }
 
-  // ==========================================
-  // NEU: Der Resize-Killswitch
-  // ==========================================
   &.is-resizing {
     &::before,
     &::after {
-      transition: none !important;
+      transition: none;
     }
   }
 
