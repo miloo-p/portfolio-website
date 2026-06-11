@@ -1,3 +1,11 @@
+@mixin global_content_wrapper() {
+  max-width: var(--container-content-md);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @mixin flexbox($flexDirection, $justifyContent, $alignItems, $gap) {
   display: flex;
   flex-direction: $flexDirection;
@@ -6,10 +14,9 @@
   gap: $gap;
 }
 
-@mixin global_content_wrapper() {
-  max-width: var(--container-content-md);
-  margin: 0 auto;
-  width: 100%;
-  padding: 0;
-  box-sizing: border-box;
+@mixin grid($columns, $alignItems, $gap) {
+  display: grid;
+  grid-template-columns: $columns;
+  align-items: $alignItems;
+  gap: $gap;
 }

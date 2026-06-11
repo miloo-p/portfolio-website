@@ -7,7 +7,7 @@
 }
 
 .header__wrapper {
-  @include mixin.flexbox(row, space-evenly, center, 0);
+  @include mixin.flexbox(row, space-between, center, 0);
   @include mixin.global_content_wrapper();
 
   padding-block: var(--space-md);

@@ -1,0 +1,88 @@
+@use '../../../styles/abstracts/mixins' as mixin;
+
+.hero__container {
+  height: 100dvh;
+
+  max-height: 1200px;
+
+  background-color: var(--neutral-900);
+}
+
+.hero__wrapper {
+  @include mixin.grid(repeat(12, 1fr), start, 0);
+
+  @include mixin.global_content_wrapper();
+
+  height: 100%;
+
+  position: relative;
+}
+
+.hero__content-left {
+  @include mixin.flexbox(column, flex-start, flex-start, 1rem);
+
+  grid-column: 1 / 8;
+
+  grid-row: 1;
+
+  z-index: 10;
+
+  margin-top: 6rem;
+}
+
+.hero__actions {
+  @include mixin.flexbox(row, flex-start, center, 1.5rem);
+}
+
+.hero__title,
+.hero__subtext {
+  color: var(--neutral-200);
+}
+
+.hero__content-bg {
+  grid-column: 8 / 13;
+
+  grid-row: 1;
+
+  z-index: 1;
+
+  align-self: center;
+
+  transform: translateY(-5%) translateX(-5%) rotate(-30deg);
+
+  svg {
+    height: 40rem;
+
+    width: auto;
+
+    opacity: 0.9;
+
+    color: var(--neutral-200);
+  }
+}
+
+.hero__content-right {
+  grid-column: 7 / 13;
+
+  grid-row: 1;
+
+  z-index: 2;
+
+  align-self: center;
+
+  justify-self: end;
+
+  transform: translateY(-10%) rotate(10deg);
+
+  img {
+    height: 85vh;
+
+    max-height: 800px;
+
+    width: auto;
+
+    object-fit: contain;
+
+    display: block;
+  }
+}
