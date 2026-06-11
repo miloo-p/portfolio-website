@@ -1,0 +1,17 @@
+@use '../../../styles/abstracts/mixins' as mixin;
+
+.header__wrapper {
+  @include mixin.flexbox(row, space-evenly, center, 0);
+  @include mixin.global_content_wrapper();
+
+  padding-block: var(--space-md);
+}
+
+.header__navigation {
+  @include mixin.flexbox(row, space-evenly, center, 3rem);
+}
+
+.header__logo {
+  width: 10rem;
+  color: var(--secondary-500);
+}

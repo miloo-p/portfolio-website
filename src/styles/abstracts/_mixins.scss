@@ -1,0 +1,14 @@
+@mixin flexbox($flexDirection, $justifyContent, $alignItems, $gap) {
+  display: flex;
+  flex-direction: $flexDirection;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  gap: $gap;
+}
+@mixin global_content_wrapper() {
+  max-width: var(--container-content-lg);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
