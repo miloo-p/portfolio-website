@@ -31,7 +31,7 @@
   @include mixin.flexbox(row, space-evenly, center, 0.7rem);
   color: var(--neutral-200);
 
-  &svg {
+  & svg {
     color: var(--neutral-200);
   }
 }
