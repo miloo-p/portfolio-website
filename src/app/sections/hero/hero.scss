@@ -1,88 +1,80 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
 .hero__container {
-  height: 100dvh;
-
+  height: 90dvh;
   max-height: 1200px;
-
+  min-height: 600px;
   background-color: var(--neutral-900);
-}
-
-.hero__wrapper {
-  @include mixin.grid(repeat(12, 1fr), start, 0);
-
-  @include mixin.global_content_wrapper();
-
-  height: 100%;
 
   position: relative;
 }
 
+.hero__wrapper {
+  @include mixin.global_content_wrapper();
+  height: 100%;
+
+  @include mixin.flexbox(column, center, flex-start, 0);
+
+  position: relative;
+  z-index: 10;
+}
+
 .hero__content-left {
   @include mixin.flexbox(column, flex-start, flex-start, 1rem);
+  transform: translateY(clamp(-15rem, calc(-20rem + 10vw), -5rem));
+}
 
-  grid-column: 1 / 8;
+.hero__title {
+  color: var(--neutral-200);
+  font-size: clamp(6rem, 10vw, var(--fs-display-1));
+}
 
-  grid-row: 1;
-
-  z-index: 10;
-
-  margin-top: 6rem;
+.hero__subtext {
+  color: var(--neutral-200);
+  max-width: 40rem;
+  font-size: clamp(var(--fs-h3), 3vw, var(--fs-h2));
 }
 
 .hero__actions {
   @include mixin.flexbox(row, flex-start, center, 1.5rem);
 }
 
-.hero__title,
-.hero__subtext {
-  color: var(--neutral-200);
+.hero__visuals-wrapper {
+  position: absolute;
+  top: max(10dvh, calc(5dvh + 3rem));
+  right: max(0px, calc(50% - (var(--container-content-md) / 2)));
+  z-index: 1;
+
+  display: grid;
+  align-items: start;
+  justify-items: center;
 }
 
 .hero__content-bg {
-  grid-column: 8 / 13;
-
-  grid-row: 1;
-
+  grid-area: 1 / 1;
   z-index: 1;
 
-  align-self: center;
-
-  transform: translateY(-5%) translateX(-5%) rotate(-30deg);
+  transform: rotate(-28deg) translate(-60%, 20%);
 
   svg {
-    height: 40rem;
-
+    height: min(80vh, 50vw);
     width: auto;
-
     opacity: 0.9;
-
     color: var(--neutral-200);
   }
 }
 
 .hero__content-right {
-  grid-column: 7 / 13;
-
-  grid-row: 1;
-
+  grid-area: 1 / 1;
   z-index: 2;
 
-  align-self: center;
-
-  justify-self: end;
-
-  transform: translateY(-10%) rotate(10deg);
-
   img {
-    height: 85vh;
-
-    max-height: 800px;
-
+    height: min(100vh, 55vw);
+    max-height: 1000px;
     width: auto;
-
     object-fit: contain;
-
     display: block;
+
+    transform: translate(0, -5%);
   }
 }
