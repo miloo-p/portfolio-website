@@ -1,12 +1,30 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
+:host {
+  display: block;
+  position: relative;
+  z-index: 10;
+
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
+}
 .hero__container {
-  height: 90dvh;
-  max-height: 1200px;
-  min-height: 600px;
+  height: 85dvh;
   background-color: var(--neutral-900);
 
   position: relative;
+
+  clip-path: shape(
+    from 0 0,
+    vline to calc(100% - 25px),
+    curve to 21.43% calc(100% - 15.5px) with 14.29% calc(100% - 15px),
+    curve to 35.71% calc(100% - 9px) with 28.57% calc(100% - 16px),
+    curve to 50% calc(100% - 20px) with 42.86% calc(100% - 2px),
+    curve to 64.29% calc(100% - 44px) with 57.14% calc(100% - 38px),
+    curve to 78.57% calc(100% - 27.5px) with 71.43% calc(100% - 50px),
+    curve to 100% calc(100% - 25px) with 85.71% calc(100% - 5px),
+    vline to 0,
+    hline to 0
+  );
 }
 
 .hero__wrapper {
@@ -21,18 +39,19 @@
 
 .hero__content-left {
   @include mixin.flexbox(column, flex-start, flex-start, 1rem);
-  transform: translateY(clamp(-15rem, calc(-20rem + 10vw), -5rem));
+  padding-top: 5rem;
+  transform: translateY(clamp(-15rem, calc(-20rem + 20vw), -5rem));
 }
 
 .hero__title {
   color: var(--neutral-200);
-  font-size: clamp(6rem, 10vw, var(--fs-display-1));
+  font-size: clamp(5rem, 9vw, var(--fs-display-1));
 }
 
 .hero__subtext {
   color: var(--neutral-200);
   max-width: 40rem;
-  font-size: clamp(var(--fs-h3), 3vw, var(--fs-h2));
+  font-size: clamp(var(--fs-h3), 2.5vw, var(--fs-h2));
 }
 
 .hero__actions {
@@ -41,26 +60,35 @@
 
 .hero__visuals-wrapper {
   position: absolute;
-  top: max(10dvh, calc(5dvh + 3rem));
+  bottom: max(-18rem, calc(-5dvh + 3rem));
   right: max(0px, calc(50% - (var(--container-content-md) / 2)));
   z-index: 1;
 
   display: grid;
   align-items: start;
   justify-items: center;
+
+  @media (min-width: 1500px) {
+    right: max(0px, calc(45% - (var(--container-content-md) / 2)));
+  }
 }
 
 .hero__content-bg {
   grid-area: 1 / 1;
   z-index: 1;
 
-  transform: rotate(-28deg) translate(-60%, 20%);
+  transform: rotate(-28deg) translate(-80%, 35%);
 
   svg {
-    height: min(80vh, 50vw);
+    height: min(75vh, 57vw);
     width: auto;
     opacity: 0.9;
     color: var(--neutral-200);
+
+    @media (min-width: 1500px) {
+      -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    }
   }
 }
 
@@ -69,12 +97,20 @@
   z-index: 2;
 
   img {
-    height: min(100vh, 55vw);
-    max-height: 1000px;
+    height: min(90vh, 70vw);
+    max-height: 1115px;
     width: auto;
     object-fit: contain;
     display: block;
 
-    transform: translate(0, -5%);
+    transform: translate(0, 5%);
+
+    -webkit-mask-image: linear-gradient(to right, black 75%, transparent 92%);
+    mask-image: linear-gradient(to right, black 75%, transparent 92%);
+
+    @media (min-width: 1500px) {
+      -webkit-mask-image: linear-gradient(to right, black 50%, transparent 90%);
+      mask-image: linear-gradient(to right, black 50%, transparent 90%);
+    }
   }
 }

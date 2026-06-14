@@ -1,16 +1,17 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
 .header__container {
-  height: 10rem;
-
+  height: 8rem;
   background-color: var(--neutral-900);
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .header__wrapper {
   @include mixin.flexbox(row, space-between, center, 0);
   @include mixin.global_content_wrapper();
-
-  padding-block: var(--space-md);
 }
 
 .header__logo {

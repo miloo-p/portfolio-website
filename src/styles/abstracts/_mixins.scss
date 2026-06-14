@@ -2,7 +2,7 @@
   max-width: var(--container-content-md);
   margin: 0 auto;
   width: 100%;
-  padding: 0;
+  padding-inline: clamp(1.5rem, 5vw, 3rem);
   box-sizing: border-box;
 }
 
