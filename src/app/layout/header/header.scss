@@ -1,12 +1,22 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
 .header__container {
-  height: 8rem;
+  height: 9rem;
   background-color: var(--neutral-900);
 
   position: sticky;
   top: 0;
   z-index: 50;
+
+  clip-path: shape(
+    from 0 0,
+    vline to calc(100% - 25px),
+    curve to 37.5% calc(100% - 15.5px) with 25% calc(100% - 15px),
+    curve to 62.5% calc(100% - 9px) with 50% calc(100% - 16px),
+    curve to 100% calc(100% - 25px) with 75% calc(100% - 2px),
+    vline to 0,
+    hline to 0
+  );
 }
 
 .header__wrapper {

@@ -5,13 +5,14 @@
   position: relative;
   z-index: 10;
 
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.4));
 }
 .hero__container {
   height: 85dvh;
   background-color: var(--neutral-900);
 
   position: relative;
+  margin-bottom: -3rem;
 
   clip-path: shape(
     from 0 0,
@@ -51,7 +52,7 @@
 .hero__subtext {
   color: var(--neutral-200);
   max-width: 40rem;
-  font-size: clamp(var(--fs-h3), 2.5vw, var(--fs-h2));
+  font-size: clamp(var(--fs-h4), 2.5vw, var(--fs-h3));
 }
 
 .hero__actions {

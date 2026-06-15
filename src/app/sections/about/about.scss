@@ -1,5 +1,171 @@
-.about__container {
-  margin-top: -10rem;
-  height: 60rem;
-  background-color: var(--bg-light);
+@use '../../../styles/abstracts/mixins' as mixin;
+
+.about {
+  &__container {
+    position: relative;
+
+    height: 200rem;
+
+    background-color: var(--bg-light);
+
+    padding-top: 3rem;
+  }
+
+  &__wrapper {
+    @include mixin.global_content_wrapper();
+
+    height: 100%;
+
+    margin-top: 3rem;
+  }
+
+  &__content {
+    position: relative;
+    &__top {
+      @include mixin.flexbox(row, center, center, 0);
+    }
+    &__bottom {
+      @include mixin.flexbox(row, center, center, 0);
+    }
+
+    &__visuals {
+      max-height: 30rem;
+    }
+    &__text {
+      flex: 1;
+    }
+  }
+
+  &__iconbar {
+    @include mixin.flexbox(row, space-evenly, center, 1rem);
+    padding-top: var(--space-4xl);
+
+    &__info {
+      @include mixin.flexbox(row, center, center, 1rem);
+    }
+  }
+}
+
+// ==========================================
+
+// DIE CODE-EDITOR KOMPONENTE
+
+// ==========================================
+
+.code-editor {
+  --editor-width: 25rem;
+  --editor-height: 18rem;
+  --editor-top: 25%;
+  --editor-left: auto;
+  --editor-right: auto;
+
+  position: absolute;
+
+  top: var(--editor-top);
+  left: var(--editor-left);
+  right: var(--editor-right);
+  height: var(--editor-height);
+  width: var(--editor-width);
+
+  background-color: var(--tinted-gray-900);
+  border-radius: 0.5rem;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.4));
+
+  transform: perspective(1000px) rotateY(15deg) rotateX(-5deg);
+
+  &__top-bar {
+    position: relative;
+    height: 2rem;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: var(--space-xs) var(--space-md);
+    background-color: var(--tinted-gray-700);
+    transition: transform 0.4s ease-out;
+    color: var(--tinted-gray-100);
+
+    &__dot {
+      position: absolute;
+      right: var(--space-md);
+      top: var(--space-sm);
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      background-color: var(--dot-close);
+      box-shadow: inset 0 0 3px var(--tinted-gray-900);
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: var(--space-lg);
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        background-color: var(--dot-minimize);
+        box-shadow: inset 0 0 3px var(--tinted-gray-900);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: calc(var(--space-lg) * 2);
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        background-color: var(--dot-maximize);
+        box-shadow: inset 0 0 3px var(--tinted-gray-900);
+      }
+    }
+  }
+
+  &__main {
+    height: calc(100% - 2rem);
+    padding: var(--space-sm);
+    color: var(--tinted-gray-100);
+
+    pre {
+      padding-inline: var(--space-md);
+      margin: 0;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      &::-webkit-scrollbar {
+        width: 0.5rem;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--tinted-gray-600);
+        border-radius: 5px;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: var(--tinted-gray-500);
+      }
+    }
+  }
+
+  &--large {
+    --editor-width: 23rem;
+    --editor-height: 25rem;
+    --editor-top: 40%;
+    --editor-left: auto;
+    --editor-right: 2%;
+
+    transform: perspective(1000px) rotateY(-15deg) rotateX(0deg);
+  }
+}
+
+.c-kw {
+  color: var(--secondary-900);
+}
+.c-str {
+  color: var(--primary-500);
+}
+.c-num {
+  color: var(--primary-500);
+}
+.c-func {
+  color: var(--secondary-500);
 }
