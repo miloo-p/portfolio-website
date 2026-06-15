@@ -93,3 +93,10 @@ a {
 .display-5 {
   font-size: var(--fs-display-5);
 }
+
+.handwritten {
+  font-family: var(--font-handwritten);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+  font-size: var(--fs-display-2);
+}

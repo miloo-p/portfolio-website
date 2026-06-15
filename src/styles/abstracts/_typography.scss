@@ -19,3 +19,13 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'NanumPen';
+  src:
+    url('/assets/fonts/NanumPenScript-Regular.ttf') format('truetype'),
+    url('../../../public/assets/fonts/NanumPenScript-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

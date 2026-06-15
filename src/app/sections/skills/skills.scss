@@ -1,8 +1,35 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
 .skills {
+  position: relative;
   padding-block: 8rem;
   background-color: var(--bg-light);
+
+  position: relative;
+  padding-block: 8rem;
+  background-color: var(--bg-light);
+
+  &__decor-layer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__side-visual {
+    position: absolute;
+    right: 5%;
+    bottom: -20%;
+
+    transform: rotate(-70deg) translate(30%, 20%);
+
+    color: var(--neutral-900);
+
+    svg {
+      height: 25rem;
+    }
+  }
 
   &__wrapper {
     @include mixin.global_content_wrapper();
