@@ -1,1 +1,20 @@
-<p>skills works!</p>
+<section class="skills">
+  <div class="skills__wrapper">
+    <div class="skills__header">
+      <h2>My evolving skillset</h2>
+      <h3 class="skills__header__subtext">
+        Ein transparenter Blick auf meinen aktuellen Tech-Stack. Das Fundament sitzt, und der Rest
+        wächst mit jedem neuen Commit.
+      </h3>
+    </div>
+
+    <div class="skills__grid">
+      @for (skill of mySkills; track skill.name) {
+        <div class="skills__item">
+          <img [src]="skill.iconUrl" [alt]="skill.name" class="skills__icon" />
+          <span class="skills__name">{{ skill.name }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
