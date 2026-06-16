@@ -29,8 +29,8 @@ export class Skills {
     { name: 'JavaScript', iconUrl: 'assets/icons/skills/frontend/javascript-frontend.svg' },
     { name: 'Angular', iconUrl: 'assets/icons/skills/frontend/angular-frontend.svg' },
     {
-      name: 'Test Automation',
-      iconUrl: 'assets/icons/skills/frontend/test-automation-frontend.svg',
+      name: 'Material',
+      iconUrl: 'assets/icons/skills/frontend/material-frontend.svg',
     },
     { name: 'Supabase', iconUrl: 'assets/icons/skills/frontend/supabase-frontend.svg' },
 
