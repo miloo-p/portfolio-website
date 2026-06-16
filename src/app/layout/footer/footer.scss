@@ -9,9 +9,9 @@
 }
 
 .footer__landscape-wrapper {
-  @include mixin.global_content_wrapper();
   width: 100%;
-  line-height: 0;
+  max-width: calc(var(--container-content-md) + 15rem);
+  margin-inline: auto;
 
   app-footer-woodscene {
     width: 100%;
@@ -62,4 +62,38 @@
   @include mixin.global_content_wrapper();
 
   color: var(--bg-light);
+}
+
+.footer__content {
+  width: 100%;
+
+  &__top {
+    @include mixin.flexbox(row, space-between, center, 0);
+    border-bottom: 2px solid var(--neutral-200);
+    padding-block: var(--space-xl);
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      color: var(--neutral-200);
+    }
+  }
+
+  &__buttonbar {
+    @include mixin.flexbox(row, center, center, 1rem);
+  }
+
+  &__logo {
+    height: 3rem;
+    color: var(--neutral-200);
+  }
+}
+
+.footer__content__bottom {
+  @include mixin.flexbox(row, space-between, center, 0);
+  @include mixin.global_content_wrapper();
+  padding-block: var(--space-xl);
+  padding-inline: 0;
 }

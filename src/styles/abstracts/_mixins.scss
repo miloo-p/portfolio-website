@@ -6,6 +6,22 @@
   box-sizing: border-box;
 }
 
+@mixin global_content_wrapper--bleed() {
+  max-width: var(--container-content-md-bleed);
+  margin: 0 auto;
+  width: 100%;
+  padding-inline: clamp(1.5rem, 5vw, 3rem);
+  box-sizing: border-box;
+}
+
+@mixin global_content_wrapper--lg() {
+  max-width: var(--container-content-lg);
+  margin: 0 auto;
+  width: 100%;
+  padding-inline: clamp(1.5rem, 5vw, 3rem);
+  box-sizing: border-box;
+}
+
 @mixin flexbox($flexDirection, $justifyContent, $alignItems, $gap) {
   display: flex;
   flex-direction: $flexDirection;
