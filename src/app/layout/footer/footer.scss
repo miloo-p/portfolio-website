@@ -1,0 +1,65 @@
+@use '../../../styles/abstracts/mixins' as mixin;
+
+.footer__container {
+  background-color: var(--bg-light);
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__landscape-wrapper {
+  @include mixin.global_content_wrapper();
+  width: 100%;
+  line-height: 0;
+
+  app-footer-woodscene {
+    width: 100%;
+    display: block;
+
+    ::ng-deep {
+      svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .footer__bear {
+        transform-box: fill-box;
+        transform-origin: bottom center;
+      }
+
+      @media (max-width: 768px) {
+        .footer__tree-hide-mobile {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// DER UNTERE BEREICH
+// ==========================================
+.footer__bottom {
+  width: 100%;
+  height: 20rem;
+
+  background: linear-gradient(to bottom, var(--neutral-800) 0%, var(--neutral-900) 50%);
+
+  margin-top: -1px;
+  position: relative;
+  z-index: 2;
+}
+
+// ==========================================
+// DER TEXT-WRAPPER
+// ==========================================
+.footer__wrapper {
+  padding-block: 2rem 4rem;
+
+  @include mixin.flexbox(column, center, center, 0);
+  @include mixin.global_content_wrapper();
+
+  color: var(--bg-light);
+}
