@@ -1,18 +1,63 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
 .project {
+  position: relative;
   padding-block: 8rem;
-  background-color: var(--bg-light);
+  background: linear-gradient(to bottom, #fdfbf7 0%, #fae8d4 100%);
 
+  // ==========================================
+  // HINTERGRUND: GEWELLTER BODEN
+  // ==========================================
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 28rem;
+    background-color: var(--neutral-900);
+    z-index: 0;
+
+    clip-path: shape(
+      from 0 100%,
+      vline to 2.5rem,
+      curve to 15% 1.5rem with 10% 1rem,
+      smooth to 25% 1rem,
+      smooth to 35% 2rem,
+      smooth to 45% 4.5rem,
+      smooth to 55% 2.5rem,
+      smooth to 65% 2rem,
+      smooth to 75% 2.5rem,
+      smooth to 85% 1rem,
+      smooth to 100% 2.5rem,
+      vline to 100%,
+      hline to 0
+    );
+  }
+
+  // ==========================================
+  // WRAPPER & HEADER
+  // ==========================================
   &__wrapper {
-    @include mixin.flexbox(column, center, center, 1rem);
     position: relative;
+    z-index: 1;
+    @include mixin.flexbox(column, center, center, 1rem);
   }
 
   &__header {
-    // ... dein Header-Styling bleibt gleich ...
+    text-align: center;
+    max-width: 60rem;
+    margin-bottom: 5rem;
+
+    h2 {
+      color: var(--neutral-900);
+      margin-bottom: 2.5rem;
+    }
   }
 
+  // ==========================================
+  // NATIVES SCROLL-GRID
+  // ==========================================
   &__grid {
     @include mixin.flexbox(row, flex-start, center, 2rem);
     position: relative;
@@ -26,8 +71,12 @@
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+
+    // Gibt den Karten Platz nach unten für den Zickzack-Versatz
     padding-bottom: 4rem;
 
+    // Der "Runway" Trick: Gibt der ersten und letzten Karte Platz,
+    // um in die absolute Mitte des Bildschirms gescrollt zu werden.
     padding-inline: calc(50% - 150px);
 
     scrollbar-width: none;
@@ -35,6 +84,7 @@
       display: none;
     }
 
+    // Weiche Kante
     -webkit-mask-image: linear-gradient(
       to right,
       transparent 0%,
@@ -45,17 +95,45 @@
     mask-image: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
   }
 
+  // ==========================================
+  // EINZELNE KARTE (Slide)
+  // ==========================================
   &__item {
     position: relative;
     flex: 0 0 auto;
     width: 300px;
     scroll-snap-align: center;
 
-    &:nth-child(even) {
+    // Kachel ist jetzt eine Spalte (Text oben, Bild unten)
+    display: flex;
+    flex-direction: column;
+
+    // HIER IST DIE ÄNDERUNG:
+    align-items: center; // <-- Zentriert den Namen perfekt über dem Bild
+
+    gap: 0.8rem;
+
+    &--offset {
       transform: translateY(3rem);
     }
   }
 
+  &__name {
+    font-family: 'Knewave', cursive;
+    font-size: 1.2rem;
+    color: var(--neutral-900);
+    white-space: nowrap;
+  }
+
+  &__icon {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+  }
+
+  // ==========================================
+  // NAVIGATION (Dots)
+  // ==========================================
   &__nav {
     margin-top: 5rem;
     @include mixin.flexbox(row, center, center, 1rem);
@@ -65,17 +143,17 @@
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background-color: var(--neutral-300);
+    background-color: var(--secondary-500);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
-      background-color: var(--neutral-600);
+      background-color: var(--primary-300);
     }
 
     &--active {
-      background-color: var(--neutral-900);
+      background-color: var(--primary-500);
       transform: scale(1.15);
     }
   }

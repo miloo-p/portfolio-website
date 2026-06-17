@@ -4,9 +4,9 @@
       <h2>My project-journey</h2>
     </div>
 
-    <div class="project__grid" #scrollGrid (scroll)="onScroll()">
-      @for (project of myProjects; track project.name) {
-        <div class="project__item">
+    <div class="project__grid" #scrollGrid (scroll)="onScroll()" (scrollend)="onScrollEnd()">
+      @for (project of displayProjects; track $index; let i = $index) {
+        <div class="project__item" [class.project__item--offset]="i % 2 !== 0">
           <span class="project__name">{{ project.name }}</span>
           <img [src]="project.iconUrl" [alt]="project.name" class="project__icon" />
         </div>
