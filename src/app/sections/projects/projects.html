@@ -1,1 +1,27 @@
-<p>projects works!</p>
+<section class="project">
+  <div class="project__wrapper">
+    <div class="project__header">
+      <h2>My project-journey</h2>
+    </div>
+
+    <div class="project__grid" #scrollGrid (scroll)="onScroll()">
+      @for (project of myProjects; track project.name) {
+        <div class="project__item">
+          <span class="project__name">{{ project.name }}</span>
+          <img [src]="project.iconUrl" [alt]="project.name" class="project__icon" />
+        </div>
+      }
+    </div>
+
+    <div class="project__nav">
+      @for (project of myProjects; track project.name; let i = $index) {
+        <button
+          class="project__nav-dot"
+          [class.project__nav-dot--active]="currentActiveIndex === i"
+          (click)="scrollToProject(i)"
+          [attr.aria-label]="'Zum Projekt ' + project.name + ' springen'"
+        ></button>
+      }
+    </div>
+  </div>
+</section>
