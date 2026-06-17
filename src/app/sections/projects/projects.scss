@@ -72,11 +72,7 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 
-    // Gibt den Karten Platz nach unten für den Zickzack-Versatz
     padding-bottom: 4rem;
-
-    // Der "Runway" Trick: Gibt der ersten und letzten Karte Platz,
-    // um in die absolute Mitte des Bildschirms gescrollt zu werden.
     padding-inline: calc(50% - 150px);
 
     scrollbar-width: none;
@@ -104,12 +100,10 @@
     width: 300px;
     scroll-snap-align: center;
 
-    // Kachel ist jetzt eine Spalte (Text oben, Bild unten)
     display: flex;
     flex-direction: column;
 
-    // HIER IST DIE ÄNDERUNG:
-    align-items: center; // <-- Zentriert den Namen perfekt über dem Bild
+    align-items: center;
 
     gap: 0.8rem;
 

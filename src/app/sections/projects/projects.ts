@@ -29,28 +29,19 @@ export class Projects implements OnInit, AfterViewInit {
   private baseSetLength: number = 0;
 
   ngOnInit(): void {
-    // DER TRICK FÜR UNGERADE KACHELN:
-    // Wenn die Anzahl ungerade ist, verdoppeln wir das Set einmalig,
-    // damit der Zickzack-Look beim Loopen immer fehlerfrei aufgeht.
     const baseSet =
       this.myProjects.length % 2 !== 0 ? [...this.myProjects, ...this.myProjects] : this.myProjects;
 
     this.baseSetLength = baseSet.length;
-
-    // Wir bauen 3 identische Sets (Links, Mitte, Rechts)
     this.displayProjects = [...baseSet, ...baseSet, ...baseSet];
   }
 
   ngAfterViewInit(): void {
-    // Beim Start unsichtbar in die Mitte springen
     setTimeout(() => {
       this.jumpTo(this.baseSetLength, 'auto');
     }, 10);
   }
 
-  // ==========================================
-  // SMARTE NAVIGATION: Sucht den kürzesten Weg!
-  // ==========================================
   public scrollToProject(realIndex: number): void {
     this.currentActiveIndex = realIndex;
 
@@ -60,8 +51,6 @@ export class Projects implements OnInit, AfterViewInit {
     let bestIndex = 0;
     let minDistance = Infinity;
 
-    // Checkt alle Kacheln und findet genau die Instanz deines Projekts,
-    // die gerade am nächsten zur Bildschirmmitte ist.
     this.displayProjects.forEach((_, index) => {
       if (index % this.myProjects.length === realIndex) {
         const item = grid.children[index] as HTMLElement;
@@ -79,9 +68,6 @@ export class Projects implements OnInit, AfterViewInit {
     this.jumpTo(bestIndex, 'smooth');
   }
 
-  // ==========================================
-  // WISCHEN: Dot aktualisieren
-  // ==========================================
   public onScroll(): void {
     const closestIndex = this.getClosestIndex();
     const realIndex = closestIndex % this.myProjects.length;
@@ -91,15 +77,11 @@ export class Projects implements OnInit, AfterViewInit {
     }
   }
 
-  // ==========================================
-  // NACH DEM WISCHEN: Der unsichtbare Teleport
-  // ==========================================
   public onScrollEnd(): void {
     const closestIndex = this.getClosestIndex();
 
     // Wenn wir das mittlere Set verlassen haben...
     if (closestIndex < this.baseSetLength || closestIndex >= this.baseSetLength * 2) {
-      // ... teleportieren wir zur mathematisch exakt gleichen Kachel im mittleren Set
       const indexInMiddleSet = (closestIndex % this.baseSetLength) + this.baseSetLength;
       this.jumpTo(indexInMiddleSet, 'auto');
     }
