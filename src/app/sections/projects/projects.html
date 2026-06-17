@@ -4,9 +4,19 @@
       <h2>My project-journey</h2>
     </div>
 
-    <div class="project__grid" #scrollGrid (scroll)="onScroll()" (scrollend)="onScrollEnd()">
+    <div
+      class="project__grid"
+      #scrollGrid
+      (scroll)="onScroll()"
+      (scrollend)="onScrollEnd()"
+      (wheel)="onWheel($event)"
+    >
       @for (project of displayProjects; track $index; let i = $index) {
-        <div class="project__item" [class.project__item--offset]="i % 2 !== 0">
+        <div
+          class="project__item"
+          [class.project__item--offset]="i % 2 !== 0"
+          [class.project__item--active]="currentActiveIndex === i % myProjects.length"
+        >
           <span class="project__name">{{ project.name }}</span>
           <img [src]="project.iconUrl" [alt]="project.name" class="project__icon" />
         </div>

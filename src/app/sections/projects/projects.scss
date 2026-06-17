@@ -3,7 +3,7 @@
 .project {
   position: relative;
   padding-block: 8rem;
-  background: linear-gradient(to bottom, #fdfbf7 0%, #fae8d4 100%);
+  background: var(--neutral-200);
 
   // ==========================================
   // HINTERGRUND: GEWELLTER BODEN
@@ -62,33 +62,35 @@
     @include mixin.flexbox(row, flex-start, center, 2rem);
     position: relative;
     z-index: 1;
+
     width: 100%;
-    max-width: calc(var(--container-content-md) + 15rem);
+    max-width: calc(var(--container-content-md) + 5rem);
+
     margin-inline: auto;
     flex-wrap: nowrap;
 
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+
+    // WICHTIG: Kein scroll-behavior: smooth; im CSS!
+    // Das verursacht den Spring-Bug. Wir steuern das jetzt nur über TS.
 
     padding-bottom: 4rem;
-    padding-inline: calc(50% - 150px);
 
     scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
     }
 
-    // Weiche Kante
     -webkit-mask-image: linear-gradient(
       to right,
       transparent 0%,
-      black 30%,
-      black 70%,
+      black 10%,
+      black 90%,
       transparent 100%
     );
-    mask-image: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   }
 
   // ==========================================
@@ -98,17 +100,28 @@
     position: relative;
     flex: 0 0 auto;
     width: 300px;
-    scroll-snap-align: center;
 
     display: flex;
     flex-direction: column;
-
     align-items: center;
-
     gap: 0.8rem;
 
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+
+    transform: scale(0.85);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
     &--offset {
-      transform: translateY(3rem);
+      transform: translateY(3rem) scale(0.85);
+    }
+
+    &--active {
+      transform: scale(1);
+
+      &.project__item--offset {
+        transform: translateY(3rem) scale(1);
+      }
     }
   }
 
