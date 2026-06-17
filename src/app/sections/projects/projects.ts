@@ -124,6 +124,7 @@ export class Projects implements OnInit, AfterViewInit {
 
     const targetItem = grid.children[index] as HTMLElement;
     if (!targetItem) return;
+
     this.currentActiveIndex = index % this.myProjects.length;
 
     const targetScrollLeft =
@@ -163,6 +164,7 @@ export class Projects implements OnInit, AfterViewInit {
         this.isAnimating = false;
         this.animFrameId = null;
         this.onScroll();
+        this.onScrollEnd();
       }
     };
 
