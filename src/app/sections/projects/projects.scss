@@ -5,6 +5,9 @@
   padding-block: 8rem;
   background: var(--neutral-200);
 
+  // ==========================================
+  // HINTERGRUND: GEWELLTER BODEN
+  // ==========================================
   &::before {
     content: '';
     position: absolute;
@@ -32,6 +35,33 @@
     );
   }
 
+  // ==========================================
+  // SEKTIONSÜBERGREIFENDER GLOW
+  // ==========================================
+  &::after {
+    content: '';
+    position: absolute;
+
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 130vw;
+    height: 130%;
+
+    background: radial-gradient(
+      circle closest-side,
+      hsl(from var(--secondary-500) h s l / 0.3) 0%,
+      hsl(from var(--secondary-500) h s l / 0) 100%
+    );
+
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  // ==========================================
+  // WRAPPER & HEADER
+  // ==========================================
   &__wrapper {
     position: relative;
     z-index: 1;
