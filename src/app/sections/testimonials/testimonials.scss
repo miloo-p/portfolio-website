@@ -1,0 +1,64 @@
+@use '../../../styles/abstracts/mixins' as mixin;
+
+.testemonials {
+  position: relative;
+  margin-top: -2px;
+  padding-block: 8rem;
+  background: var(--neutral-900);
+  z-index: 1;
+  color: var(--neutral-200);
+
+  &__wrapper {
+    @include mixin.flexbox(column, center, center, 5rem);
+    @include mixin.global_content_wrapper();
+  }
+
+  &__header {
+    @include mixin.flexbox(column, center, center, 1.5rem);
+    text-align: center;
+    max-width: 80rem;
+  }
+
+  &__grid {
+    @include mixin.flexbox(row, center, center, 4rem);
+    width: 100%;
+    margin-top: calc(var(--space-4xl) * 2);
+
+    &__item {
+      @include mixin.flexbox(column, center, center, 0);
+      background-color: var(--neutral-200);
+      width: 22rem;
+
+      text-align: center;
+      color: var(--neutral-900);
+
+      border-radius: 8rem;
+      padding: var(--space-2xl);
+
+      &__quote {
+        @include mixin.flexbox(column, center, center, 1rem);
+        position: relative;
+        z-index: 1;
+      }
+
+      &__author {
+        font-weight: 800;
+      }
+
+      &__zipfel {
+        position: absolute;
+        inset: auto;
+        bottom: calc(anchor(top) - 8rem);
+        left: anchor(left);
+        z-index: 0;
+
+        color: var(--neutral-200);
+      }
+
+      &__cite {
+        color: var(--primary-500);
+        margin: 0 auto;
+      }
+    }
+  }
+}

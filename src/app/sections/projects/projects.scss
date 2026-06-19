@@ -2,8 +2,11 @@
 
 .project {
   position: relative;
+  z-index: 10;
   padding-block: 8rem;
   background: var(--neutral-200);
+
+  overflow-x: clip;
 
   // ==========================================
   // HINTERGRUND: GEWELLTER BODEN
@@ -11,10 +14,13 @@
   &::before {
     content: '';
     position: absolute;
-    bottom: 0;
+
+    bottom: -5px;
     left: 0;
+
     width: 100%;
-    height: 28rem;
+    height: calc(28rem + 5px);
+
     background-color: var(--neutral-900);
     z-index: 0;
 
@@ -46,9 +52,9 @@
     left: 50%;
     transform: translateX(-50%);
 
-    width: 130vw;
-    height: 130%;
-
+    width: 160vw;
+    height: 160%;
+    z-index: 200;
     background: radial-gradient(
       circle closest-side,
       hsl(from var(--secondary-500) h s l / 0.3) 0%,

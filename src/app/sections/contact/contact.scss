@@ -1,0 +1,82 @@
+@use '../../../styles/abstracts/mixins' as mixin;
+
+.contact {
+  position: relative;
+  background: var(--neutral-200);
+  padding-block: 8rem;
+
+  overflow-x: clip;
+
+  clip-path: shape(
+    from 0 100%,
+    vline to 2.5rem,
+    curve to 21.43% 1.5rem with 14.29% 1rem,
+    smooth to 35.71% 1rem,
+    smooth to 50% 2rem,
+    smooth to 64.29% 4.5rem,
+    smooth to 78.57% 2.5rem,
+    smooth to 100% 2.5rem,
+    vline to 100%,
+    hline to 0
+  );
+
+  &__side-visual {
+    position: absolute;
+    inset: auto;
+    position-anchor: --contact-container;
+    top: calc(anchor(top) + 8rem);
+    left: calc(anchor(left) - 8rem);
+
+    z-index: 2;
+
+    transform: rotate(-40deg);
+    color: var(--neutral-900);
+
+    &::after {
+      content: '';
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 120rem;
+      height: 120rem;
+
+      z-index: -1;
+      pointer-events: none;
+
+      background: radial-gradient(
+        circle closest-side,
+        hsl(from var(--secondary-500) h s l / 0.3) 0%,
+        hsl(from var(--secondary-500) h s l / 0) 100%
+      );
+    }
+
+    svg {
+      height: 20rem;
+      anchor-name: --contact-bear;
+    }
+  }
+
+  &__wrapper {
+    @include mixin.global_content_wrapper();
+  }
+}
+
+.contact__container {
+  position: relative;
+  padding: var(--space-xl) var(--space-2xl);
+  margin: auto auto;
+
+  background: var(--tinted-gray-100);
+  filter: drop-shadow(0 0px 5px rgba(0, 0, 0, 0.6));
+
+  max-width: 60rem;
+  width: 100%;
+  height: 60rem;
+
+  z-index: 10;
+
+  anchor-name: --contact-container;
+}
