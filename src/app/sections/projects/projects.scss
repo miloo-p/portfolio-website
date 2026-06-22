@@ -9,6 +9,35 @@
   overflow-x: clip;
 
   // ==========================================
+  // LE BEAR
+  // ==========================================
+  &__decor-layer {
+    position: absolute;
+    top: -25rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    @include mixin.global_content_wrapper();
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 20;
+  }
+
+  &__side-visual {
+    position: absolute;
+    right: 5rem;
+    top: 15rem;
+
+    transform: rotate(-70deg) translate(30%, 20%);
+    color: var(--neutral-900);
+
+    svg {
+      height: 25rem;
+    }
+  }
+
+  // ==========================================
   // HINTERGRUND: GEWELLTER BODEN
   // ==========================================
   &::before {

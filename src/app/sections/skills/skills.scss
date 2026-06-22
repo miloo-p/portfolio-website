@@ -1,6 +1,9 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
 .skills {
+  position: relative;
+  z-index: 1;
+
   padding-block: 8rem;
   background-color: var(--bg-light);
 
@@ -11,33 +14,6 @@
     position: relative;
   }
 
-  // ==========================================
-  // BEAR VISUAL
-  // ==========================================
-  &__decor-layer {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  &__side-visual {
-    position: absolute;
-    right: 5%;
-    bottom: 15%;
-
-    transform: rotate(-70deg) translate(30%, 20%);
-    color: var(--neutral-900);
-
-    svg {
-      height: 25rem;
-    }
-  }
-
-  // ==========================================
-  // DER CONTENT
-  // ==========================================
   &__header {
     position: relative;
     z-index: 1;
@@ -67,9 +43,6 @@
     max-width: 55rem;
   }
 
-  // ==========================================
-  // DIE ICONS & HOVER-EFFEKTE
-  // ==========================================
   &__item {
     position: relative;
 
