@@ -2,23 +2,29 @@
 
 .contact {
   position: relative;
-  background: var(--neutral-200);
   padding-block: 8rem;
-
+  z-index: 10;
   overflow-x: clip;
 
-  clip-path: shape(
-    from 0 100%,
-    vline to 2.5rem,
-    curve to 21.43% 1.5rem with 14.29% 1rem,
-    smooth to 35.71% 1rem,
-    smooth to 50% 2rem,
-    smooth to 64.29% 4.5rem,
-    smooth to 78.57% 2.5rem,
-    smooth to 100% 2.5rem,
-    vline to 100%,
-    hline to 0
-  );
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--neutral-200);
+    z-index: -2;
+    clip-path: shape(
+      from 0 100%,
+      vline to 2.5rem,
+      curve to 21.43% 1.5rem with 14.29% 1rem,
+      smooth to 35.71% 1rem,
+      smooth to 50% 2rem,
+      smooth to 64.29% 4.5rem,
+      smooth to 78.57% 2.5rem,
+      smooth to 100% 2.5rem,
+      vline to 100%,
+      hline to 0
+    );
+  }
 
   &__side-visual {
     position: absolute;
@@ -26,26 +32,20 @@
     position-anchor: --contact-container;
     top: calc(anchor(top) + 8rem);
     left: calc(anchor(left) - 8rem);
-
     z-index: 2;
-
     transform: rotate(-40deg);
     color: var(--neutral-900);
 
     &::after {
       content: '';
       position: absolute;
-
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-
-      width: 120rem;
-      height: 120rem;
-
+      width: 90rem;
+      height: 90rem;
       z-index: -1;
       pointer-events: none;
-
       background: radial-gradient(
         circle closest-side,
         hsl(from var(--secondary-500) h s l / 0.3) 0%,
@@ -55,7 +55,6 @@
 
     svg {
       height: 20rem;
-      anchor-name: --contact-bear;
     }
   }
 
@@ -68,15 +67,86 @@
   position: relative;
   padding: var(--space-xl) var(--space-2xl);
   margin: auto auto;
-
   background: var(--tinted-gray-100);
   filter: drop-shadow(0 0px 5px rgba(0, 0, 0, 0.6));
-
   max-width: 60rem;
   width: 100%;
-  height: 60rem;
-
   z-index: 10;
-
   anchor-name: --contact-container;
+}
+
+.contact__form {
+  @include mixin.flexbox(column, flex-start, stretch, 1rem);
+}
+
+.contact__form-row {
+  @include mixin.flexbox(row, flex-start, stretch, 2rem);
+
+  .contact__form-group {
+    flex: 1;
+  }
+}
+
+.contact__form-group {
+  @include mixin.flexbox(column, flex-start, stretch, 0);
+}
+
+.contact__input,
+.contact__textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--neutral-600);
+  background: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--neutral-900);
+  outline: none;
+  transition: border-color 0.3s ease;
+
+  &::placeholder {
+    color: var(--neutral-600);
+  }
+
+  &:focus {
+    border-color: var(--primary-500);
+  }
+}
+
+.contact__textarea {
+  resize: none;
+  min-height: 25rem;
+}
+
+.contact__form-footer {
+  @include mixin.flexbox(row, space-between, flex-end, 2rem);
+  margin-top: 1rem;
+}
+
+.contact__checkbox-wrapper {
+  @include mixin.flexbox(row, flex-start, flex-start, 1rem);
+  max-width: 60%;
+}
+
+.contact__checkbox {
+  margin-top: 0.3rem;
+  accent-color: var(--secondary-500);
+  cursor: pointer;
+}
+
+.contact__checkbox-label {
+  font-size: 0.9rem;
+  color: var(--neutral-900);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.contact__link {
+  color: var(--secondary-500);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
 }

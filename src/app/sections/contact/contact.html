@@ -22,6 +22,41 @@
       <div class="contact__header">
         <h2>Send me a message!</h2>
       </div>
+      <form class="contact__form">
+        <div class="contact__form-row">
+          <div class="contact__form-group">
+            <input type="text" id="firstName" class="contact__input" placeholder="Name" />
+          </div>
+          <div class="contact__form-group">
+            <input type="text" id="lastName" class="contact__input" placeholder="Nachname" />
+          </div>
+        </div>
+
+        <div class="contact__form-group">
+          <input type="email" id="email" class="contact__input" placeholder="Email Adresse" />
+        </div>
+
+        <div class="contact__form-group">
+          <textarea
+            id="message"
+            class="contact__textarea"
+            placeholder="Text einfügen..."
+            rows="8"
+          ></textarea>
+        </div>
+
+        <div class="contact__form-footer">
+          <div class="contact__checkbox-wrapper">
+            <input type="checkbox" id="privacy" class="contact__checkbox" />
+            <label for="privacy" class="contact__checkbox-label">
+              I've read the <a href="#" class="contact__link">privacy policy</a> and agree to the
+              processing of my data as outlined.
+            </label>
+          </div>
+
+          <app-btn-cta-primary btnText="Senden"></app-btn-cta-primary>
+        </div>
+      </form>
     </div>
   </div>
 </section>
