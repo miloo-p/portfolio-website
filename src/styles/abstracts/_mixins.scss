@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 @mixin global_content_wrapper() {
   max-width: var(--container-content-md);
   margin: 0 auto;
@@ -35,4 +37,26 @@
   grid-template-columns: $columns;
   align-items: $alignItems;
   gap: $gap;
+}
+
+@mixin respond-to($size) {
+  @if $size == xl {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else {
+    @error "Unbekannter Breakpoint: #{$size}. Bitte xl, lg, md oder sm nutzen.";
+  }
 }

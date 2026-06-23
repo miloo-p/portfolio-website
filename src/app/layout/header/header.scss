@@ -1,9 +1,34 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
+// ==========================================
+// DAS OVERLAY (Befreit vom Clip-Path)
+// ==========================================
+.header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-color: var(--neutral-900);
+  z-index: 45;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// ==========================================
+// HEADER CONTAINER & WRAPPER
+// ==========================================
 .header__container {
   height: 9rem;
   background-color: var(--neutral-900);
-
   position: sticky;
   top: 0;
   z-index: 50;
@@ -17,27 +42,50 @@
     vline to 0,
     hline to 0
   );
+
+  &--menu-open {
+    clip-path: none;
+  }
 }
 
 .header__wrapper {
   @include mixin.flexbox(row, space-between, center, 0);
   @include mixin.global_content_wrapper();
+  height: 9rem;
+  position: relative;
+  z-index: 100;
 }
 
 .header__logo {
   height: 5rem;
-  width: 100%;
+  width: auto;
   color: var(--neutral-200);
+
+  @include mixin.respond-to(xl) {
+    height: 3.5rem;
+  }
 }
 
+// ==========================================
+// SOUND BUTTON
+// ==========================================
 .header__sound-btn {
   background: none;
-  text-decoration: none;
   border: none;
-
   color: var(--neutral-200);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  @include mixin.respond-to(xl) {
+    margin-left: auto;
+    margin-right: 1.5rem;
+  }
 }
 
+// ==========================================
+// TRANSLATE
+// ==========================================
 .header__tranlate {
   @include mixin.flexbox(row, space-evenly, center, 0.7rem);
   color: var(--neutral-200);
@@ -45,5 +93,114 @@
 
   & svg {
     color: var(--neutral-200);
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+// ==========================================
+// MOBILE POSITIONIERUNG (Ab 1200px)
+// ==========================================
+@include mixin.respond-to(xl) {
+  // Elemente aus dem Flow nehmen
+  app-page-navigation,
+  .header__tranlate,
+  app-btn-cta-primary {
+    position: fixed;
+    z-index: 95;
+    opacity: 0;
+    visibility: hidden;
+    left: 50vw;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  app-page-navigation {
+    top: 40dvh;
+    transform: translate(-50%, -30%);
+  }
+  .header__tranlate {
+    top: 75dvh;
+    transform: translate(-50%, 20%);
+  }
+  app-btn-cta-primary {
+    top: 88dvh;
+    transform: translate(-50%, 20%);
+  }
+}
+
+.header__container--menu-open {
+  app-page-navigation {
+    @include mixin.respond-to(xl) {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .header__tranlate,
+  app-btn-cta-primary {
+    @include mixin.respond-to(xl) {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+// ==========================================
+// BURGER BUTTON
+// ==========================================
+.header__burger-btn {
+  display: none;
+  position: relative;
+  width: 34px;
+  height: 23px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--neutral-200);
+
+  @include mixin.respond-to(xl) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  svg {
+    position: absolute;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .burger-icon {
+    opacity: 1;
+    transform: scale(1);
+    width: 34px;
+    height: 23px;
+  }
+  .close-icon {
+    opacity: 0;
+    transform: scale(0.5) rotate(-45deg);
+    width: 22px;
+    height: 21px;
+  }
+}
+
+.header__container--menu-open .header__burger-btn {
+  color: var(--primary-500);
+
+  .burger-icon {
+    opacity: 0;
+    transform: scale(0.5) rotate(45deg);
+  }
+  .close-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 }

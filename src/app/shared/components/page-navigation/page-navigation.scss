@@ -3,12 +3,9 @@
 .header__navigation {
   width: fit-content;
   margin: 2rem auto;
-
   padding: 8px;
   border-radius: 8px;
-
   isolation: isolate;
-
   anchor-name: --hovered-link;
 
   li:hover {
@@ -25,9 +22,7 @@
     bottom: calc(anchor(bottom) + 11px);
     border-radius: 10px;
     max-width: 30rem;
-
     position-anchor: --hovered-link;
-
     transition: 500ms
       linear(
         0,
@@ -51,12 +46,10 @@
     background: var(--bg-light);
     backdrop-filter: blur(50px);
   }
-
   &::after {
     z-index: -2;
     background-color: var(--bg-light);
   }
-
   &.is-resizing {
     &::before,
     &::after {
@@ -70,7 +63,6 @@
     left: anchor(left);
     right: anchor(right);
     bottom: anchor(bottom);
-
     @supports (corner-shape: squircle) {
       corner-shape: squircle;
       border-radius: 50%;
@@ -96,12 +88,20 @@
     corner-shape: squircle;
   }
 
+  // ==========================================
+  // MOBILE ANPASSUNGEN (Ab 1200px)
+  // ==========================================
   > ul {
     @include mixin.flexbox(row, space-evenly, center, 2rem);
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
+
+    @include mixin.respond-to(xl) {
+      flex-direction: column; // Stapelt die Links hochkant
+      gap: 2rem;
+    }
   }
 
   a {
@@ -110,6 +110,11 @@
     text-decoration: none;
     color: var(--text-color-light);
     font-weight: var(--fw-bold);
+
+    @include mixin.respond-to(xl) {
+      font-size: var(--fs-h3); // Text größer auf dem Overlay
+      text-align: center;
+    }
   }
 
   a:hover {
