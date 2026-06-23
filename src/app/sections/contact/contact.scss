@@ -120,11 +120,18 @@
 .contact__form-footer {
   @include mixin.flexbox(row, space-between, flex-end, 2rem);
   margin-top: 1rem;
+
+  @include mixin.respond-to(md) {
+    @include mixin.flexbox(column, center, center, 1rem);
+  }
 }
 
 .contact__checkbox-wrapper {
   @include mixin.flexbox(row, flex-start, flex-start, 1rem);
   max-width: 60%;
+  @include mixin.respond-to(md) {
+    max-width: 90%;
+  }
 }
 
 .contact__checkbox {

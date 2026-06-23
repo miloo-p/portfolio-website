@@ -21,13 +21,30 @@
     position: relative;
     &__top {
       @include mixin.flexbox(row, center, center, 0);
+      padding-bottom: 2rem;
+
+      @include mixin.respond-to(lg) {
+        @include mixin.flexbox(column, center, center, 0);
+      }
     }
     &__bottom {
       @include mixin.flexbox(row, center, center, 0);
+      @include mixin.respond-to(lg) {
+        @include mixin.flexbox(column, center, center, 0);
+      }
     }
 
     &__visuals {
       max-height: 30rem;
+
+      img {
+        height: 38rem;
+        width: auto;
+        object-fit: contain;
+        @include mixin.respond-to(xl) {
+          height: 30rem;
+        }
+      }
     }
     &__text {
       flex: 1;
@@ -36,7 +53,11 @@
 
   &__iconbar {
     @include mixin.flexbox(row, space-evenly, center, 1rem);
-    padding-top: var(--space-4xl);
+    padding-top: 10rem;
+
+    @include mixin.respond-to(xl) {
+      @include mixin.flexbox(column, space-evenly, center, 3rem);
+    }
 
     &__info {
       @include mixin.flexbox(row, center, center, 1rem);
@@ -70,6 +91,15 @@
   filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.4));
 
   transform: perspective(1000px) rotateY(15deg) rotateX(-5deg);
+
+  @include mixin.respond-to(xl) {
+    transform: none;
+  }
+  @include mixin.respond-to(lg) {
+    --editor-top: 5%;
+    --editor-left: auto;
+    --editor-right: auto;
+  }
 
   &__top-bar {
     position: relative;
@@ -147,11 +177,23 @@
   &--large {
     --editor-width: 23rem;
     --editor-height: 25rem;
-    --editor-top: 45%;
+    --editor-top: 50%;
     --editor-left: auto;
     --editor-right: 2%;
 
     transform: perspective(1000px) rotateY(-15deg) rotateX(0deg);
+
+    @include mixin.respond-to(xl) {
+      transform: none;
+      --editor-top: 45%;
+      --editor-right: -2%;
+    }
+
+    @include mixin.respond-to(lg) {
+      --editor-top: 80%;
+      --editor-left: auto;
+      --editor-right: auto;
+    }
   }
 }
 

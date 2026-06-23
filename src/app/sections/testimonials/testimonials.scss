@@ -24,6 +24,11 @@
     width: 100%;
     margin-top: calc(var(--space-4xl) * 2);
 
+    @include mixin.respond-to(lg) {
+      flex-direction: column;
+      gap: 12rem;
+    }
+
     &__item {
       @include mixin.flexbox(column, center, center, 0);
       background-color: var(--neutral-200);
