@@ -114,7 +114,9 @@
 }
 
 // --- Breakpoints ---
+$breakpoint-xsm: 410px; // Mobile Landscape
 $breakpoint-sm: 576px; // Mobile Landscape
 $breakpoint-md: 768px; // Tablet
 $breakpoint-lg: 992px; // Small Desktop
 $breakpoint-xl: 1200px; // Large Desktop
+$breakpoint-xxl: 1500px; // Large Desktop

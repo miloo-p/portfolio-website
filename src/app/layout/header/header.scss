@@ -43,6 +43,10 @@
     hline to 0
   );
 
+  @include mixin.respond-to(xl) {
+    height: 6rem;
+  }
+
   &--menu-open {
     clip-path: none;
   }
@@ -54,6 +58,9 @@
   height: 9rem;
   position: relative;
   z-index: 100;
+  @include mixin.respond-to(xl) {
+    height: 6rem;
+  }
 }
 
 .header__logo {

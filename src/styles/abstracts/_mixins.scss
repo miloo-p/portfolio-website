@@ -56,7 +56,15 @@
     @media (max-width: $breakpoint-sm) {
       @content;
     }
+  } @else if $size == xxl {
+    @media (max-width: $breakpoint-xxl) {
+      @content;
+    }
+  } @else if $size == xsm {
+    @media (max-width: $breakpoint-xsm) {
+      @content;
+    }
   } @else {
-    @error "Unbekannter Breakpoint: #{$size}. Bitte xl, lg, md oder sm nutzen.";
+    @error "Unbekannter Breakpoint: #{$size}.";
   }
 }

@@ -101,6 +101,10 @@
     --editor-right: auto;
   }
 
+  @include mixin.respond-to(sm) {
+    --editor-width: 19rem;
+  }
+
   &__top-bar {
     position: relative;
     height: 2rem;
@@ -193,6 +197,9 @@
       --editor-top: 80%;
       --editor-left: auto;
       --editor-right: auto;
+    }
+    @include mixin.respond-to(sm) {
+      --editor-width: 19rem;
     }
   }
 }
