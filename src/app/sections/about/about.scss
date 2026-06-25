@@ -2,52 +2,127 @@
 
 .about {
   &__container {
-    position: relative;
-
     background-color: var(--bg-light);
-
     padding-top: 3rem;
   }
 
   &__wrapper {
     @include mixin.global_content_wrapper();
-
-    height: 100%;
-
     margin-top: 3rem;
+    overflow: hidden;
   }
 
   &__content {
-    position: relative;
-    &__top {
-      @include mixin.flexbox(row, center, center, 0);
-      padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0; // Abstand zwischen den zwei großen Blöcken
 
-      @include mixin.respond-to(lg) {
-        @include mixin.flexbox(column, center, center, 0);
-      }
-    }
+    // ==========================================
+    // GRID-LAYOUT FÜR DIE REIHEN
+    // ==========================================
+    &__top,
     &__bottom {
-      @include mixin.flexbox(row, center, center, 0);
+      display: grid;
+      grid-template-columns: 1fr 1fr; // 50/50 Split auf Desktop
+      align-items: center;
+      gap: 1rem;
+
       @include mixin.respond-to(lg) {
-        @include mixin.flexbox(column, center, center, 0);
+        grid-template-columns: 1fr; // Untereinander auf Mobile
+        gap: 3rem;
       }
     }
 
-    &__visuals {
-      max-height: 30rem;
-
-      img {
-        height: 38rem;
-        width: auto;
-        object-fit: contain;
-        @include mixin.respond-to(xl) {
-          height: 30rem;
+    // Damit beim unteren Block das Bild auf Mobile ZUERST kommt
+    &__bottom {
+      @include mixin.respond-to(lg) {
+        .about__content__visuals {
+          order: -1;
         }
       }
     }
+
+    // ==========================================
+    // DEINE BILDER & EDITOREN (VISUALS)
+    // ==========================================
+    &__visuals {
+      position: relative;
+      width: 100%;
+      min-height: 30rem;
+
+      // 1. GEMEINSAME BILD-STYLES
+      &__brain,
+      &__heart {
+        position: absolute;
+        z-index: 5;
+        height: 40rem;
+        width: auto;
+        object-fit: contain;
+
+        @include mixin.respond-to(xl) {
+          height: 30rem;
+        }
+
+        @include mixin.respond-to(lg) {
+          height: 40rem;
+        }
+        @include mixin.respond-to(sm) {
+          height: 30rem;
+        }
+      }
+
+      // 2. INDIVIDUELLE KONTROLLE: HERZ
+      &__heart {
+        // Desktop: Fixe Koordinaten (Kein Transform nötig!)
+        top: -3rem; // Verrechnet mit dem alten translate
+        left: -8rem; // Verrechnet mit dem alten translate
+
+        @include mixin.respond-to(lg) {
+          top: -3rem;
+          left: -4rem;
+        }
+
+        @include mixin.respond-to(sm) {
+          top: auto;
+          bottom: -12rem;
+          left: 7rem;
+          transform: rotate(50deg);
+        }
+      }
+
+      // 3. INDIVIDUELLE KONTROLLE: GEHIRN
+      &__brain {
+        // Desktop: Fixe Koordinaten (Kein Transform nötig!)
+        top: 0rem;
+        right: -8rem;
+
+        @include mixin.respond-to(xl) {
+          top: -6rem;
+          right: -4rem;
+        }
+
+        @include mixin.respond-to(lg) {
+          top: -3rem;
+          right: -4rem;
+        }
+
+        @include mixin.respond-to(sm) {
+          top: auto;
+          bottom: -10rem;
+          right: -6rem;
+        }
+      }
+    }
+
     &__text {
-      flex: 1;
+      // Kein padding-top Hack mehr nötig! Der Grid regelt den Abstand.
+      h3 {
+        margin-bottom: 1rem;
+
+        @include mixin.respond-to(sm) {
+          max-width: 20rem;
+        }
+      }
     }
   }
 
@@ -66,43 +141,49 @@
 }
 
 // ==========================================
-
 // DIE CODE-EDITOR KOMPONENTE
-
 // ==========================================
 
 .code-editor {
+  // Lokale Variablen für die Größe
   --editor-width: 25rem;
   --editor-height: 18rem;
-  --editor-top: 25%;
-  --editor-left: auto;
-  --editor-right: auto;
 
+  // Der Editor schwebt nun ÜBER dem Visuals-Container,
+  // zentriert sich aber perfekt in dessen Mitte!
   position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
 
-  top: var(--editor-top);
-  left: var(--editor-left);
-  right: var(--editor-right);
-  height: var(--editor-height);
   width: var(--editor-width);
+  height: var(--editor-height);
 
   background-color: var(--tinted-gray-900);
   border-radius: 0.5rem;
   filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.4));
 
-  transform: perspective(1000px) rotateY(15deg) rotateX(-5deg);
+  // Die translate(-50%, -50%) zentriert das Element absolut mittig
+  transform: translate(-50%, -50%) perspective(1000px) rotateY(15deg) rotateX(-5deg);
 
   @include mixin.respond-to(xl) {
-    transform: none;
+    top: 60%;
+    transform: translate(-50%, -50%); // Nimmt 3D-Effekt weg, behält Zentrierung
   }
+
   @include mixin.respond-to(lg) {
-    --editor-top: 5%;
-    --editor-left: auto;
-    --editor-right: auto;
+    transform: translate(-25%, -50%) perspective(1000px) rotateY(-15deg) rotateX(-5deg);
+  }
+
+  @include mixin.respond-to(md) {
+    top: 60%;
+    transform: translate(-50%, -50%); // Nimmt 3D-Effekt weg, behält Zentrierung
   }
 
   @include mixin.respond-to(sm) {
-    --editor-width: 19rem;
+    --editor-width: 21rem;
+    left: 10rem;
+    transform: translate(-50%, -50%); // Nimmt 3D-Effekt weg, behält Zentrierung
   }
 
   &__top-bar {
@@ -112,7 +193,6 @@
     border-radius: 0.5rem 0.5rem 0 0;
     padding: var(--space-xs) var(--space-md);
     background-color: var(--tinted-gray-700);
-    transition: transform 0.4s ease-out;
     color: var(--tinted-gray-100);
 
     &__dot {
@@ -123,7 +203,6 @@
       width: 1rem;
       border-radius: 50%;
       background-color: var(--dot-close);
-      box-shadow: inset 0 0 3px var(--tinted-gray-900);
 
       &::before {
         content: '';
@@ -133,7 +212,6 @@
         width: 1rem;
         border-radius: 50%;
         background-color: var(--dot-minimize);
-        box-shadow: inset 0 0 3px var(--tinted-gray-900);
       }
 
       &::after {
@@ -144,7 +222,6 @@
         width: 1rem;
         border-radius: 50%;
         background-color: var(--dot-maximize);
-        box-shadow: inset 0 0 3px var(--tinted-gray-900);
       }
     }
   }
@@ -162,6 +239,7 @@
       overflow-x: hidden;
       white-space: pre-wrap;
       word-wrap: break-word;
+
       &::-webkit-scrollbar {
         width: 0.5rem;
       }
@@ -172,38 +250,42 @@
         background-color: var(--tinted-gray-600);
         border-radius: 5px;
       }
-      &::-webkit-scrollbar-thumb:hover {
-        background-color: var(--tinted-gray-500);
-      }
     }
   }
 
+  // Für den zweiten, größeren Editor
   &--large {
     --editor-width: 23rem;
     --editor-height: 25rem;
-    --editor-top: 50%;
-    --editor-left: auto;
-    --editor-right: 2%;
+    top: 40%;
+    left: 45%;
 
-    transform: perspective(1000px) rotateY(-15deg) rotateX(0deg);
+    transform: translate(-50%, -50%) perspective(1000px) rotateY(-15deg) rotateX(0deg);
 
     @include mixin.respond-to(xl) {
-      transform: none;
-      --editor-top: 45%;
-      --editor-right: -2%;
+      top: 55%;
+      transform: translate(-50%, -50%);
     }
 
     @include mixin.respond-to(lg) {
-      --editor-top: 80%;
-      --editor-left: auto;
-      --editor-right: auto;
+      transform: translate(-70%, -50%) perspective(1000px) rotateY(15deg) rotateX(0deg);
     }
+
+    @include mixin.respond-to(md) {
+      top: 60%;
+      transform: translate(-50%, -50%); // Nimmt 3D-Effekt weg, behält Zentrierung
+    }
+
     @include mixin.respond-to(sm) {
       --editor-width: 19rem;
+      top: 60%;
+      left: 10rem;
+      transform: translate(-50%, -50%); // Nimmt 3D-Effekt weg, behält Zentrierung
     }
   }
 }
 
+// Syntax Highlighting Colors
 .c-kw {
   color: var(--secondary-900);
 }
