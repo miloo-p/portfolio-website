@@ -21,10 +21,6 @@ export class Projects implements OnInit, AfterViewInit {
     { name: 'Join', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
     { name: 'Light & Dark', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
     { name: 'Videoflix', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
-    { name: 'KanMind', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
-    { name: 'KanMind', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
-    { name: 'KanMind', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
-    { name: 'KanMind', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
   ];
 
   public displayProjects: Project[] = [];

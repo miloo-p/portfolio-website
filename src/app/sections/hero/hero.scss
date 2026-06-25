@@ -4,15 +4,13 @@
   display: block;
   position: relative;
   z-index: 10;
-
   filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.4));
 }
+
 .hero__container {
-  height: 85dvh;
+  min-height: 85dvh;
   background-color: var(--neutral-900);
-
   position: relative;
-
   margin-bottom: -3rem;
 
   clip-path: shape(
@@ -27,45 +25,55 @@
     vline to 0,
     hline to 0
   );
+
   @include mixin.respond-to(lg) {
     overflow: hidden;
-    height: 100dvh;
+    min-height: 85dvh;
   }
+
   @include mixin.respond-to(md) {
-    height: 85dvh;
+    min-height: 85dvh;
   }
 }
 
 .hero__wrapper {
   @include mixin.global_content_wrapper();
-  height: 100%;
+  min-height: 85dvh;
+  position: relative;
+  z-index: 10;
+  filter: drop-shadow(0 7px 7px rgba(0, 0, 0, 0.3));
 
   @include mixin.flexbox(column, center, flex-start, 0);
 
-  @include mixin.respond-to(md) {
+  @include mixin.respond-to(xl) {
     @include mixin.flexbox(column, flex-start, flex-start, 1rem);
   }
-
-  position: relative;
-  z-index: 10;
 }
 
 .hero__content-left {
   @include mixin.flexbox(column, flex-start, flex-start, 1rem);
-  transform: translateY(-2rem);
+
   @include mixin.respond-to(xl) {
     transform: none;
+    background-color: rgba(0, 0, 0, 0.353);
+    padding: 3rem 2rem;
+    border-radius: 3rem;
+    max-width: 95%;
   }
 }
 
 .hero__title {
   color: var(--neutral-200);
   font-size: clamp(5rem, 9vw, var(--fs-display-1));
+
   @include mixin.respond-to(xl) {
-    max-width: 25rem;
-    @include mixin.respond-to(md) {
-      font-size: clamp(6rem, 5vw, var(--fs-display-2));
-    }
+    max-width: 50rem;
+    font-size: clamp(6rem, 9vw, var(--fs-display-1));
+  }
+
+  @include mixin.respond-to(md) {
+    max-width: 15rem;
+    font-size: clamp(4.5rem, 5vw, var(--fs-display-2));
   }
 }
 
@@ -77,11 +85,15 @@
 
 .hero__actions {
   @include mixin.flexbox(row, flex-start, center, 1.5rem);
+
   @include mixin.respond-to(md) {
     @include mixin.flexbox(column, flex-start, flex-start, 1.5rem);
   }
 }
 
+// ==========================================
+// VISUALS
+// ==========================================
 .hero__visuals-wrapper {
   position: absolute;
   bottom: max(-18rem, calc(-5dvh + 3rem));
@@ -95,12 +107,15 @@
   @media (min-width: 1500px) {
     right: max(0px, calc(45% - (var(--container-content-md) / 2)));
   }
+
   @include mixin.respond-to(md) {
     right: max(-6rem, calc(50% - (var(--container-content-md) / 2)));
   }
+
   @include mixin.respond-to(sm) {
     right: max(-10rem, calc(50% - (var(--container-content-md) / 2)));
   }
+
   @include mixin.respond-to(xsm) {
     right: max(-6rem, calc(50% - (var(--container-content-md) / 2)));
   }
@@ -109,21 +124,22 @@
 .hero__content-bg {
   grid-area: 1 / 1;
   z-index: 1;
-
   transform: rotate(-28deg) translate(-80%, 35%);
 
   @include mixin.respond-to(xl) {
-    transform: rotate(25deg) translate(20%, 20%);
+    transform: rotate(-28deg) translate(-110%, 20%);
   }
+
   @include mixin.respond-to(md) {
-    transform: rotate(-40deg) translate(-110%, 35%);
+    transform: rotate(-30deg) translate(-100%, 15%);
   }
+
   @include mixin.respond-to(sm) {
     transform: rotate(-20deg) translate(-110%, 50%);
   }
 
   svg {
-    height: min(75vh, 57vw);
+    height: min(75vh, 65vw);
     width: auto;
     opacity: 0.9;
     color: var(--neutral-200);
@@ -132,9 +148,13 @@
       -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
       mask-image: linear-gradient(to right, black 80%, transparent 100%);
     }
+    @include mixin.respond-to(xl) {
+      height: min(60vh, 90vw);
+      transform: translate(30%, 5%);
+    }
 
     @include mixin.respond-to(sm) {
-      height: min(60vh, 80vw);
+      height: min(60vh, 90vw);
     }
   }
 }
@@ -142,12 +162,7 @@
 .hero__content-right {
   grid-area: 1 / 1;
   z-index: 2;
-  /*   @include mixin.respond-to(md) {
-    transform: rotate(12deg) translate(20%, 3%);
-  }
-  @include mixin.respond-to(sm) {
-    transform: rotate(15deg) translate(20%, 3%);
-  } */
+  overflow: hidden;
 
   img {
     height: min(90vh, 70vw);
@@ -155,7 +170,6 @@
     width: auto;
     object-fit: contain;
     display: block;
-
     transform: translate(0, 5%);
 
     -webkit-mask-image: linear-gradient(to right, black 75%, transparent 92%);
@@ -165,11 +179,16 @@
       -webkit-mask-image: linear-gradient(to right, black 50%, transparent 90%);
       mask-image: linear-gradient(to right, black 50%, transparent 90%);
     }
+
     @include mixin.respond-to(xl) {
-      height: min(90vh, 95vw);
+      height: min(90vh, 120vw);
+      transform: translate(20%, 5%);
+      -webkit-mask-image: none;
+      mask-image: none;
     }
+
     @include mixin.respond-to(sm) {
-      height: min(90vh, 110vw);
+      height: min(90vh, 150vw);
     }
   }
 }
