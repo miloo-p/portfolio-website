@@ -44,7 +44,7 @@
   );
 
   @include mixin.respond-to(xl) {
-    height: 6rem;
+    height: 7rem;
   }
 
   &--menu-open {

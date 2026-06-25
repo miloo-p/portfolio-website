@@ -40,6 +40,10 @@
       border-radius: 8rem;
       padding: var(--space-2xl);
 
+      @include mixin.respond-to(sm) {
+        width: 20rem;
+      }
+
       &__quote {
         @include mixin.flexbox(column, center, center, 1rem);
         position: relative;
