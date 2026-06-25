@@ -4,12 +4,12 @@
   &__container {
     background-color: var(--bg-light);
     padding-top: 3rem;
+    overflow-x: hidden;
   }
 
   &__wrapper {
     @include mixin.global_content_wrapper();
     margin-top: 3rem;
-    overflow: hidden;
   }
 
   &__content {
@@ -103,7 +103,6 @@
         }
       }
 
-      // 2. INDIVIDUELLE KONTROLLE: HERZ
       &__heart {
         top: -3rem;
         left: -8rem;
@@ -117,31 +116,28 @@
           top: auto;
           bottom: -12rem;
           left: 7rem;
-          // transform auf dem Container dreht auch den Glow,
-          // was bei einem perfekten Kreis aber unsichtbar bleibt!
           transform: rotate(50deg);
         }
       }
 
-      // 3. INDIVIDUELLE KONTROLLE: GEHIRN
       &__brain {
         top: 0rem;
-        right: -8rem;
+        left: 8rem;
 
         @include mixin.respond-to(xl) {
           top: -6rem;
-          right: -4rem;
+          left: 8rem;
         }
 
         @include mixin.respond-to(lg) {
           top: -3rem;
-          right: -4rem;
+          left: 12rem;
         }
 
         @include mixin.respond-to(sm) {
           top: auto;
-          bottom: -10rem;
-          right: -6rem;
+          bottom: -11rem;
+          left: 7rem;
         }
       }
     }
