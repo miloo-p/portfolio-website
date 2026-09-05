@@ -1,13 +1,18 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
+import { BtnCtaSecondary } from '../../shared/components/btn-cta-secondary/btn-cta-secondary';
 
 interface Project {
   name: string;
+  description: string;
+  techStack: string[];
+  liveUrl: string;
   iconUrl: string;
 }
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [BtnCtaPrimary, BtnCtaSecondary],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
@@ -17,10 +22,38 @@ export class Projects implements OnInit, AfterViewInit {
   public currentActiveIndex: number = 0;
 
   public myProjects: Project[] = [
-    { name: 'PokeDex', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
-    { name: 'Join', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
-    { name: 'Light & Dark', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
-    { name: 'Videoflix', iconUrl: 'assets/images/project-thumbnails/project-thumbnail-1.png' },
+    {
+      name: 'Light & Dark',
+      iconUrl: 'assets/images/project-thumbnails/project_light-shadow.webp',
+      description:
+        'Ein objektorientiertes 2D-Web-Game mit eigenen Sprite-Animationen und Custom-Audio-Handling.',
+      techStack: ['JavaScript', 'HTML5 Canvas', 'OOP'],
+      liveUrl: 'https://light-and-dark.timo-boening.de',
+    },
+    {
+      name: 'Join',
+      iconUrl: 'assets/images/project-thumbnails/project_join.webp',
+      description:
+        'Ein Kanban-basiertes Projektmanagement-Tool mit Drag & Drop und Kontaktverwaltung.',
+      techStack: ['Angular', 'TypeScript', 'SCSS'],
+      liveUrl: 'https://join.timo-boening.de',
+    },
+    {
+      name: 'PokeDex',
+      iconUrl: 'assets/images/project-thumbnails/project_pokedex.webp',
+      description:
+        'Eine interaktive Pokémon-Bibliothek mit Live-Suchfunktion auf Basis einer externen REST-API.',
+      techStack: ['JavaScript', 'REST-API', 'HTML/CSS'],
+      liveUrl: 'https://pokedex.timo-boening.de',
+    },
+    {
+      name: 'KanMind (WIP)',
+      iconUrl: 'assets/images/project-thumbnails/project_soon.webp',
+      description:
+        'Aktuell im Bau: Ich entwickle das komplette Backend für ein Kanban-Tool und sorge für die nahtlose Anbindung an ein vorgegebenes Frontend.',
+      techStack: ['Python', 'Django', 'REST-API'],
+      liveUrl: '', // Bleibt leer, da noch nicht live!
+    },
   ];
 
   public displayProjects: Project[] = [];

@@ -5,11 +5,10 @@
   z-index: 10;
   padding-block: 8rem;
   background: var(--neutral-200);
-
   overflow-x: clip;
 
   // ==========================================
-  // LE BEAR
+  // LE BEAR & BACKGROUND DECOR
   // ==========================================
   &__decor-layer {
     position: absolute;
@@ -17,7 +16,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-
     @include mixin.global_content_wrapper();
     overflow: hidden;
     pointer-events: none;
@@ -28,7 +26,6 @@
     position: absolute;
     right: 5rem;
     top: 15rem;
-
     transform: rotate(-70deg) translate(30%, 20%);
     color: var(--neutral-900);
 
@@ -37,22 +34,15 @@
     }
   }
 
-  // ==========================================
-  // HINTERGRUND: GEWELLTER BODEN
-  // ==========================================
   &::before {
     content: '';
     position: absolute;
-
     bottom: -5px;
     left: 0;
-
     width: 100%;
     height: calc(28rem + 5px);
-
     background-color: var(--neutral-900);
     z-index: 0;
-
     clip-path: shape(
       from 0 100%,
       vline to 2.5rem,
@@ -70,17 +60,12 @@
     );
   }
 
-  // ==========================================
-  // SEKTIONSÜBERGREIFENDER GLOW
-  // ==========================================
   &::after {
     content: '';
     position: absolute;
-
     top: -10%;
     left: 50%;
     transform: translateX(-50%);
-
     width: 160vw;
     height: 160%;
     z-index: 200;
@@ -89,7 +74,6 @@
       hsl(from var(--secondary-500) h s l / 0.3) 0%,
       hsl(from var(--secondary-500) h s l / 0) 100%
     );
-
     z-index: 0;
     pointer-events: none;
   }
@@ -122,18 +106,15 @@
     @include mixin.flexbox(row, flex-start, center, 2rem);
     position: relative;
     z-index: 1;
-
     width: 100%;
     max-width: calc(var(--container-content-md) + 5rem);
-
     margin-inline: auto;
     flex-wrap: nowrap;
-
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
 
-    padding-bottom: 4rem;
+    padding-block: 2rem 5rem;
 
     scrollbar-width: none;
     &::-webkit-scrollbar {
@@ -150,24 +131,41 @@
     mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   }
 
+  // ==========================================
+  // KARTEN LAYOUT & HOVER / OVERLAY LOGIK
+  // ==========================================
   &__item {
     position: relative;
     flex: 0 0 auto;
-    width: 300px;
+    width: 340px;
+    height: 580px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
-
+    gap: 1.2rem;
     scroll-snap-align: center;
     scroll-snap-stop: always;
-
     transform: scale(0.85);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
     &--offset {
       transform: translateY(3rem) scale(0.85);
+    }
+
+    &:hover {
+      .project__card {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .project__info {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     &--active {
@@ -176,6 +174,24 @@
       &.project__item--offset {
         transform: translateY(3rem) scale(1);
       }
+
+      // Bild wird in der Mitte bunt
+      .project__icon {
+        filter: grayscale(0%) contrast(1);
+        mix-blend-mode: normal;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__item--wip {
+    cursor: default;
+
+    &:hover .project__card {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      filter: grayscale(0%) contrast(1);
+      mix-blend-mode: normal;
+      opacity: 1;
     }
   }
 
@@ -186,12 +202,88 @@
     white-space: nowrap;
   }
 
-  &__icon {
+  &__card {
     width: 100%;
-    height: 400px;
-    object-fit: contain;
+    height: 700px;
+    position: relative;
+    background-color: var(--secondary-300);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
   }
 
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter: grayscale(100%) contrast(1.1);
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+    transition: all 0.4s ease;
+    z-index: 1;
+
+    &--blurred {
+      filter: grayscale(80%) brightness(0.6);
+    }
+  }
+
+  &__wip-badge {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-500);
+    color: var(--bg-light, #fff);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  &__info {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    background-color: rgba(255, 255, 255, 0.95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--neutral-800);
+      margin: 0 0 1.5rem 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  // ==========================================
+  // PFEILE & NAV-DOTS
+  // ==========================================
   &__controls {
     margin-top: 5rem;
     @include mixin.flexbox(row, center, center, 2rem);

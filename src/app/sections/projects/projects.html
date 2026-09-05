@@ -1,4 +1,4 @@
-<section class="project">
+<section class="project" id="projects">
   <div class="project__decor-layer">
     <div class="project__side-visual">
       <span class="handwritten">So far ;-)</span>
@@ -34,18 +34,60 @@
       (wheel)="onWheel($event)"
     >
       @for (project of displayProjects; track $index; let i = $index) {
-        <div
-          class="project__item"
-          [class.project__item--offset]="i % 2 !== 0"
-          [class.project__item--active]="currentActiveIndex === i % myProjects.length"
-        >
-          <span class="project__name">{{ project.name }}</span>
-          <img [src]="project.iconUrl" [alt]="project.name" class="project__icon" />
-        </div>
+        @if (project.liveUrl) {
+          <a
+            [href]="project.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project__item"
+            [class.project__item--offset]="i % 2 !== 0"
+            [class.project__item--active]="currentActiveIndex === i % myProjects.length"
+          >
+            <span class="project__name">{{ project.name }}</span>
+            <div class="project__card">
+              <img [src]="project.iconUrl" [alt]="project.name" class="project__icon" />
+
+              <div class="project__info">
+                <p>{{ project.description }}</p>
+                <div class="project__actions">
+                  <app-btn-cta-primary
+                    btnText="Live Demo"
+                    [btnUrl]="project.liveUrl"
+                  ></app-btn-cta-primary>
+                  <app-btn-cta-secondary btnText="GitHub"></app-btn-cta-secondary>
+                </div>
+              </div>
+            </div>
+          </a>
+        } @else {
+          <div
+            class="project__item project__item--wip"
+            [class.project__item--offset]="i % 2 !== 0"
+            [class.project__item--active]="currentActiveIndex === i % myProjects.length"
+          >
+            <span class="project__name">{{ project.name }}</span>
+            <div class="project__card">
+              <img
+                [src]="project.iconUrl"
+                [alt]="project.name"
+                class="project__icon project__icon--blurred"
+              />
+              <span class="project__wip-badge">Currently working on</span>
+
+              <div class="project__info">
+                <p>{{ project.description }}</p>
+                <div class="project__actions">
+                  <!-- Hier kommen später deine 2 Buttons rein -->
+                </div>
+              </div>
+            </div>
+          </div>
+        }
       }
     </div>
 
     <div class="project__controls">
+      <!-- (Dein bestehender Pfeil-Code bleibt unverändert) -->
       <button class="project__nav__arrow" (click)="slidePrev()" aria-label="Vorheriges Projekt">
         <svg
           width="78"

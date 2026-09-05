@@ -8,4 +8,17 @@ import { Component, input } from '@angular/core';
 })
 export class BtnCtaPrimary {
   btnText = input.required<string>();
+  btnUrl = input.required<string>();
+
+  goToLink(url: string) {
+    if (url.startsWith('#')) {
+      const targetElement = document.querySelector(url);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Externer Link: Öffnet im neuen Tab
+      window.open(url, '_blank');
+    }
+  }
 }
