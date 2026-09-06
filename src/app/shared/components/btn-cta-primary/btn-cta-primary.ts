@@ -11,13 +11,16 @@ export class BtnCtaPrimary {
   btnUrl = input.required<string>();
 
   goToLink(url: string) {
+    if (!url) {
+      return;
+    }
+
     if (url.startsWith('#')) {
       const targetElement = document.querySelector(url);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // Externer Link: Öffnet im neuen Tab
       window.open(url, '_blank');
     }
   }

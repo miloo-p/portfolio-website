@@ -1,5 +1,9 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
+#projects {
+  scroll-margin-top: 5vh;
+}
+
 .project {
   position: relative;
   z-index: 10;
@@ -175,11 +179,20 @@
         transform: translateY(3rem) scale(1);
       }
 
-      // Bild wird in der Mitte bunt
+      .project__card {
+        background-color: transparent; // The card itself becomes see-through
+
+        &::before {
+          opacity: 0.8; // Fade in the fake blurred background (adjust opacity for more/less "glass" feel)
+        }
+      }
+
       .project__icon {
         filter: grayscale(0%) contrast(1);
         mix-blend-mode: normal;
         opacity: 1;
+        position: relative; // Ensure it sits above the ::before pseudo-element
+        z-index: 1;
       }
     }
   }
@@ -197,7 +210,7 @@
 
   &__name {
     font-family: 'Knewave', cursive;
-    font-size: 1.2rem;
+    font-size: 2rem;
     color: var(--neutral-900);
     white-space: nowrap;
   }
@@ -208,9 +221,34 @@
     position: relative;
     background-color: var(--secondary-300);
     border-radius: 1.5rem;
+    border: 2px solid var(--neutral-700);
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+
+    // Remove backdrop-filter from here, as it doesn't work with the mask
+    transition:
+      box-shadow 0.3s ease,
+      background-color 0.4s ease;
+
+    // The fake blurred background
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -10%; // Make it slightly larger to avoid unblurred edges
+      z-index: 0; // Behind the image
+      background-color: var(--neutral-700); // Base color of the section
+
+      // Recreate the wave from the section background, but positioned relative to the card
+      // You might need to adjust the height (e.g., 200px) based on where the card sits over the wave
+      background-image: linear-gradient(
+        transparent calc(100% - 595px),
+        var(--neutral-200) calc(100% - 595px)
+      );
+
+      filter: blur(15px); // Blur the fake background itself
+      opacity: 0; // Hidden by default
+      transition: opacity 0.4s ease;
+    }
   }
 
   &__icon {
@@ -285,7 +323,7 @@
   // PFEILE & NAV-DOTS
   // ==========================================
   &__controls {
-    margin-top: 5rem;
+    margin-top: 1rem;
     @include mixin.flexbox(row, center, center, 2rem);
     z-index: 2;
   }

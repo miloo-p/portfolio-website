@@ -1,5 +1,9 @@
 @use '../../../styles/abstracts/mixins' as mixin;
 
+#contact {
+  scroll-margin-top: 10vh;
+}
+
 .contact {
   position: relative;
   padding-block: 8rem;
@@ -89,6 +93,10 @@
 
 .contact__form-group {
   @include mixin.flexbox(column, flex-start, stretch, 0);
+
+  // --- NEU: Platzreservierung ---
+  position: relative;
+  padding-bottom: 1.2rem; // Reserviert unsichtbar den Platz für den Text
 }
 
 .contact__input,
@@ -110,6 +118,10 @@
   &:focus {
     border-color: var(--primary-500);
   }
+
+  &.ng-invalid.ng-touched {
+    border-color: var(--feedback-error);
+  }
 }
 
 .contact__textarea {
@@ -129,6 +141,7 @@
 .contact__checkbox-wrapper {
   @include mixin.flexbox(row, flex-start, flex-start, 1rem);
   max-width: 60%;
+
   @include mixin.respond-to(md) {
     max-width: 90%;
   }
@@ -156,4 +169,41 @@
     opacity: 0.8;
     text-decoration: underline;
   }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-4px);
+  }
+  40% {
+    transform: translateX(4px);
+  }
+  60% {
+    transform: translateX(-2px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+.contact__error {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: var(--feedback-error);
+  font-size: 0.8rem;
+  line-height: 1.2;
+
+  animation: wiggle 0.4s ease-in-out;
+}
+
+.contact__success {
+  color: var(--secondary-500);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  text-align: right;
 }

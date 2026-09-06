@@ -18,47 +18,115 @@
         />
       </svg>
     </div>
+
     <div class="contact__container">
       <div class="contact__header">
         <h2>Send me a message!</h2>
       </div>
-      <form class="contact__form">
+
+      <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="contact__form-row">
           <div class="contact__form-group">
-            <input type="text" id="firstName" class="contact__input" placeholder="Name" />
+            <input
+              type="text"
+              id="firstName"
+              formControlName="firstName"
+              class="contact__input"
+              placeholder="Name"
+            />
+            @if (
+              contactForm.controls.firstName.touched &&
+              contactForm.controls.firstName.hasError('required')
+            ) {
+              <span class="contact__error">Bitte gib deinen Namen ein.</span>
+            }
           </div>
           <div class="contact__form-group">
-            <input type="text" id="lastName" class="contact__input" placeholder="Nachname" />
+            <input
+              type="text"
+              id="lastName"
+              formControlName="lastName"
+              class="contact__input"
+              placeholder="Nachname"
+            />
+            @if (
+              contactForm.controls.lastName.touched &&
+              contactForm.controls.lastName.hasError('required')
+            ) {
+              <span class="contact__error">Bitte gib deinen Nachnamen ein.</span>
+            }
           </div>
         </div>
 
         <div class="contact__form-group">
-          <input type="email" id="email" class="contact__input" placeholder="Email Adresse" />
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="contact__input"
+            placeholder="Email Adresse"
+          />
+          @if (contactForm.controls.email.touched) {
+            @if (contactForm.controls.email.hasError('required')) {
+              <span class="contact__error">Deine E-Mail-Adresse wird benötigt.</span>
+            } @else if (contactForm.controls.email.hasError('email')) {
+              <span class="contact__error">Bitte gib eine gültige E-Mail-Adresse ein.</span>
+            }
+          }
         </div>
 
         <div class="contact__form-group">
           <textarea
             id="message"
+            formControlName="message"
             class="contact__textarea"
             placeholder="Text einfügen..."
             rows="8"
           ></textarea>
+          @if (contactForm.controls.message.touched) {
+            @if (contactForm.controls.message.hasError('required')) {
+              <span class="contact__error">Bitte schreibe mir eine kurze Nachricht.</span>
+            } @else if (contactForm.controls.message.hasError('minlength')) {
+              <span class="contact__error"
+                >Die Nachricht sollte mindestens 10 Zeichen lang sein.</span
+              >
+            }
+          }
         </div>
 
         <div class="contact__form-footer">
-          <div class="contact__checkbox-wrapper">
-            <input type="checkbox" id="privacy" class="contact__checkbox" />
-            <label for="privacy" class="contact__checkbox-label">
-              I've read the <a href="#" class="contact__link">privacy policy</a> and agree to the
-              processing of my data as outlined.
-            </label>
+          <div class="contact__form-group">
+            <div class="contact__checkbox-wrapper">
+              <input
+                type="checkbox"
+                id="privacy"
+                formControlName="privacy"
+                class="contact__checkbox"
+              />
+              <label for="privacy" class="contact__checkbox-label">
+                I've read the <a href="#" class="contact__link">privacy policy</a> and agree to the
+                processing of my data as outlined.
+              </label>
+            </div>
+            @if (
+              contactForm.controls.privacy.touched &&
+              contactForm.controls.privacy.hasError('required')
+            ) {
+              <span class="contact__error">Bitte bestätige die Datenschutzerklärung.</span>
+            }
           </div>
 
-          <app-btn-cta-primary
-            btnText="Senden"
-            btnUrl="https://www.google.de/index.html"
-          ></app-btn-cta-primary>
+          <div (click)="onSubmit()" style="cursor: pointer">
+            <app-btn-cta-primary
+              [btnText]="isSending ? 'Sendet...' : 'Senden'"
+              btnUrl=""
+            ></app-btn-cta-primary>
+          </div>
         </div>
+
+        @if (showSuccessMessage) {
+          <p class="contact__success">Vielen Dank! Deine Nachricht wurde erfolgreich versendet.</p>
+        }
       </form>
     </div>
   </div>
