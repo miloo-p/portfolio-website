@@ -155,10 +155,17 @@
 
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
+
+    @include mixin.respond-to(sm) {
+      transform: scale(1);
+    }
 
     &--offset {
       transform: translateY(3rem) scale(0.85);
+
+      @include mixin.respond-to(sm) {
+        transform: translateY(0) scale(1);
+      }
     }
 
     &:hover {
@@ -167,6 +174,7 @@
       }
 
       .project__info {
+        @include mixin.flexbox(column, space-between, center, 0);
         opacity: 1;
         transform: translateY(0);
       }
@@ -177,13 +185,17 @@
 
       &.project__item--offset {
         transform: translateY(3rem) scale(1);
+
+        @include mixin.respond-to(sm) {
+          transform: translateY(0) scale(1);
+        }
       }
 
       .project__card {
-        background-color: transparent; // The card itself becomes see-through
+        background-color: transparent;
 
         &::before {
-          opacity: 0.8; // Fade in the fake blurred background (adjust opacity for more/less "glass" feel)
+          opacity: 0.8;
         }
       }
 
@@ -191,7 +203,7 @@
         filter: grayscale(0%) contrast(1);
         mix-blend-mode: normal;
         opacity: 1;
-        position: relative; // Ensure it sits above the ::before pseudo-element
+        position: relative;
         z-index: 1;
       }
     }

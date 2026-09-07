@@ -1,7 +1,8 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageNavigation } from '../../shared/components/page-navigation/page-navigation';
 import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-p
   styleUrl: './header.scss',
 })
 export class Header {
+  private router = inject(Router);
   isMenuOpen = signal(false);
 
   toggleMenu() {
@@ -22,5 +24,8 @@ export class Header {
     if (window.innerWidth > 1200 && this.isMenuOpen()) {
       this.isMenuOpen.set(false);
     }
+  }
+  goToHome() {
+    this.router.navigate(['/']);
   }
 }

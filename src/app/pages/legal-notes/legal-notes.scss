@@ -6,7 +6,7 @@
   padding-top: 6rem; // Genug Abstand oben wegen des fixierten Headers
 }
 
-.imprint_container {
+.legal_container {
   @include mixin.flexbox(column, start, start, 2rem);
   @include mixin.global_content_wrapper();
 }

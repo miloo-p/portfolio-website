@@ -67,6 +67,7 @@
   height: 5rem;
   width: auto;
   color: var(--neutral-200);
+  cursor: pointer;
 
   @include mixin.respond-to(xl) {
     height: 3.5rem;

@@ -8,6 +8,7 @@ interface Project {
   techStack: string[];
   liveUrl: string;
   iconUrl: string;
+  gitUrl: string;
 }
 
 @Component({
@@ -26,33 +27,37 @@ export class Projects implements OnInit, AfterViewInit {
       name: 'Light & Dark',
       iconUrl: 'assets/images/project-thumbnails/project_light-shadow.webp',
       description:
-        'Ein objektorientiertes 2D-Web-Game mit eigenen Sprite-Animationen und Custom-Audio-Handling.',
+        'Ein vollständig objektorientiertes 2D-Web-Game, das die Logik der Spieleentwicklung im Browser demonstriert. Das Projekt wurde ohne Frameworks mit purem Vanilla JavaScript und dem HTML5 Canvas entwickelt. Besonderer Fokus lag auf flüssigen Sprite-Animationen, Custom-Audio-Handling und einer performanten Game-Loop.',
       techStack: ['JavaScript', 'HTML5 Canvas', 'OOP'],
       liveUrl: 'https://light-and-dark.timo-boening.de',
+      gitUrl: 'https://github.com/miloo-p/light-and-dark',
     },
     {
       name: 'Join',
       iconUrl: 'assets/images/project-thumbnails/project_join.webp',
       description:
-        'Ein Kanban-basiertes Projektmanagement-Tool mit Drag & Drop und Kontaktverwaltung.',
+        'Ein umfangreiches Projektmanagement-Tool im Kanban-Stil, umgesetzt als Single Page Application. Der Fokus lag auf einer skalierbaren Architektur mittels Angular und TypeScript. Komplexe Features wie das Drag & Drop von Tasks und eine integrierte Kontaktverwaltung wurden nahtlos in ein responsives SCSS-Layout eingebettet.',
       techStack: ['Angular', 'TypeScript', 'SCSS'],
       liveUrl: 'https://join.timo-boening.de',
+      gitUrl: 'https://github.com/miloo-p/join-app',
     },
     {
       name: 'PokeDex',
       iconUrl: 'assets/images/project-thumbnails/project_pokedex.webp',
       description:
-        'Eine interaktive Pokémon-Bibliothek mit Live-Suchfunktion auf Basis einer externen REST-API.',
+        'Eine interaktive Web-App zur dynamischen Darstellung großer Datenmengen. Der technische Schwerpunkt dieses Projekts liegt auf dem asynchronen Abrufen und Verarbeiten von JSON-Daten einer externen REST-API via JavaScript. Eine performante Live-Suchfunktion und das responsive HTML/CSS-Design sorgen für eine optimale User Experience.',
       techStack: ['JavaScript', 'REST-API', 'HTML/CSS'],
       liveUrl: 'https://pokedex.timo-boening.de',
+      gitUrl: 'https://github.com/miloo-p/da-pokedex',
     },
     {
       name: 'KanMind (WIP)',
       iconUrl: 'assets/images/project-thumbnails/project_soon.webp',
       description:
-        'Aktuell im Bau: Ich entwickle das komplette Backend für ein Kanban-Tool und sorge für die nahtlose Anbindung an ein vorgegebenes Frontend.',
+        'Aktuell in der Entwicklung: Mein Fokusprojekt für die serverseitige Programmierung. Für ein bestehendes Kanban-Frontend entwickle ich derzeit eine robuste Backend-Architektur mit Python und dem Django-Framework. Ziel ist die Bereitstellung und Absicherung einer eigenen REST-API zur Datenverwaltung.',
       techStack: ['Python', 'Django', 'REST-API'],
-      liveUrl: '', // Bleibt leer, da noch nicht live!
+      liveUrl: '',
+      gitUrl: '',
     },
   ];
 

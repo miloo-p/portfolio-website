@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
-  imports: [BtnCtaPrimary, ReactiveFormsModule],
+  imports: [BtnCtaPrimary, ReactiveFormsModule, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
@@ -28,10 +29,10 @@ export class Contact {
 
     this.isSending = true;
     const formValues = this.contactForm.value;
-    const fullName = `${formValues.firstName} ${formValues.lastName}`;
+    const fullName = `${formValues.firstName} ${formValues.lastName}`.trim();
 
     try {
-      const response = await fetch('https://timo-boening.de/sendMail.php', {
+      const response = await fetch('/mailer.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -43,7 +44,7 @@ export class Contact {
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok && result.status === 'success') {
         this.showSuccessMessage = true;
         this.contactForm.reset();
 

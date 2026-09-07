@@ -32,8 +32,18 @@
   text-align: center;
 }
 
+.bottom-spacing {
+  padding-bottom: 3rem;
+}
+
 .hidden-mobile {
   @media (max-width: $breakpoint-md) {
+    display: none !important;
+  }
+}
+
+.hidden-mobile-sm {
+  @media (max-width: $breakpoint-sm) {
     display: none !important;
   }
 }

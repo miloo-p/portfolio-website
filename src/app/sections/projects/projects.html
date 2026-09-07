@@ -35,10 +35,7 @@
     >
       @for (project of displayProjects; track $index; let i = $index) {
         @if (project.liveUrl) {
-          <a
-            [href]="project.liveUrl"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             class="project__item"
             [class.project__item--offset]="i % 2 !== 0"
             [class.project__item--active]="currentActiveIndex === i % myProjects.length"
@@ -54,11 +51,14 @@
                     btnText="Live Demo"
                     [btnUrl]="project.liveUrl"
                   ></app-btn-cta-primary>
-                  <app-btn-cta-secondary btnText="GitHub"></app-btn-cta-secondary>
+                  <app-btn-cta-secondary
+                    btnText="GitHub"
+                    [btnUrl]="project.gitUrl"
+                  ></app-btn-cta-secondary>
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         } @else {
           <div
             class="project__item project__item--wip"

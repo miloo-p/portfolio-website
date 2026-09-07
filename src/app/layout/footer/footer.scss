@@ -74,6 +74,10 @@
     border-bottom: 2px solid var(--neutral-200);
     padding-block: var(--space-xl);
 
+    @include mixin.respond-to(sm) {
+      @include mixin.flexbox(column, center, center, 2rem);
+    }
+
     button {
       background: none;
       border: none;
@@ -90,6 +94,8 @@
   &__logo {
     height: 3rem;
     color: var(--neutral-200);
+
+    cursor: pointer;
   }
 }
 
@@ -98,4 +104,10 @@
   @include mixin.global_content_wrapper();
   padding-block: var(--space-xl);
   padding-inline: 0;
+
+  &__bar {
+    @include mixin.respond-to(sm) {
+      @include mixin.flexbox(column, space-around, space-around, 0rem);
+    }
+  }
 }

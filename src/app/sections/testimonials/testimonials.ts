@@ -14,16 +14,16 @@ interface Testimonial {
 export class Testimonials {
   public myTestemonials: Testimonial[] = [
     {
-      name: 'Jemand Wichtiges, Developer',
-      text: 'Dies ist ein absolut offensichtlicher Platzhalter-Text. Stell dir einfach vor, hier würde jetzt eine echte Person sehr enthusiastisch über meine Problemlösungs-Skills, meine Zuverlässigkeit und meinen Background als Mediengestalter berichten. Klingt gut, oder? Das echte Zitat folgt in Kürze.',
+      name: 'Jermaine Jérôme Bärwolf, Fullstack Developer',
+      text: 'Timo was the structural backbone of our project. From day one, he set up a clean architecture and global styling, which made teamwork incredibly smooth. He works in a highly structured manner and tackles difficult technical challenges with ease.',
     },
     {
-      name: 'Jemand Wichtiges, Developer',
-      text: 'Dies ist ein absolut offensichtlicher Platzhalter-Text. Stell dir einfach vor, hier würde jetzt eine echte Person sehr enthusiastisch über meine Problemlösungs-Skills, meine Zuverlässigkeit und meinen Background als Mediengestalter berichten. Klingt gut, oder? Das echte Zitat folgt in Kürze.',
+      name: 'Kevin Reinhold Triebe, Frontend Developer',
+      text: 'Timo is an absolute must-have for any CSS-heavy project. He has a sharp logical mind and is always ready to step in whenever the team gets stuck. From the very beginning, he contributed brilliant ideas and executed them flawlessly. His technical expertise and proactive attitude are outstanding.',
     },
     {
-      name: 'Jemand Wichtiges, Developer',
-      text: 'Dies ist ein absolut offensichtlicher Platzhalter-Text. Stell dir einfach vor, hier würde jetzt eine echte Person sehr enthusiastisch über meine Problemlösungs-Skills, meine Zuverlässigkeit und meinen Background als Mediengestalter berichten. Klingt gut, oder? Das echte Zitat folgt in Kürze.',
+      name: 'Magdalena Laurisch, Developer & Teammate',
+      text: 'Timo ist ein sehr kompetenter und organisierter Kollege, der auch als Teamleader überzeugt. Besonders im Bereich CSS verfügt er über enormes Fachwissen und arbeitet sehr akribisch und aufmerksam. Timo ist ein super Kollege, der jedes Team bereichert.',
     },
   ];
 }

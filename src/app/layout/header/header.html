@@ -2,7 +2,7 @@
 
 <header class="header__container" [class.header__container--menu-open]="isMenuOpen()">
   <section class="header__wrapper">
-    <div>
+    <div (click)="goToHome()">
       <svg
         class="header__logo"
         xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@
 
     <app-page-navigation> </app-page-navigation>
 
-    <button class="header__sound-btn">
+    <!--     <button class="header__sound-btn">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30"
@@ -54,7 +54,7 @@
       <div>
         <p><a href="">DE</a> | <a href="">EN</a></p>
       </div>
-    </div>
+    </div> -->
     <button class="header__burger-btn" (click)="toggleMenu()" aria-label="Toggle Menu">
       <svg
         class="burger-icon"

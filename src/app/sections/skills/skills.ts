@@ -38,10 +38,10 @@ export class Skills {
     { name: 'Python', iconUrl: 'assets/icons/skills/backend/python-backend.svg' },
     { name: 'Django', iconUrl: 'assets/icons/skills/backend/django-backend.svg' },
     { name: 'Linux', iconUrl: 'assets/icons/skills/backend/linux-backend.svg' },
-    { name: 'Redis', iconUrl: 'assets/icons/skills/backend/redis-backend.svg' },
+    /*     { name: 'Redis', iconUrl: 'assets/icons/skills/backend/redis-backend.svg' },
     { name: 'PostgreSQL', iconUrl: 'assets/icons/skills/backend/postgresql-backend.svg' },
     { name: 'SQL', iconUrl: 'assets/icons/skills/backend/sql-backend.svg' },
     { name: 'Docker', iconUrl: 'assets/icons/skills/backend/docker-backend.svg' },
-    { name: 'RxJS', iconUrl: 'assets/icons/skills/backend/rxjs-backend.svg' },
+    { name: 'RxJS', iconUrl: 'assets/icons/skills/backend/rxjs-backend.svg' }, */
   ];
 }
