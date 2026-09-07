@@ -1,8 +1,14 @@
 <nav class="header__navigation" [class.is-resizing]="isResizing()">
   <ul>
-    <li><a class="nav__link" routerLink="/" fragment="thatsme">Über mich</a></li>
-    <li><a class="nav__link" routerLink="/" fragment="skills">Skills</a></li>
-    <li><a class="nav__link" routerLink="/" fragment="projects">Projekte</a></li>
-    <li><a class="nav__link" routerLink="/" fragment="testemonials">Partner</a></li>
+    <li>
+      <a class="nav__link" routerLink="/" fragment="thatsme" (click)="closeMenu()">Über mich</a>
+    </li>
+    <li><a class="nav__link" routerLink="/" fragment="skills" (click)="closeMenu()">Skills</a></li>
+    <li>
+      <a class="nav__link" routerLink="/" fragment="projects" (click)="closeMenu()">Projekte</a>
+    </li>
+    <li>
+      <a class="nav__link" routerLink="/" fragment="testemonials" (click)="closeMenu()">Partner</a>
+    </li>
   </ul>
 </nav>
