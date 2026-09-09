@@ -1,11 +1,8 @@
 <section class="testemonials" id="testemonials">
   <div class="testemonials__wrapper">
     <div class="testemonials__header">
-      <h2>Voices Along the Way</h2>
-      <h3 class="testemonials__header__subtext">
-        Großartige Software entsteht nur im Team. Ein ehrlicher Einblick aus den letzten Monaten,
-        wie Kollegen und Mentoren die Zusammenarbeit erlebt haben.
-      </h3>
+      <h2>{{ 'TESTIMONIALS.TITLE' | translate }}</h2>
+      <h3 class="testemonials__header__subtext">{{ 'TESTIMONIALS.SUBTITLE' | translate }}</h3>
     </div>
 
     <div class="testemonials__grid">
@@ -40,9 +37,13 @@
                 fill="currentColor"
               />
             </svg>
-            "{{ testemonial.text }}"
+            "{{ ('TESTIMONIALS.ITEMS.' + (i + 1) + '.TEXT') | translate }}"
             <footer>
-              — <cite class="testemonials__grid__item__author">{{ testemonial.name }}</cite>
+              —
+              <cite class="testemonials__grid__item__author"
+                >{{ ('TESTIMONIALS.ITEMS.' + (i + 1) + '.AUTHOR') | translate }},
+                {{ ('TESTIMONIALS.ITEMS.' + (i + 1) + '.ROLE') | translate }}</cite
+              >
             </footer>
           </blockquote>
         </div>

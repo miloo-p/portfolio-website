@@ -1,37 +1,27 @@
 <section class="imprint_container">
-  <h2>Impressum</h2>
+  <h2>{{ 'IMPRINT.TITLE' | translate }}</h2>
   <div>
-    <h3>Angaben gemäß § 5 DDG</h3>
+    <h3>{{ 'IMPRINT.SEC_1.TITLE' | translate }}</h3>
     <p>
-      Timo Böning<br />
-      Lambertusstraße 53<br />
-      50374 Erftstadt<br />
-      Deutschland
+      <span [innerHTML]="'IMPRINT.SEC_1.TEXT' | translate"></span>
     </p>
   </div>
   <div>
-    <h3>Kontakt</h3>
+    <h3>{{ 'IMPRINT.SEC_2.TITLE' | translate }}</h3>
     <p>
-      Telefon: 0179 9311948<br />
-      E-Mail: hi@timo-boening.de
+      <span [innerHTML]="'IMPRINT.SEC_2.TEXT' | translate"></span>
     </p>
   </div>
   <div>
-    <h3>Redaktionlich verantwortlich</h3>
+    <h3>{{ 'IMPRINT.SEC_3.TITLE' | translate }}</h3>
     <p>
-      Timo Böning<br />
-      Lambertusstraße 53<br />
-      50374 Erftstadt
+      <span [innerHTML]="'IMPRINT.SEC_3.TEXT' | translate"></span>
     </p>
   </div>
   <div>
-    <h3>EU-Streitbeilegung</h3>
+    <h3>{{ 'IMPRINT.SEC_4.TITLE' | translate }}</h3>
     <p>
-      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
-      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer"
-        >https://ec.europa.eu/consumers/odr/</a
-      >.<br />
-      Unsere E-Mail-Adresse finden Sie oben im Impressum.
+      <span [innerHTML]="'IMPRINT.SEC_4.TEXT' | translate"></span>
     </p>
   </div>
 </section>

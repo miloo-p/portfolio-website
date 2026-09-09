@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-btn-cta-primary',
@@ -7,6 +8,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './btn-cta-primary.scss',
 })
 export class BtnCtaPrimary {
+  private router = inject(Router);
   btnText = input.required<string>();
   btnUrl = input.required<string>();
 
@@ -19,6 +21,8 @@ export class BtnCtaPrimary {
       const targetElement = document.querySelector(url);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        this.router.navigate(['/'], { fragment: url.slice(1) });
       }
     } else {
       window.open(url, '_blank');

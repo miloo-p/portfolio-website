@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
+import { TranslatePipe } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
-  imports: [BtnCtaPrimary, ReactiveFormsModule, RouterLink],
+  imports: [BtnCtaPrimary, ReactiveFormsModule, TranslatePipe, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
@@ -56,6 +57,21 @@ export class Contact {
       console.error('Netzwerk-Fehler:', error);
     } finally {
       this.isSending = false;
+    }
+  }
+  goToLink(url: string) {
+    if (!url) {
+      return;
+    }
+
+    if (url.startsWith('#')) {
+      const targetElement = document.querySelector(url);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Öffnet den Pfad sauber in einem neuen Tab
+      window.open(url, '_blank');
     }
   }
 }

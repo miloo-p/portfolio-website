@@ -1,57 +1,41 @@
 <section class="legal_container">
-  <h2>Datenschutzerklärung</h2>
+  <h2>{{ 'PRIVACY_POLICY.TITLE' | translate }}</h2>
 
   <div>
-    <h3>1. Datenschutz auf einen Blick</h3>
+    <h3>{{ 'PRIVACY_POLICY.SEC_1.TITLE' | translate }}</h3>
     <p>
-      <strong>Allgemeine Hinweise</strong><br />
-      Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren
-      personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind
-      alle Daten, mit denen Sie persönlich identifiziert werden können.
+      <strong>{{ 'PRIVACY_POLICY.SEC_1.SUBTITLE' | translate }}</strong><br />
+      <span [innerHTML]="'PRIVACY_POLICY.SEC_1.TEXT' | translate"></span>
     </p>
   </div>
 
   <div>
-    <h3>2. Hosting</h3>
+    <h3>{{ 'PRIVACY_POLICY.SEC_2.TITLE' | translate }}</h3>
     <p>
-      Wir hosten die Inhalte unserer Website bei folgendem Anbieter:<br />
-      Hetzner Online GmbH<br />
-      Industriestraße 25<br />
-      91710 Gunzenhausen<br />
-      Deutschland
+      <span [innerHTML]="'PRIVACY_POLICY.SEC_2.TEXT' | translate"></span>
     </p>
   </div>
 
   <div>
-    <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
+    <h3>{{ 'PRIVACY_POLICY.SEC_3.TITLE' | translate }}</h3>
     <p>
-      <strong>Verantwortliche Stelle</strong><br />
-      Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br />
-      Timo Böning<br />
-      Lambertusstraße 53<br />
-      50374 Erftstadt<br />
-      E-Mail: hi@timo-boening.de
+      <strong>{{ 'PRIVACY_POLICY.SEC_3.SUBTITLE' | translate }}</strong><br />
+      <span [innerHTML]="'PRIVACY_POLICY.SEC_3.TEXT' | translate"></span>
     </p>
   </div>
 
   <div>
-    <h3>4. Datenerfassung auf dieser Website</h3>
+    <h3>{{ 'PRIVACY_POLICY.SEC_4.TITLE' | translate }}</h3>
     <p>
-      <strong>Kontaktformular</strong><br />
-      Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem
-      Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der
-      Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht
-      ohne Ihre Einwilligung weiter.
+      <strong>{{ 'PRIVACY_POLICY.SEC_4.SUBTITLE' | translate }}</strong><br />
+      <span [innerHTML]="'PRIVACY_POLICY.SEC_4.TEXT' | translate"></span>
     </p>
   </div>
 
   <div>
-    <h3>5. Ihre Rechte</h3>
+    <h3>{{ 'PRIVACY_POLICY.SEC_5.TITLE' | translate }}</h3>
     <p>
-      Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten
-      personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung
-      sowie ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen
-      zum Thema Datenschutz können Sie sich jederzeit an uns wenden.
+      <span [innerHTML]="'PRIVACY_POLICY.SEC_5.TEXT' | translate"></span>
     </p>
   </div>
 </section>

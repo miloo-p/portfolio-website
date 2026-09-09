@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
 import { BtnCtaSecondary } from '../../shared/components/btn-cta-secondary/btn-cta-secondary';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface Project {
   name: string;
@@ -13,7 +14,7 @@ interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [BtnCtaPrimary, BtnCtaSecondary],
+  imports: [BtnCtaPrimary, BtnCtaSecondary, TranslatePipe],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
@@ -24,37 +25,37 @@ export class Projects implements OnInit, AfterViewInit {
 
   public myProjects: Project[] = [
     {
-      name: 'Light & Dark',
+      name: 'PROJECTS.ITEMS.LIGHT_DARK.NAME',
       iconUrl: 'assets/images/project-thumbnails/project_light-shadow.webp',
       description:
-        'Ein vollständig objektorientiertes 2D-Web-Game, das die Logik der Spieleentwicklung im Browser demonstriert. Das Projekt wurde ohne Frameworks mit purem Vanilla JavaScript und dem HTML5 Canvas entwickelt. Besonderer Fokus lag auf flüssigen Sprite-Animationen, Custom-Audio-Handling und einer performanten Game-Loop.',
+        'PROJECTS.ITEMS.LIGHT_DARK.DESCRIPTION',
       techStack: ['JavaScript', 'HTML5 Canvas', 'OOP'],
       liveUrl: 'https://light-and-dark.timo-boening.de',
       gitUrl: 'https://github.com/miloo-p/light-and-dark',
     },
     {
-      name: 'Join',
+      name: 'PROJECTS.ITEMS.JOIN.NAME',
       iconUrl: 'assets/images/project-thumbnails/project_join.webp',
       description:
-        'Ein umfangreiches Projektmanagement-Tool im Kanban-Stil, umgesetzt als Single Page Application. Der Fokus lag auf einer skalierbaren Architektur mittels Angular und TypeScript. Komplexe Features wie das Drag & Drop von Tasks und eine integrierte Kontaktverwaltung wurden nahtlos in ein responsives SCSS-Layout eingebettet.',
+        'PROJECTS.ITEMS.JOIN.DESCRIPTION',
       techStack: ['Angular', 'TypeScript', 'SCSS'],
       liveUrl: 'https://join.timo-boening.de',
       gitUrl: 'https://github.com/miloo-p/join-app',
     },
     {
-      name: 'PokeDex',
+      name: 'PROJECTS.ITEMS.POKEDEX.NAME',
       iconUrl: 'assets/images/project-thumbnails/project_pokedex.webp',
       description:
-        'Eine interaktive Web-App zur dynamischen Darstellung großer Datenmengen. Der technische Schwerpunkt dieses Projekts liegt auf dem asynchronen Abrufen und Verarbeiten von JSON-Daten einer externen REST-API via JavaScript. Eine performante Live-Suchfunktion und das responsive HTML/CSS-Design sorgen für eine optimale User Experience.',
+        'PROJECTS.ITEMS.POKEDEX.DESCRIPTION',
       techStack: ['JavaScript', 'REST-API', 'HTML/CSS'],
       liveUrl: 'https://pokedex.timo-boening.de',
       gitUrl: 'https://github.com/miloo-p/da-pokedex',
     },
     {
-      name: 'KanMind (WIP)',
+      name: 'PROJECTS.ITEMS.KANMIND.NAME',
       iconUrl: 'assets/images/project-thumbnails/project_soon.webp',
       description:
-        'Aktuell in der Entwicklung: Mein Fokusprojekt für die serverseitige Programmierung. Für ein bestehendes Kanban-Frontend entwickle ich derzeit eine robuste Backend-Architektur mit Python und dem Django-Framework. Ziel ist die Bereitstellung und Absicherung einer eigenen REST-API zur Datenverwaltung.',
+        'PROJECTS.ITEMS.KANMIND.DESCRIPTION',
       techStack: ['Python', 'Django', 'REST-API'],
       liveUrl: '',
       gitUrl: '',

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface Skill {
   name: string;
@@ -7,7 +8,7 @@ interface Skill {
 
 @Component({
   selector: 'app-skills',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
 })

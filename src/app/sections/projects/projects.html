@@ -1,7 +1,7 @@
 <section class="project" id="projects">
   <div class="project__decor-layer">
     <div class="project__side-visual">
-      <span class="handwritten">So far ;-)</span>
+      <span class="handwritten">{{ 'PROJECTS.SO_FAR' | translate }}</span>
       <svg
         width="213"
         height="367"
@@ -23,7 +23,7 @@
 
   <div class="project__wrapper">
     <div class="project__header">
-      <h2>My project-journey</h2>
+      <h2>{{ 'PROJECTS.TITLE' | translate }}</h2>
     </div>
 
     <div
@@ -40,19 +40,19 @@
             [class.project__item--offset]="i % 2 !== 0"
             [class.project__item--active]="currentActiveIndex === i % myProjects.length"
           >
-            <span class="project__name">{{ project.name }}</span>
+            <span class="project__name">{{ project.name | translate }}</span>
             <div class="project__card">
-              <img [src]="project.iconUrl" [alt]="project.name" class="project__icon" />
+              <img [src]="project.iconUrl" [alt]="project.name | translate" class="project__icon" />
 
               <div class="project__info">
-                <p>{{ project.description }}</p>
+                <p>{{ project.description | translate }}</p>
                 <div class="project__actions">
                   <app-btn-cta-primary
-                    btnText="Live Demo"
+                    [btnText]="'PROJECTS.LIVE_DEMO' | translate"
                     [btnUrl]="project.liveUrl"
                   ></app-btn-cta-primary>
                   <app-btn-cta-secondary
-                    btnText="GitHub"
+                    [btnText]="'HERO.BTN_GITHUB' | translate"
                     [btnUrl]="project.gitUrl"
                   ></app-btn-cta-secondary>
                 </div>
@@ -65,17 +65,17 @@
             [class.project__item--offset]="i % 2 !== 0"
             [class.project__item--active]="currentActiveIndex === i % myProjects.length"
           >
-            <span class="project__name">{{ project.name }}</span>
+            <span class="project__name">{{ project.name | translate }}</span>
             <div class="project__card">
               <img
                 [src]="project.iconUrl"
                 [alt]="project.name"
                 class="project__icon project__icon--blurred"
               />
-              <span class="project__wip-badge">Currently working on</span>
+              <span class="project__wip-badge">{{ 'PROJECTS.WIP' | translate }}</span>
 
               <div class="project__info">
-                <p>{{ project.description }}</p>
+                <p>{{ project.description | translate }}</p>
                 <div class="project__actions">
                   <!-- Hier kommen später deine 2 Buttons rein -->
                 </div>
@@ -88,7 +88,11 @@
 
     <div class="project__controls">
       <!-- (Dein bestehender Pfeil-Code bleibt unverändert) -->
-      <button class="project__nav__arrow" (click)="slidePrev()" aria-label="Vorheriges Projekt">
+      <button
+        class="project__nav__arrow"
+        (click)="slidePrev()"
+        [attr.aria-label]="'PROJECTS.PREVIOUS' | translate"
+      >
         <svg
           width="78"
           height="70"
@@ -132,7 +136,7 @@
             class="project__nav-dot"
             [class.project__nav-dot--active]="currentActiveIndex === i"
             (click)="scrollToProject(i)"
-            [attr.aria-label]="'Zum Projekt ' + project.name + ' springen'"
+            [attr.aria-label]="'PROJECTS.GOTO' | translate: { name: (project.name | translate) }"
           ></button>
         }
       </div>
@@ -140,7 +144,7 @@
       <button
         class="project__nav__arrow project__nav__arrow--right"
         (click)="slideNext()"
-        aria-label="Nächstes Projekt"
+        [attr.aria-label]="'PROJECTS.NEXT' | translate"
       >
         <svg
           width="78"

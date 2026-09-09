@@ -1,9 +1,10 @@
 import { Component, HostListener, signal, Output, EventEmitter } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-page-navigation',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './page-navigation.html',
   styleUrl: './page-navigation.scss',
 })

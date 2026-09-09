@@ -1,3 +1,4 @@
+<!-- Hinweis: Falls noch nicht vorhanden, TranslateModule im imports-Array der zugehörigen .ts-Datei ergänzen. -->
 <section class="contact" id="contact">
   <div class="contact__wrapper">
     <div class="contact__side-visual">
@@ -21,7 +22,7 @@
 
     <div class="contact__container">
       <div class="contact__header">
-        <h2 class="bottom-spacing">Send a message!</h2>
+        <h2 class="bottom-spacing">{{ 'CONTACT.TITLE' | translate }}</h2>
       </div>
 
       <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
@@ -32,13 +33,15 @@
               id="firstName"
               formControlName="firstName"
               class="contact__input"
-              placeholder="Name"
+              [placeholder]="'CONTACT.FORM.FIRST_NAME' | translate"
             />
             @if (
               contactForm.controls.firstName.touched &&
               contactForm.controls.firstName.hasError('required')
             ) {
-              <span class="contact__error">Bitte gib deinen Namen ein.</span>
+              <span class="contact__error">{{
+                'CONTACT.FORM.ERRORS.FIRST_NAME_REQUIRED' | translate
+              }}</span>
             }
           </div>
           <div class="contact__form-group">
@@ -47,13 +50,15 @@
               id="lastName"
               formControlName="lastName"
               class="contact__input"
-              placeholder="Nachname"
+              [placeholder]="'CONTACT.FORM.LAST_NAME' | translate"
             />
             @if (
               contactForm.controls.lastName.touched &&
               contactForm.controls.lastName.hasError('required')
             ) {
-              <span class="contact__error">Bitte gib deinen Nachnamen ein.</span>
+              <span class="contact__error">{{
+                'CONTACT.FORM.ERRORS.LAST_NAME_REQUIRED' | translate
+              }}</span>
             }
           </div>
         </div>
@@ -64,13 +69,17 @@
             id="email"
             formControlName="email"
             class="contact__input"
-            placeholder="Email Adresse"
+            [placeholder]="'CONTACT.FORM.EMAIL' | translate"
           />
           @if (contactForm.controls.email.touched) {
             @if (contactForm.controls.email.hasError('required')) {
-              <span class="contact__error">Deine E-Mail-Adresse wird benötigt.</span>
+              <span class="contact__error">{{
+                'CONTACT.FORM.ERRORS.EMAIL_REQUIRED' | translate
+              }}</span>
             } @else if (contactForm.controls.email.hasError('email')) {
-              <span class="contact__error">Bitte gib eine gültige E-Mail-Adresse ein.</span>
+              <span class="contact__error">{{
+                'CONTACT.FORM.ERRORS.EMAIL_INVALID' | translate
+              }}</span>
             }
           }
         </div>
@@ -80,16 +89,18 @@
             id="message"
             formControlName="message"
             class="contact__textarea"
-            placeholder="Text einfügen..."
+            [placeholder]="'CONTACT.FORM.MESSAGE' | translate"
             rows="8"
           ></textarea>
           @if (contactForm.controls.message.touched) {
             @if (contactForm.controls.message.hasError('required')) {
-              <span class="contact__error">Bitte schreibe mir eine kurze Nachricht.</span>
+              <span class="contact__error">{{
+                'CONTACT.FORM.ERRORS.MESSAGE_REQUIRED' | translate
+              }}</span>
             } @else if (contactForm.controls.message.hasError('minlength')) {
-              <span class="contact__error"
-                >Die Nachricht sollte mindestens 10 Zeichen lang sein.</span
-              >
+              <span class="contact__error">{{
+                'CONTACT.FORM.ERRORS.MESSAGE_MINLENGTH' | translate
+              }}</span>
             }
           }
         </div>
@@ -105,11 +116,13 @@
               />
 
               <div class="contact__checkbox-label-wrapper">
-                <label for="privacy" class="contact__checkbox-label">Ich habe die </label>
-                <a href="/legal" target="_blank" class="contact__link"> Datenschutzerklärung </a>
-                <label for="privacy" class="contact__checkbox-label">
-                  gelesen und stimme der beschriebenen Verarbeitung meiner Daten zu.
-                </label>
+                <span class="contact__checkbox-label">
+                  {{ 'CONTACT.FORM.PRIVACY_BEFORE' | translate }}
+                  <a (click)="goToLink('/legal')" class="text-primary" style="cursor: pointer">
+                    {{ 'CONTACT.FORM.PRIVACY_LINK' | translate }}
+                  </a>
+                  {{ 'CONTACT.FORM.PRIVACY_AFTER' | translate }}
+                </span>
               </div>
             </div>
 
@@ -117,20 +130,26 @@
               contactForm.controls.privacy.touched &&
               contactForm.controls.privacy.hasError('required')
             ) {
-              <span class="contact__error">Bitte bestätige die Datenschutzerklärung.</span>
+              <span class="contact__error">{{
+                'CONTACT.FORM.ERRORS.PRIVACY_REQUIRED' | translate
+              }}</span>
             }
           </div>
 
           <div (click)="onSubmit()" style="cursor: pointer">
             <app-btn-cta-primary
-              [btnText]="isSending ? 'Sendet...' : 'Senden'"
+              [btnText]="
+                isSending
+                  ? ('CONTACT.FORM.SENDING' | translate)
+                  : ('CONTACT.FORM.SUBMIT' | translate)
+              "
               btnUrl=""
             ></app-btn-cta-primary>
           </div>
         </div>
 
         @if (showSuccessMessage) {
-          <p class="contact__success">Vielen Dank! Deine Nachricht wurde erfolgreich versendet.</p>
+          <p class="contact__success">{{ 'CONTACT.FORM.SUCCESS' | translate }}</p>
         }
       </form>
     </div>

@@ -162,6 +162,10 @@
   color: var(--neutral-900);
   line-height: 1.4;
   cursor: pointer;
+
+  a {
+    color: var(--secondary-500);
+  }
 }
 
 .contact__link {
