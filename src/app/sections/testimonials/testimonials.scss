@@ -41,7 +41,7 @@
       padding: var(--space-2xl);
 
       @include mixin.respond-to(sm) {
-        width: 20rem;
+        width: 300px;
       }
 
       &__quote {

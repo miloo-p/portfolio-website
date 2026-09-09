@@ -165,6 +165,7 @@
 
     @include mixin.respond-to(sm) {
       transform: scale(1);
+      width: 315px;
     }
 
     &--offset {
@@ -212,6 +213,10 @@
         opacity: 1;
         position: relative;
         z-index: 1;
+
+        @include mixin.respond-to(sm) {
+          width: 315px;
+        }
       }
     }
   }
@@ -323,6 +328,10 @@
     opacity: 0;
     transform: translateY(15px);
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+    @include mixin.respond-to(sm) {
+      width: 315px;
+    }
 
     p {
       font-size: 0.95rem;
