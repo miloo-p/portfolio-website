@@ -33,6 +33,13 @@
     transform: rotate(-70deg) translate(30%, 20%);
     color: var(--neutral-900);
 
+    @include mixin.respond-to(lg) {
+      margin-top: 2rem;
+      right: 1.5rem;
+      top: 15rem;
+      transform: rotate(-70deg) translate(30%, 20%);
+    }
+
     svg {
       height: 25rem;
     }

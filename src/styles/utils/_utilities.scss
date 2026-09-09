@@ -36,6 +36,10 @@
   padding-bottom: 3rem;
 }
 
+.top-spacing {
+  padding-top: 3rem;
+}
+
 .hidden-mobile {
   @media (max-width: $breakpoint-md) {
     display: none !important;
