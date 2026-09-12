@@ -1,4 +1,4 @@
-import { Component, HostListener, signal, inject } from '@angular/core';
+import { Component, HostListener, signal, inject, Renderer2, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageNavigation } from '../../shared/components/page-navigation/page-navigation';
 import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
@@ -11,9 +11,11 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {
+export class Header implements OnDestroy {
   private router = inject(Router);
   private translateService = inject(TranslateService);
+  private renderer = inject(Renderer2);
+
   isMenuOpen = signal(false);
   currentLanguage = signal<'de' | 'en'>('de');
 
@@ -26,17 +28,37 @@ export class Header {
   }
 
   toggleMenu() {
-    this.isMenuOpen.update((val) => !val);
+    this.isMenuOpen.update((val) => {
+      const next = !val;
+      this.updateScrollLock(next);
+      return next;
+    });
   }
 
-  // Schließt das Overlay, wenn der Screen wieder Desktop-Größe erreicht
+  closeMenu() {
+    if (this.isMenuOpen()) {
+      this.isMenuOpen.set(false);
+      this.updateScrollLock(false);
+    }
+  }
+
+  private updateScrollLock(lock: boolean) {
+    if (lock) {
+      this.renderer.addClass(document.body, 'no-scroll');
+    } else {
+      this.renderer.removeClass(document.body, 'no-scroll');
+    }
+  }
+
   @HostListener('window:resize')
   onResize() {
     if (window.innerWidth > 1200 && this.isMenuOpen()) {
-      this.isMenuOpen.set(false);
+      this.closeMenu();
     }
   }
+
   goToHome() {
+    this.closeMenu();
     this.router.navigate(['/']);
   }
 
@@ -49,5 +71,9 @@ export class Header {
     this.currentLanguage.set(language);
     localStorage.setItem('language', language);
     this.translateService.use(language);
+  }
+
+  ngOnDestroy() {
+    this.updateScrollLock(false);
   }
 }

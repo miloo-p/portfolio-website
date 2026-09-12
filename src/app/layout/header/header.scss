@@ -124,20 +124,28 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 3rem;
+    gap: 2.5rem;
 
+    // Startet exakt unter dem Header (Höhe auf xl ist 7rem)
     position: fixed;
-    inset: 0;
+    top: 7rem;
+    left: 0;
+    width: 100vw;
+    height: calc(100dvh - 7rem);
     z-index: 95;
-    padding-top: 8rem;
-    padding-bottom: 2rem;
-    overflow-y: auto;
+
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    overflow-y: auto; // Scrollt nur innerhalb dieses Bereichs
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-20px);
-    transition: all 0.3s ease;
+    transform: translateY(-15px);
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.3s ease;
 
     &.is-open {
       opacity: 1;

@@ -251,10 +251,10 @@
 }
 
 .modal__close-btn {
-  position: absolute;
-
-  right: var(--space-2xl);
-  top: var(--space-2xl);
+  position: sticky;
+  top: 0;
+  margin-left: auto; // Schiebt den Button ganz nach rechts
+  z-index: 10; // Stellt sicher, dass er über dem Text schwebt
 
   background: none;
   border: none;
@@ -263,4 +263,9 @@
   color: var(--primary-500);
   width: 22px;
   height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -7rem;
 }
