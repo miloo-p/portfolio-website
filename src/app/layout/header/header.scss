@@ -114,52 +114,45 @@
 }
 
 // ==========================================
-// MOBILE POSITIONIERUNG (Ab 1200px)
+// MOBILE MENÜ WRAPPER (Ab 1200px)
 // ==========================================
-@include mixin.respond-to(xl) {
-  // Elemente aus dem Flow nehmen
-  app-page-navigation,
-  .header__tranlate,
-  app-btn-cta-primary {
+.header__mobile-menu {
+  display: contents;
+
+  @include mixin.respond-to(xl) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
+
     position: fixed;
+    inset: 0;
     z-index: 95;
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    overflow-y: auto;
+
     opacity: 0;
     visibility: hidden;
-    left: 50vw;
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease,
-      visibility 0.3s ease;
-  }
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
 
-  app-page-navigation {
-    top: 40dvh;
-    transform: translate(-50%, -30%);
-  }
-  .header__tranlate {
-    top: 75dvh;
-    transform: translate(-50%, 20%);
-  }
-  app-btn-cta-primary {
-    top: 88dvh;
-    transform: translate(-50%, 20%);
-  }
-}
-
-.header__container--menu-open {
-  app-page-navigation {
-    @include mixin.respond-to(xl) {
+    &.is-open {
       opacity: 1;
       visibility: visible;
-      transform: translate(-50%, -50%);
+      pointer-events: auto;
+      transform: translateY(0);
     }
-  }
-  .header__tranlate,
-  app-btn-cta-primary {
-    @include mixin.respond-to(xl) {
+
+    app-page-navigation,
+    .header__tranlate,
+    app-btn-cta-primary {
+      position: static;
+      transform: none;
       opacity: 1;
       visibility: visible;
-      transform: translate(-50%, -50%);
     }
   }
 }
@@ -216,4 +209,10 @@
     opacity: 1;
     transform: scale(1) rotate(0deg);
   }
+}
+
+.header__logo,
+.header__burger-btn {
+  position: relative;
+  z-index: 100;
 }

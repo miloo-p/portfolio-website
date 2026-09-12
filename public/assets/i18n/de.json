@@ -113,7 +113,7 @@
     "WRITE_EMAIL": "E-Mail schreiben"
   },
   "PRIVACY_POLICY": {
-    "TITLE": "Datenschutzerklärung",
+    "TITLE": "Datenschutz",
     "SEC_1": {
       "TITLE": "1. Datenschutz auf einen Blick",
       "SUBTITLE": "Allgemeine Hinweise",
@@ -124,7 +124,7 @@
       "TEXT": "Wir hosten die Inhalte unserer Website bei folgendem Anbieter:<br><br>Hetzner Online GmbH<br>Industriestraße 25<br>91710 Gunzenhausen<br>Deutschland"
     },
     "SEC_3": {
-      "TITLE": "3. Allgemeine Hinweise und Pflichtinformationen",
+      "TITLE": "3. Allgemeine Hinweise",
       "SUBTITLE": "Verantwortliche Stelle",
       "TEXT": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>Timo Böning<br>Lambertusstraße 53<br>50374 Erftstadt<br>E-Mail: hi@timo-boening.de"
     },

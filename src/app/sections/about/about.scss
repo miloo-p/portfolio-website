@@ -114,8 +114,8 @@
 
         @include mixin.respond-to(sm) {
           top: auto;
-          bottom: -12rem;
-          left: 7rem;
+          bottom: -10rem;
+          left: 5rem;
           transform: rotate(50deg);
         }
       }
@@ -136,8 +136,8 @@
 
         @include mixin.respond-to(sm) {
           top: auto;
-          bottom: -11rem;
-          left: 7rem;
+          bottom: -13rem;
+          left: 5rem;
         }
       }
     }
@@ -204,8 +204,8 @@
   }
 
   @include mixin.respond-to(sm) {
-    --editor-width: 21rem;
-    left: 10rem;
+    --editor-width: 18rem;
+    left: 8rem;
     transform: translate(-50%, -50%);
   }
 
@@ -299,9 +299,9 @@
     }
 
     @include mixin.respond-to(sm) {
-      --editor-width: 19rem;
+      --editor-width: 18rem;
       top: 60%;
-      left: 10rem;
+      left: 8rem;
       transform: translate(-50%, -50%);
     }
   }

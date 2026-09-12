@@ -243,34 +243,30 @@
     width: 100%;
     height: 700px;
     position: relative;
-    background-color: var(--secondary-300);
+    background-color: var(--secondary-200);
     border-radius: 1.5rem;
     border: 2px solid var(--neutral-700);
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
-    // Remove backdrop-filter from here, as it doesn't work with the mask
     transition:
       box-shadow 0.3s ease,
       background-color 0.4s ease;
 
-    // The fake blurred background
     &::before {
       content: '';
       position: absolute;
-      inset: -10%; // Make it slightly larger to avoid unblurred edges
-      z-index: 0; // Behind the image
-      background-color: var(--neutral-700); // Base color of the section
+      inset: -10%;
+      z-index: 0;
+      background-color: var(--neutral-500);
 
-      // Recreate the wave from the section background, but positioned relative to the card
-      // You might need to adjust the height (e.g., 200px) based on where the card sits over the wave
       background-image: linear-gradient(
         transparent calc(100% - 595px),
         var(--neutral-200) calc(100% - 595px)
       );
 
-      filter: blur(15px); // Blur the fake background itself
-      opacity: 0; // Hidden by default
+      filter: blur(15px);
+      opacity: 0;
       transition: opacity 0.4s ease;
     }
   }
@@ -320,14 +316,13 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 2rem;
     text-align: center;
 
     opacity: 0;
-    transform: translateY(15px);
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 
     @include mixin.respond-to(sm) {
       width: 315px;

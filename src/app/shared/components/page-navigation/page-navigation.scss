@@ -23,7 +23,7 @@
     border-radius: 10px;
     max-width: 30rem;
     position-anchor: --hovered-link;
-    transition: 500ms
+    transition: 1100ms
       linear(
         0,
         0.029 1.6%,
@@ -106,13 +106,18 @@
 
   a {
     display: block;
-    padding: 1rem;
     text-decoration: none;
+    padding: 1rem;
     color: var(--text-color-light);
     font-weight: var(--fw-bold);
 
     @include mixin.respond-to(xl) {
-      font-size: var(--fs-h3); // Text größer auf dem Overlay
+      font-size: var(--fs-h3);
+      text-align: center;
+    }
+
+    @include mixin.respond-to(md) {
+      font-size: var(--fs-h4);
       text-align: center;
     }
   }

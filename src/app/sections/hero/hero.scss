@@ -75,6 +75,10 @@
     max-width: 15rem;
     font-size: clamp(4.5rem, 5vw, var(--fs-display-2));
   }
+
+  @include mixin.respond-to(sm) {
+    font-size: clamp(3.5rem, 5vw, var(--fs-display-2));
+  }
 }
 
 .hero__subtext {

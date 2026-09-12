@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject, Renderer2, OnDestroy } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
 import { TranslatePipe } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
+import { LegalNotes } from '../../pages/legal-notes/legal-notes';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
-  imports: [BtnCtaPrimary, ReactiveFormsModule, TranslatePipe, RouterLink],
+  imports: [BtnCtaPrimary, ReactiveFormsModule, TranslatePipe, RouterLink, LegalNotes, NgIf],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class Contact {
+export class Contact implements OnDestroy {
+  private renderer = inject(Renderer2);
+
   public contactForm = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
@@ -21,6 +25,24 @@ export class Contact {
 
   public isSending = false;
   public showSuccessMessage = false;
+  isPrivacyModalOpen = false;
+
+  togglePrivacyModal(event?: Event) {
+    if (event) {
+      event.preventDefault();
+    }
+    this.isPrivacyModalOpen = !this.isPrivacyModalOpen;
+
+    if (this.isPrivacyModalOpen) {
+      this.renderer.addClass(document.body, 'no-scroll');
+    } else {
+      this.renderer.removeClass(document.body, 'no-scroll');
+    }
+  }
+
+  ngOnDestroy() {
+    this.renderer.removeClass(document.body, 'no-scroll');
+  }
 
   async onSubmit() {
     if (this.contactForm.invalid) {
@@ -59,6 +81,7 @@ export class Contact {
       this.isSending = false;
     }
   }
+
   goToLink(url: string) {
     if (!url) {
       return;
@@ -70,7 +93,6 @@ export class Contact {
         targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // Öffnet den Pfad sauber in einem neuen Tab
       window.open(url, '_blank');
     }
   }

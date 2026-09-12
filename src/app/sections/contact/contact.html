@@ -1,4 +1,3 @@
-<!-- Hinweis: Falls noch nicht vorhanden, TranslateModule im imports-Array der zugehörigen .ts-Datei ergänzen. -->
 <section class="contact" id="contact">
   <div class="contact__wrapper">
     <div class="contact__side-visual">
@@ -118,7 +117,12 @@
               <div class="contact__checkbox-label-wrapper">
                 <span class="contact__checkbox-label">
                   {{ 'CONTACT.FORM.PRIVACY_BEFORE' | translate }}
-                  <a (click)="goToLink('/legal')" class="text-primary" style="cursor: pointer">
+                  <a
+                    href="#"
+                    (click)="togglePrivacyModal($event)"
+                    class="text-primary"
+                    style="cursor: pointer"
+                  >
                     {{ 'CONTACT.FORM.PRIVACY_LINK' | translate }}
                   </a>
                   {{ 'CONTACT.FORM.PRIVACY_AFTER' | translate }}
@@ -155,3 +159,26 @@
     </div>
   </div>
 </section>
+
+<div class="modal-overlay" *ngIf="isPrivacyModalOpen" (click)="togglePrivacyModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="modal__close-btn" (click)="togglePrivacyModal()">
+      <svg
+        class="close-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="22"
+        height="21"
+        fill="currentColor"
+        viewBox="0 0 22 21"
+      >
+        <path
+          d="M19.189 18.69c-3.984-4.274-8.333-8.956-10.415-13.139C7.595 4.026 7.684 1.902 4.602.802-4.59-3.16 20.306 24.202 19.19 18.691Z"
+        />
+        <path
+          d="M6.438 18.873c-8.93 2.165 6.707-14.213 10.79-15.898C19.49.535 23.83.991 20.713 2.85c.24-.128-1.12 1.026-1.008.928-5.84 2.7-10.288 9.287-13.26 15.08"
+        />
+      </svg>
+    </button>
+    <app-legal-notes></app-legal-notes>
+  </div>
+</div>

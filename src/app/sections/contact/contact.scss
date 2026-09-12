@@ -215,3 +215,52 @@
   margin-top: 1.5rem;
   text-align: right;
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mixin.respond-to(sm) {
+    padding: var(--space-sm);
+  }
+}
+
+.modal-content {
+  background: var(--neutral-200);
+  padding: 40px;
+  max-width: 80vw;
+  max-height: 80vh;
+  overflow-y: auto;
+
+  clip-path: inset(0 round var(--radius-lg));
+  position: relative;
+  border-radius: var(--radius-lg);
+
+  @include mixin.respond-to(sm) {
+    padding: calc(var(--space-sm) / 2);
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+}
+
+.modal__close-btn {
+  position: absolute;
+
+  right: var(--space-2xl);
+  top: var(--space-2xl);
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--primary-500);
+  width: 22px;
+  height: 21px;
+}

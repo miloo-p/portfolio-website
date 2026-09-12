@@ -104,13 +104,9 @@
         </div>
         <div class="footer__content__bottom">
           <div class="footer__content__bottom__bar">
-            <a (click)="goToLink('/imprint')" style="cursor: pointer">{{
-              'FOOTER.IMPRESSUM' | translate
-            }}</a
+            <a routerLink="/imprint" style="cursor: pointer">{{ 'FOOTER.IMPRESSUM' | translate }}</a
             ><span class="hidden-mobile-sm"> | </span
-            ><a (click)="goToLink('/legal')" style="cursor: pointer">{{
-              'FOOTER.PRIVACY' | translate
-            }}</a>
+            ><a routerLink="/legal" style="cursor: pointer">{{ 'FOOTER.PRIVACY' | translate }}</a>
           </div>
           <div class="footer__content__bottom__bar">
             <p>{{ 'FOOTER.COPYRIGHT' | translate }}</p>
