@@ -27,7 +27,7 @@
       </svg>
     </div>
     <div class="header__mobile-menu" [class.is-open]="isMenuOpen()">
-      <app-page-navigation (linkClicked)="isMenuOpen.set(false)"></app-page-navigation>
+      <app-page-navigation (linkClicked)="closeMenu()"></app-page-navigation>
 
       <!--     <button class="header__sound-btn">
       <svg
@@ -94,6 +94,7 @@
       <app-btn-cta-primary
         [btnText]="'NAVIGATION.CONTACT' | translate"
         btnUrl="#contact"
+        (click)="closeMenu()"
       ></app-btn-cta-primary>
     </div>
     <button
