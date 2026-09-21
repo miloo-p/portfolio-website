@@ -1,59 +1,30 @@
-# PersonalPortfolio
+# Personal Developer Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.14.
+**[Live Website ansehen](https://timo-boening.de)**
 
-## Development server
+## Über das Projekt
+Dieses Repository enthält den Quellcode meiner persönlichen Entwickler-Portfolio-Website. Die Seite dient als zentrale Anlaufstelle für meine abgeschlossenen Projekte und gibt einen Überblick über meinen Tech-Stack sowie meinen Werdegang.
 
-To start a local development server, run:
+Besonderer Wert wurde auf ein komplett eigenständiges UI/UX-Design gelegt. Abweichend vom regulären Curriculum habe ich das Design von Grund auf selbst konzipiert und in iterativen Feedbackschleifen in enger Abstimmung mit der Design-Abteilung der Developer Akademie verfeinert. Ziel war es, meine konzeptionelle Erfahrung als Mediengestalter nahtlos mit meinen neuen technischen Fähigkeiten in der Frontend-Entwicklung (Angular) zu vereinen.
+
+## Tech-Stack
+* **Framework:** Angular
+* **Sprachen:** TypeScript, HTML5
+* **Styling:** SCSS
+
+## Kern-Features & Architektur
+* **Modulare Angular-Architektur:** Strikte Aufteilung der UI in gekapselte, wiederverwendbare Komponenten (z. B. Project-Cards, Kontaktformular, Navigation).
+* **Custom Styling (SCSS):** Bewusster Verzicht auf schwere CSS-Frameworks wie Bootstrap. Stattdessen wurde eine maßgeschneiderte, wartbare SCSS-Struktur mit globalen Variablen und Mixins implementiert, um das eigene Design-System pixelgenau umzusetzen.
+* **Responsive Design:** Die gesamte Anwendung ist nahtlos responsiv entwickelt und bietet optimale Layout-Übergänge von Mobile bis Desktop.
+* **Formular-Validierung & API-Anbindung:** Implementierung eines Kontaktformulars mit clientseitiger Validierung und asynchronem Nachrichten-Versand.
+
+## Lokale Ausführung
+Um das Projekt lokal auszuführen, klone das Repository und nutze die Angular CLI:
 
 ```bash
+git clone [deine-repo-url]
+cd [ordnername]
+npm install
 ng serve
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Navigiere anschließend im Browser zu `http://localhost:4200/`.
