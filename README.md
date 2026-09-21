@@ -22,7 +22,7 @@ Besonderer Wert wurde auf ein komplett eigenständiges UI/UX-Design gelegt. Abwe
 Um das Projekt lokal auszuführen, klone das Repository und nutze die Angular CLI:
 
 ```bash
-git clone [deine-repo-url]
+git clone https://github.com/miloo-p/portfolio-website.git
 cd [ordnername]
 npm install
 ng serve
