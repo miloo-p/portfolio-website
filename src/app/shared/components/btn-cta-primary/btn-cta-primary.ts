@@ -11,6 +11,8 @@ export class BtnCtaPrimary {
   private router = inject(Router);
   btnText = input.required<string>();
   btnUrl = input.required<string>();
+  btnType = input<'button' | 'submit'>('button');
+  disabled = input(false);
 
   goToLink(url: string) {
     if (!url) {

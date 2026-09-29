@@ -55,10 +55,35 @@
 
   @include mixin.respond-to(xl) {
     transform: none;
-    background-color: rgba(0, 0, 0, 0.353);
-    padding: 3rem 2rem;
-    border-radius: 3rem;
+    position: relative;
+    isolation: isolate;
+    padding: 3rem 4rem 8rem 2rem;
     max-width: 95%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: 3rem 0 0 0;
+      background-color: rgba(0, 0, 0, 0.353);
+      mask-image:
+        linear-gradient(to bottom, #000 55%, transparent 100%),
+        linear-gradient(to right, #000 70%, transparent 100%);
+      mask-composite: intersect;
+
+      @include mixin.respond-to(xl) {
+        mask-image:
+          linear-gradient(to bottom, #000 70%, transparent 100%),
+          linear-gradient(to right, #000 55%, transparent 100%);
+      }
+      @include mixin.respond-to(md) {
+        mask-image:
+          linear-gradient(to bottom, #000 70%, transparent 100%),
+          linear-gradient(to right, #000 60%, transparent 100%);
+        opacity: 0.7;
+      }
+    }
   }
 }
 
@@ -85,6 +110,12 @@
   color: var(--neutral-200);
   max-width: 35rem;
   font-size: clamp(var(--fs-h4), 2.5vw, var(--fs-h3));
+  @include mixin.respond-to(xl) {
+    max-width: 19rem;
+  }
+  @include mixin.respond-to(xl) {
+    max-width: 15rem;
+  }
 }
 
 .hero__actions {
@@ -154,7 +185,7 @@
     }
     @include mixin.respond-to(xl) {
       height: min(60vh, 90vw);
-      transform: translate(30%, 5%);
+      transform: translate(30%, 19%);
     }
 
     @include mixin.respond-to(sm) {
@@ -185,8 +216,8 @@
     }
 
     @include mixin.respond-to(xl) {
-      height: min(90vh, 120vw);
-      transform: translate(20%, 5%);
+      height: min(80vh, 120vw);
+      transform: translate(25%, 5%);
       -webkit-mask-image: none;
       mask-image: none;
     }
