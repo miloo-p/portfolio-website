@@ -3,7 +3,7 @@
     "ABOUT": "Über mich",
     "SKILLS": "Skills",
     "PROJECTS": "Projekte",
-    "PARTNER": "Partner",
+    "PARTNER": "Referenzen",
     "CONTACT": "Kontakt",
     "TOGGLE_MENU": "Menü öffnen"
   },
@@ -13,16 +13,16 @@
     "BTN_GITHUB": "GitHub"
   },
   "ABOUT": {
-    "TITLE": "Thats who I am!",
+    "TITLE": "That’s who I am!",
     "SOFT_SKILLS": {
       "TITLE": "Soft Skills, die bleiben.",
-      "P1": "Ich glaube daran, dass großartige Software nur in einem Umfeld entsteht, das auf Vertrauen und Offenheit basiert. Auf meinem Weg zum Fullstack Developer suche ich nicht einfach nur einen Job, sondern ein Team und Mentoren, mit denen ich wachsen und gemeinsam etwas Einzigartiges erschaffen kann.",
-      "P2": "Meine abgeschlossene Ausbildung zum Mediengestalter und die anschließende Arbeit als Medienpädagoge haben mich stark geprägt: Ich bringe dadurch nicht nur ein geschultes Auge für Usability und den Endnutzer mit, sondern weiß auch genau, wie man im Team kommuniziert und Wissen verständlich teilt. Leidenschaft, eine gesunde Portion Humor und der unbedingte Wille, jeden Tag dazuzulernen, gehören bei mir zur Grundeinstellung."
+      "P1": "Gute Software entsteht dort, wo man sich vertraut und offen miteinander spricht. Genau so ein Team suche ich: Menschen, von denen ich lernen kann und denen ich selbst etwas zurückgeben möchte.",
+      "P2": "Ich bin ausgebildeter Mediengestalter und habe danach vier Jahre im Offenen Ganztag gearbeitet. Dort habe ich mit Kindern Filme gedreht, Hörbücher produziert und einen Blog aufgebaut – und gelernt, Dinge so zu erklären, dass sie wirklich ankommen. Mein Team hat mich zum Teamsprecher gewählt. Humor und die Lust, jeden Tag etwas Neues zu lernen, bringe ich einfach mit."
     },
     "HARD_SKILLS": {
       "TITLE": "Hard Skills, die wachsen.",
-      "P1": "Mein Frontend-Fundament steht sicher, und aktuell tauche ich tief in die Backend-Entwicklung ein, um mein Profil zu komplettieren. Mir ist völlig bewusst, dass ich als angehender Junior noch nicht auf jede technische Frage sofort eine fertige Antwort habe, aber genau das treibt mich an. Durch meinen Werdegang verstehe ich bereits, wie Design, Frontend und UX nahtlos ineinandergreifen müssen.",
-      "P2": "Mein voller Fokus liegt jetzt darauf, auch serverseitig mein handwerkliches Codeniveau kontinuierlich auszubauen. Ich denke strukturiert, stelle im Zweifel lieber einmal zu viel eine Frage an erfahrene Kollegen als zu wenig und habe den absoluten Drive, mich in den Tech-Stack eures Teams einzuarbeiten."
+      "P1": "Meine Weiterbildung zum Frontend Developer habe ich im September 2026 abgeschlossen. Angular, TypeScript und SCSS sind mein Fundament, aktuell erweitere ich es um Python und Django. Weil ich aus der Gestaltung komme, weiß ich, wie Design, Frontend und UX ineinandergreifen.",
+      "P2": "Ich denke strukturiert, frage im Zweifel lieber einmal mehr nach als einmal zu wenig und schaue mir gern Dinge an, die über den Kurs hinausgehen – von modernen CSS-Features bis zu KI-gestützten Workflows."
     },
     "INFO": {
       "REMOTE": "Offen für Remote-Arbeit",
@@ -32,12 +32,12 @@
   },
   "SKILLS": {
     "TITLE": "My evolving skillset",
-    "SUBTITLE": "Ein transparenter Blick auf meinen aktuellen Tech-Stack. Das Fundament sitzt, und der Rest wächst mit jedem neuen Commit."
+    "SUBTITLE": "Ein ehrlicher Blick auf meinen aktuellen Tech-Stack. Das Fundament sitzt, der Rest wächst mit jedem Commit."
   },
   "PROJECTS": {
     "TITLE": "My project-journey",
     "SO_FAR": "So far ;-)",
-    "LIVE_DEMO": "Live Demo",
+    "LIVE_DEMO": "Demo",
     "WIP": "Currently working on",
     "PREVIOUS": "Vorheriges Projekt",
     "NEXT": "Nächstes Projekt",
@@ -45,25 +45,25 @@
     "ITEMS": {
       "LIGHT_DARK": {
         "NAME": "Light & Dark",
-        "DESCRIPTION": "Ein vollständig objektorientiertes 2D-Web-Game, das die Logik der Spieleentwicklung im Browser demonstriert. Das Projekt wurde ohne Frameworks mit purem Vanilla JavaScript und dem HTML5 Canvas entwickelt. Besonderer Fokus lag auf flüssigen Sprite-Animationen, Custom-Audio-Handling und einer performanten Game-Loop."
+        "DESCRIPTION": "Ein 2D-Browsergame, komplett objektorientiert in Vanilla JavaScript und mit HTML5 Canvas gebaut – ganz ohne Framework. Game Design und Sprite-Sheets stammen von mir. Im Mittelpunkt standen flüssige Animationen, eigenes Audio-Handling und eine performante Game-Loop."
       },
       "JOIN": {
         "NAME": "Join",
-        "DESCRIPTION": "Ein umfangreiches Projektmanagement-Tool im Kanban-Stil, umgesetzt als Single Page Application. Der Fokus lag auf einer skalierbaren Architektur mittels Angular und TypeScript. Komplexe Features wie das Drag & Drop von Tasks und eine integrierte Kontaktverwaltung wurden nahtlos in ein responsives SCSS-Layout eingebettet."
+        "DESCRIPTION": "Ein Kanban-Tool für Teams, umgesetzt als Single Page Application mit Angular, TypeScript und Supabase. Zu Beginn habe ich die Koordination übernommen und das technische Fundament aufgesetzt. Drag & Drop, Kontaktverwaltung und ein responsives SCSS-Layout greifen dabei ineinander."
       },
       "POKEDEX": {
         "NAME": "PokeDex",
-        "DESCRIPTION": "Eine interaktive Web-App zur dynamischen Darstellung großer Datenmengen. Der technische Schwerpunkt dieses Projekts liegt auf dem asynchronen Abrufen und Verarbeiten von JSON-Daten einer externen REST-API via JavaScript. Eine performante Live-Suchfunktion und das responsive HTML/CSS-Design sorgen für eine optimale User Experience."
+        "DESCRIPTION": "Eine Web-App, die Daten aus einer externen REST-API asynchron lädt und dynamisch darstellt – mit schneller Live-Suche und einem responsiven Layout in HTML und CSS."
       },
       "KANMIND": {
         "NAME": "KanMind (WIP)",
-        "DESCRIPTION": "Aktuell in der Entwicklung: Mein Fokusprojekt für die serverseitige Programmierung. Für ein bestehendes Kanban-Frontend entwickle ich derzeit eine robuste Backend-Architektur mit Python und dem Django-Framework. Ziel ist die Bereitstellung und Absicherung einer eigenen REST-API zur Datenverwaltung."
+        "DESCRIPTION": "Mein aktuelles Backend-Projekt: Für ein bestehendes Kanban-Frontend baue ich mit Python und Django eine eigene, abgesicherte REST-API zur Datenverwaltung."
       }
     }
   },
   "TESTIMONIALS": {
     "TITLE": "Voices Along the Way",
-    "SUBTITLE": "Großartige Software entsteht nur im Team. Ein ehrlicher Einblick aus den letzten Monaten, wie Kollegen und Mentoren die Zusammenarbeit erlebt haben.",
+    "SUBTITLE": "Wie meine Teamkolleginnen und Teamkollegen die Zusammenarbeit mit mir erlebt haben.",
     "ITEMS": {
       "1": {
         "TEXT": "Timo war das strukturelle Rückgrat unseres Projekts. Von Tag eins an hat er eine saubere Architektur und ein globales Styling aufgesetzt, was die Zusammenarbeit im Team unglaublich reibungslos machte. Er arbeitet äußerst strukturiert und meistert auch schwierige technische Herausforderungen mit Leichtigkeit.",
@@ -85,10 +85,10 @@
   "CONTACT": {
     "TITLE": "Send a message!",
     "FORM": {
-      "FIRST_NAME": "Name",
+      "FIRST_NAME": "Vorname",
       "LAST_NAME": "Nachname",
-      "EMAIL": "Email Adresse",
-      "MESSAGE": "Text einfügen...",
+      "EMAIL": "E-Mail-Adresse",
+      "MESSAGE": "Deine Nachricht …",
       "PRIVACY_BEFORE": "Ich habe die ",
       "PRIVACY_LINK": "Datenschutzerklärung",
       "PRIVACY_AFTER": " gelesen und stimme der beschriebenen Verarbeitung meiner Daten zu.",
@@ -96,7 +96,7 @@
       "SENDING": "Sendet...",
       "SUCCESS": "Vielen Dank! Deine Nachricht wurde erfolgreich versendet.",
       "ERRORS": {
-        "FIRST_NAME_REQUIRED": "Bitte gib deinen Namen ein.",
+        "FIRST_NAME_REQUIRED": "Bitte gib deinen Vornamen ein.",
         "LAST_NAME_REQUIRED": "Bitte gib deinen Nachnamen ein.",
         "EMAIL_REQUIRED": "Deine E-Mail-Adresse wird benötigt.",
         "EMAIL_INVALID": "Bitte gib eine gültige E-Mail-Adresse ein.",
@@ -149,7 +149,7 @@
       "TEXT": "Telefon: 0179 9311948<br>E-Mail: <a href=\"mailto:hi@timo-boening.de\">hi@timo-boening.de</a>"
     },
     "SEC_3": {
-      "TITLE": "Redaktionlich verantwortlich",
+      "TITLE": "Redaktionell verantwortlich",
       "TEXT": "Timo Böning<br>Lambertusstraße 53<br>50374 Erftstadt"
     },
     "SEC_4": {
