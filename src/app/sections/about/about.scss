@@ -215,7 +215,7 @@
     width: 100%;
     border-radius: 0.5rem 0.5rem 0 0;
     padding: var(--space-xs) var(--space-md);
-    background-color: var(--tinted-gray-700);
+    background-color: var(--tinted-gray-800);
     color: var(--tinted-gray-100);
 
     &__dot {
@@ -270,7 +270,7 @@
         background: transparent;
       }
       &::-webkit-scrollbar-thumb {
-        background-color: var(--tinted-gray-600);
+        background-color: var(--tinted-gray-300);
         border-radius: 5px;
       }
     }
@@ -308,7 +308,7 @@
 }
 
 .c-kw {
-  color: var(--secondary-900);
+  color: var(--primary-100);
 }
 .c-str {
   color: var(--primary-500);
@@ -317,5 +317,5 @@
   color: var(--primary-500);
 }
 .c-func {
-  color: var(--secondary-500);
+  color: var(--secondary-300);
 }
