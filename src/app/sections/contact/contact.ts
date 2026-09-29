@@ -2,7 +2,6 @@ import { Component, inject, Renderer2, OnDestroy } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
 import { TranslatePipe } from '@ngx-translate/core';
-import { RouterLink } from '@angular/router';
 import { LegalNotes } from '../../pages/legal-notes/legal-notes';
 import { NgIf } from '@angular/common';
 
