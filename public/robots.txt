@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://timo-boening.de/sitemap.xml

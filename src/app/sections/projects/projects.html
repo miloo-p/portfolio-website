@@ -42,7 +42,7 @@
           >
             <span class="project__name">{{ project.name | translate }}</span>
             <div class="project__card">
-              <img [src]="project.iconUrl" alt="" class="project__icon" />
+              <img [src]="project.iconUrl" alt="" loading="lazy" class="project__icon" />
 
               <div class="project__info">
                 <p>{{ project.description | translate }}</p>
@@ -73,6 +73,7 @@
               <img
                 [src]="project.iconUrl"
                 alt=""
+                loading="lazy"
                 class="project__icon project__icon--blurred"
               />
               <span class="project__wip-badge">{{ 'PROJECTS.WIP' | translate }}</span>

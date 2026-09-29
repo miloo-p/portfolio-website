@@ -8,7 +8,7 @@
     <div class="skills__grid">
       @for (skill of mySkills; track skill.name) {
         <div class="skills__item">
-          <img [src]="skill.iconUrl" [alt]="skill.name" class="skills__icon" />
+          <img [src]="skill.iconUrl" [alt]="skill.name" class="skills__icon" loading="lazy" />
           <span class="skills__name" aria-hidden="true">{{ skill.name }}</span>
         </div>
       }
