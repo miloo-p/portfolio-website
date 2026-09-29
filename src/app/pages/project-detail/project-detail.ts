@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Detail page for a single project.
+ */
 @Component({
   selector: 'app-project-detail',
   imports: [],

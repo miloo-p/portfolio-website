@@ -171,6 +171,15 @@
 // DIE CODE-EDITOR KOMPONENTE
 // ==========================================
 
+@keyframes code-editor-float {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -0.75rem;
+  }
+}
+
 .code-editor {
   --editor-width: 25rem;
   --editor-height: 18rem;
@@ -185,9 +194,11 @@
 
   background-color: var(--tinted-gray-900);
   border-radius: 0.5rem;
-  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.4));
+  box-shadow: -15px 15px 16px rgba(0, 0, 0, 0.4);
 
   transform: translate(-50%, -50%) perspective(1000px) rotateY(15deg) rotateX(-5deg);
+
+  animation: code-editor-float 12s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
 
   @include mixin.respond-to(xl) {
     top: 60%;
@@ -215,7 +226,7 @@
     width: 100%;
     border-radius: 0.5rem 0.5rem 0 0;
     padding: var(--space-xs) var(--space-md);
-    background-color: var(--tinted-gray-700);
+    background-color: var(--tinted-gray-800);
     color: var(--tinted-gray-100);
 
     &__dot {
@@ -270,7 +281,7 @@
         background: transparent;
       }
       &::-webkit-scrollbar-thumb {
-        background-color: var(--tinted-gray-600);
+        background-color: var(--tinted-gray-300);
         border-radius: 5px;
       }
     }
@@ -283,6 +294,9 @@
     left: 45%;
 
     transform: translate(-50%, -50%) perspective(1000px) rotateY(-15deg) rotateX(0deg);
+    animation-duration: 8s;
+    animation-delay: -3s;
+    box-shadow: +15px 15px 16px rgba(0, 0, 0, 0.4);
 
     @include mixin.respond-to(xl) {
       top: 55%;
@@ -308,7 +322,7 @@
 }
 
 .c-kw {
-  color: var(--secondary-900);
+  color: var(--primary-100);
 }
 .c-str {
   color: var(--primary-500);
@@ -317,5 +331,5 @@
   color: var(--primary-500);
 }
 .c-func {
-  color: var(--secondary-500);
+  color: var(--secondary-300);
 }

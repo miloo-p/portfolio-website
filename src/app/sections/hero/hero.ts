@@ -3,6 +3,10 @@ import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-p
 import { BtnCtaSecondary } from '../../shared/components/btn-cta-secondary/btn-cta-secondary';
 import { TranslatePipe } from '@ngx-translate/core';
 
+/**
+ * Hero section with name, short introduction and call-to-action buttons
+ * linking to the projects and GitHub.
+ */
 @Component({
   selector: 'app-hero',
   imports: [BtnCtaPrimary, BtnCtaSecondary, TranslatePipe],

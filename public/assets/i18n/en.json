@@ -3,26 +3,26 @@
     "ABOUT": "About me",
     "SKILLS": "Skills",
     "PROJECTS": "Projects",
-    "PARTNER": "Partners",
+    "PARTNER": "References",
     "CONTACT": "Contact",
-    "TOGGLE_MENU": "Toggle menu"
+    "TOGGLE_MENU": "Open menu"
   },
   "HERO": {
-    "SUBTITLE": "Frontend Developer on the way to Fullstack. Passionate about tech, UI/UX & design.",
+    "SUBTITLE": "Frontend developer on my way to full-stack. Passionate about tech, UI/UX & design.",
     "BTN_PROJECTS": "Projects",
     "BTN_GITHUB": "GitHub"
   },
   "ABOUT": {
-    "TITLE": "That's who I am!",
+    "TITLE": "That’s who I am!",
     "SOFT_SKILLS": {
-      "TITLE": "Soft skills for the long run.",
-      "P1": "I believe that great software can only be created in an environment built on trust and openness. On my journey to becoming a Fullstack Developer, I'm not just looking for a job, but for a team and mentors to grow with and create something unique together.",
-      "P2": "My completed training as a media designer and my subsequent work as a media educator have strongly shaped me: I not only bring a trained eye for usability and the end-user, but I also know exactly how to communicate within a team and share knowledge clearly. Passion, a healthy dose of humor, and the absolute drive to learn something new every day are part of my core attitude."
+      "TITLE": "Soft skills that stay.",
+      "P1": "Good software is built where people trust each other and talk openly. That’s the kind of team I’m looking for: people I can learn from and give something back to in return.",
+      "P2": "I’m a trained media designer and then spent four years working in after-school care. There, I made films with children, produced audiobooks and built a blog – and learned to explain things in a way that truly sticks. My team elected me as their team spokesperson. Humour and a genuine eagerness to learn something new every day simply come naturally to me."
     },
     "HARD_SKILLS": {
       "TITLE": "Hard skills that grow.",
-      "P1": "My frontend foundation is solid, and I am currently diving deep into backend development to complete my profile. I am fully aware that as an aspiring junior, I might not have an immediate ready-made answer to every technical question yet, but that is exactly what drives me. Through my background, I already understand how design, frontend, and UX need to mesh seamlessly.",
-      "P2": "My full focus is now on continuously improving my coding craftsmanship on the server side as well. I think in a structured way, prefer to ask experienced colleagues a question once too often rather than too little when in doubt, and have the absolute drive to familiarize myself with your team's tech stack."
+      "P1": "I completed my training as a frontend developer in September 2026. Angular, TypeScript and SCSS are my foundation, and I’m currently expanding it with Python and Django. Coming from a design background, I know how design, frontend and UX fit together.",
+      "P2": "I think in structures, would rather ask one question too many than one too few, and like to explore topics that go beyond the course – from modern CSS features to AI-assisted workflows."
     },
     "INFO": {
       "REMOTE": "Open to remote work",
@@ -32,12 +32,12 @@
   },
   "SKILLS": {
     "TITLE": "My evolving skillset",
-    "SUBTITLE": "A transparent look at my current tech stack. The foundation is solid, and the rest grows with every new commit."
+    "SUBTITLE": "An honest look at my current tech stack. The foundation is solid, and the rest grows with every new commit."
   },
   "PROJECTS": {
     "TITLE": "My project-journey",
     "SO_FAR": "So far ;-)",
-    "LIVE_DEMO": "Live Demo",
+    "LIVE_DEMO": "Demo",
     "WIP": "Currently working on",
     "PREVIOUS": "Previous project",
     "NEXT": "Next project",
@@ -45,38 +45,42 @@
     "ITEMS": {
       "LIGHT_DARK": {
         "NAME": "Light & Dark",
-        "DESCRIPTION": "A fully object-oriented 2D web game demonstrating the logic of game development in the browser. The project was developed without frameworks using pure Vanilla JavaScript and the HTML5 Canvas. Special focus was placed on smooth sprite animations, custom audio handling, and a performant game loop."
+        "DESCRIPTION": "A 2D browser game, fully object-oriented and built with vanilla JavaScript and HTML5 Canvas – without any framework. The game design and sprite sheets are my own. The focus was on smooth animations, custom audio handling and a high-performance game loop."
       },
       "JOIN": {
         "NAME": "Join",
-        "DESCRIPTION": "A comprehensive Kanban-style project management tool implemented as a single-page application. The focus was on a scalable architecture using Angular and TypeScript. Complex features such as task drag and drop and integrated contact management were seamlessly embedded in a responsive SCSS layout."
+        "DESCRIPTION": "A Kanban tool for teams, built as a single page application with Angular, TypeScript and Supabase. At the start, I took over coordination and set up the technical foundation. Drag & drop, contact management and a responsive SCSS layout all work hand in hand."
       },
       "POKEDEX": {
         "NAME": "PokeDex",
-        "DESCRIPTION": "An interactive web app for dynamically displaying large amounts of data. The technical focus of this project is the asynchronous retrieval and processing of JSON data from an external REST API via JavaScript. A performant live search and responsive HTML/CSS design provide an optimal user experience."
+        "DESCRIPTION": "A web app that asynchronously loads data from an external REST API and displays it dynamically – with a fast live search and a responsive layout in HTML and CSS."
       },
       "KANMIND": {
         "NAME": "KanMind (WIP)",
-        "DESCRIPTION": "Currently in development: my focus project for server-side programming. I am developing a robust backend architecture with Python and the Django framework for an existing Kanban frontend. The goal is to provide and secure a custom REST API for data management."
+        "DESCRIPTION": "My current backend project: for an existing Kanban frontend, I’m building my own secured REST API for data management with Python and Django."
+      },
+      "INCUSYNC": {
+        "NAME": "INCUSYNC",
+        "DESCRIPTION": "An unofficial configuration tool for Equalizer APO, built with Angular, TypeScript and Canvas. It turns the results of a hearing test into a ready-to-use equalizer file, so people with hearing loss can adjust their PC sound without technical knowledge. The focus: accessibility and clear user guidance. The preview currently works on desktop only."
       }
     }
   },
   "TESTIMONIALS": {
     "TITLE": "Voices Along the Way",
-    "SUBTITLE": "Great software is only built in a team. An honest insight from the last few months on how colleagues and mentors experienced working with me.",
+    "SUBTITLE": "How my teammates have experienced working together with me on our shared projects.",
     "ITEMS": {
       "1": {
-        "TEXT": "Timo was the structural backbone of our project. From day one, he set up a clean architecture and global styling, which made teamwork incredibly smooth. He works in a highly structured manner and tackles difficult technical challenges with ease.",
+        "TEXT": "Timo was the structural backbone of our project. From day one, he set up a clean architecture and global styling, which made working together as a team incredibly smooth. He works in an extremely structured way and masters even difficult technical challenges with ease.",
         "AUTHOR": "Jermaine Jérôme Bärwolf",
         "ROLE": "Fullstack Developer"
       },
       "2": {
-        "TEXT": "Timo is an absolute must-have for any CSS-heavy project. He has a sharp logical mind and is always ready to step in whenever the team gets stuck. From the very beginning, he contributed brilliant ideas and executed them flawlessly. His technical expertise and proactive attitude are outstanding.",
+        "TEXT": "Timo is an absolute must-have for any CSS-heavy project. He has a sharp, logical mind and is always there when the team gets stuck. From the very beginning, he contributed brilliant ideas and implemented them flawlessly. His technical expertise and proactive attitude are outstanding.",
         "AUTHOR": "Kevin Reinhold Triebe",
         "ROLE": "Frontend Developer"
       },
       "3": {
-        "TEXT": "Timo is a highly competent and organized colleague who also excels as a team leader. Especially in the area of CSS, he possesses immense expertise and works very meticulously and attentively. Timo is a great colleague who enriches any team.",
+        "TEXT": "Timo is a very competent and organised colleague who also convinces as a team leader. He has enormous expertise, especially in CSS, and works very meticulously and attentively. Timo is a great colleague who enriches every team.",
         "AUTHOR": "Magdalena Laurisch",
         "ROLE": "Developer & Teammate"
       }
@@ -85,64 +89,63 @@
   "CONTACT": {
     "TITLE": "Send a message!",
     "FORM": {
-      "FIRST_NAME": "First Name",
-      "LAST_NAME": "Last Name",
-      "EMAIL": "Email Address",
-      "MESSAGE": "Enter your message...",
+      "FIRST_NAME": "First name",
+      "LAST_NAME": "Last name",
+      "EMAIL": "Email address",
+      "MESSAGE": "Your message …",
       "PRIVACY_BEFORE": "I have read the ",
-      "PRIVACY_LINK": "Privacy Policy",
-      "PRIVACY_AFTER": " and agree to the described processing of my data.",
-      "PRIVACY": "I have read the <a href=\"/datenschutz\" class=\"text-primary\">Privacy Policy</a> and agree to the described processing of my data.",
+      "PRIVACY_LINK": "privacy policy",
+      "PRIVACY_AFTER": " and agree to the processing of my data as described.",
       "SUBMIT": "Send",
       "SENDING": "Sending...",
-      "SUCCESS": "Thank you! Your message was sent successfully.",
+      "SUCCESS": "Thank you! Your message has been sent successfully.",
       "ERRORS": {
         "FIRST_NAME_REQUIRED": "Please enter your first name.",
         "LAST_NAME_REQUIRED": "Please enter your last name.",
         "EMAIL_REQUIRED": "Your email address is required.",
         "EMAIL_INVALID": "Please enter a valid email address.",
         "MESSAGE_REQUIRED": "Please write me a short message.",
-        "MESSAGE_MINLENGTH": "The message should be at least 10 characters long.",
+        "MESSAGE_MINLENGTH": "Your message should be at least 10 characters long.",
         "PRIVACY_REQUIRED": "Please confirm the privacy policy."
       }
     }
   },
   "FOOTER": {
-    "IMPRESSUM": "Imprint",
-    "PRIVACY": "Privacy Policy",
+    "IMPRESSUM": "Legal notice",
+    "PRIVACY": "Privacy",
     "COPYRIGHT": "© Timo Böning 2026",
-    "WRITE_EMAIL": "Write an email"
+    "WRITE_EMAIL": "Send an email"
   },
   "PRIVACY_POLICY": {
-    "TITLE": "Privacy Policy",
+    "TITLE": "Privacy policy",
     "SEC_1": {
-      "TITLE": "1. Data protection at a glance",
+      "TITLE": "1. Privacy at a glance",
       "SUBTITLE": "General information",
-      "TEXT": "The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is all data with which you can be personally identified."
+      "TEXT": "The following information provides a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to identify you personally."
     },
     "SEC_2": {
       "TITLE": "2. Hosting",
       "TEXT": "We host the content of our website with the following provider:<br><br>Hetzner Online GmbH<br>Industriestraße 25<br>91710 Gunzenhausen<br>Germany"
     },
     "SEC_3": {
-      "TITLE": "3. General notes and mandatory information",
-      "SUBTITLE": "Responsible entity",
-      "TEXT": "The responsible entity for data processing on this website is:<br><br>Timo Böning<br>Lambertusstraße 53<br>50374 Erftstadt<br>Email: hi@timo-boening.de"
+      "TITLE": "3. General information",
+      "SUBTITLE": "Controller",
+      "TEXT": "The controller responsible for data processing on this website is:<br><br>Timo Böning<br>Lambertusstraße 53<br>50374 Erftstadt<br>Email: hi@timo-boening.de"
     },
     "SEC_4": {
       "TITLE": "4. Data collection on this website",
       "SUBTITLE": "Contact form",
-      "TEXT": "If you send us inquiries via the contact form, your details from the inquiry form, including the contact details you provided there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not share this data without your consent."
+      "TEXT": "If you send us enquiries via the contact form, your details from the enquiry form, including the contact details you provide there, will be stored by us for the purpose of processing the enquiry and in case of follow-up questions. We will not pass on this data without your consent."
     },
     "SEC_5": {
       "TITLE": "5. Your rights",
-      "TEXT": "You have the right at any time to receive free information about your stored personal data, its origin and recipients, and the purpose of data processing, as well as a right to correct or delete this data. For this purpose, as well as for further questions on the subject of data protection, you can contact us at any time."
+      "TEXT": "You have the right at any time to receive information free of charge about your stored personal data, its origin and recipients and the purpose of the data processing, as well as the right to have this data corrected or deleted. You can contact us at any time about this and any other questions on the subject of data protection."
     }
   },
   "IMPRINT": {
-    "TITLE": "Imprint",
+    "TITLE": "Legal notice",
     "SEC_1": {
-      "TITLE": "Information according to § 5 DDG",
+      "TITLE": "Information pursuant to § 5 DDG",
       "TEXT": "Timo Böning<br>Lambertusstraße 53<br>50374 Erftstadt<br>Germany"
     },
     "SEC_2": {
@@ -150,12 +153,12 @@
       "TEXT": "Phone: 0179 9311948<br>Email: <a href=\"mailto:hi@timo-boening.de\">hi@timo-boening.de</a>"
     },
     "SEC_3": {
-      "TITLE": "Editorially responsible",
+      "TITLE": "Responsible for content",
       "TEXT": "Timo Böning<br>Lambertusstraße 53<br>50374 Erftstadt"
     },
     "SEC_4": {
       "TITLE": "EU dispute resolution",
-      "TEXT": "The European Commission provides a platform for online dispute resolution (ODR): <a href=\"https://ec.europa.eu/consumers/odr/\" target=\"_blank\" rel=\"noopener noreferrer\">https://ec.europa.eu/consumers/odr/</a>.<br>You can find our email address in the imprint above."
+      "TEXT": "The European Commission provides a platform for online dispute resolution (ODR): <a href=\"https://ec.europa.eu/consumers/odr/\" target=\"_blank\" rel=\"noopener noreferrer\">https://ec.europa.eu/consumers/odr/</a>.<br>You can find our email address above in the legal notice."
     }
   }
 }

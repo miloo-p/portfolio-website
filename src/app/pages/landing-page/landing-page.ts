@@ -6,6 +6,10 @@ import { Projects } from '../../sections/projects/projects';
 import { Testimonials } from '../../sections/testimonials/testimonials';
 import { Contact } from '../../sections/contact/contact';
 
+/**
+ * Landing page that composes all portfolio sections:
+ * hero, about, skills, projects, testimonials and contact.
+ */
 @Component({
   selector: 'app-landing-page',
   imports: [Hero, About, Skills, Projects, Testimonials, Contact],

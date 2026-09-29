@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Decorative woodland illustration displayed above the footer.
+ */
 @Component({
   selector: 'app-footer-woodscene',
   imports: [],

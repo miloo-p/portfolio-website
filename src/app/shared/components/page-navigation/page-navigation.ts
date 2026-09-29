@@ -2,6 +2,9 @@ import { Component, HostListener, signal, Output, EventEmitter } from '@angular/
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
+/**
+ * Section navigation used in the header and the mobile menu.
+ */
 @Component({
   selector: 'app-page-navigation',
   imports: [RouterLink, TranslatePipe],
@@ -9,17 +12,24 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './page-navigation.scss',
 })
 export class PageNavigation {
+  /** True while the window is being resized. Used to suppress transitions during resizing. */
   isResizing = signal(false);
   private resizeTimer: any;
 
-  // NEU: Output-Event definieren
+  /** Emits when a navigation link was clicked, so the parent can close the mobile menu. */
   @Output() linkClicked = new EventEmitter<void>();
 
-  // NEU: Methode zum Abfeuern des Events
+  /**
+   * Notifies the parent that a link was clicked.
+   */
   closeMenu() {
     this.linkClicked.emit();
   }
 
+  /**
+   * Sets {@link isResizing} while the window is being resized
+   * and resets it 200 ms after the last resize event.
+   */
   @HostListener('window:resize')
   onResize() {
     this.isResizing.set(true);

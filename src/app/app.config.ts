@@ -6,6 +6,13 @@ import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { routes } from './app.routes';
 
+/**
+ * Global application configuration.
+ *
+ * Registers the router (with anchor scrolling and scroll position restoration),
+ * the HTTP client and ngx-translate, which loads its translation files from
+ * `assets/i18n/` with German as default and English as fallback language.
+ */
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
