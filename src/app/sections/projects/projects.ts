@@ -125,17 +125,6 @@ export class Projects implements OnInit, AfterViewInit {
     this.slideToIndex(bestIndex);
   }
 
-  public onWheel(event: WheelEvent): void {
-    event.preventDefault();
-    if (this.isAnimating) return;
-
-    if (event.deltaY > 0) {
-      this.slideNext();
-    } else if (event.deltaY < 0) {
-      this.slidePrev();
-    }
-  }
-
   public onScroll(): void {
     if (this.isAnimating) return;
 
