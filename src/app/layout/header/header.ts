@@ -1,5 +1,5 @@
 import { Component, HostListener, signal, inject, Renderer2, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { PageNavigation } from '../../shared/components/page-navigation/page-navigation';
 import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
 import { Router } from '@angular/router';
@@ -19,6 +19,7 @@ export class Header implements OnDestroy {
   private router = inject(Router);
   private translateService = inject(TranslateService);
   private renderer = inject(Renderer2);
+  private document = inject(DOCUMENT);
 
   /** Whether the mobile menu is open. */
   isMenuOpen = signal(false);
@@ -26,7 +27,8 @@ export class Header implements OnDestroy {
   currentLanguage = signal<'de' | 'en'>('de');
 
   /**
-   * Restores the language saved in `localStorage` from a previous visit, if any.
+   * Restores the language saved in `localStorage` from a previous visit, if any,
+   * and syncs the `lang` attribute of `<html>`.
    */
   constructor() {
     const savedLanguage = localStorage.getItem('language');
@@ -34,6 +36,7 @@ export class Header implements OnDestroy {
       this.currentLanguage.set(savedLanguage);
       this.translateService.use(savedLanguage);
     }
+    this.document.documentElement.lang = this.currentLanguage();
   }
 
   /**
@@ -90,7 +93,8 @@ export class Header implements OnDestroy {
   }
 
   /**
-   * Switches the UI language and saves the choice in `localStorage`.
+   * Switches the UI language, saves the choice in `localStorage`
+   * and updates the `lang` attribute of `<html>`.
    *
    * @param language - The language to activate.
    * @param event - The triggering click event. Its default action is prevented.
@@ -104,6 +108,7 @@ export class Header implements OnDestroy {
     this.currentLanguage.set(language);
     localStorage.setItem('language', language);
     this.translateService.use(language);
+    this.document.documentElement.lang = language;
   }
 
   /**

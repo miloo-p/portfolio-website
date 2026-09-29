@@ -1,6 +1,10 @@
-<button class="btn-secondary" (click)="goToLink(btnUrl())">
+<button
+  class="btn-secondary"
+  [attr.tabindex]="tabbable() ? null : -1"
+  (click)="goToLink(btnUrl())"
+>
   <span class="btn-content"> {{ btnText() }} </span>
-  <div class="btn-cells">
+  <div class="btn-cells" aria-hidden="true">
     <span></span>
     <span></span>
     <span></span>

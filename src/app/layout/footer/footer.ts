@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FooterWoodscene } from '../../shared/components/footer-woodscene/footer-woodscene';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 /**
@@ -13,6 +13,15 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './footer.scss',
 })
 export class Footer {
+  private router = inject(Router);
+
+  /**
+   * Navigates to the landing page. Lets keyboard users activate the logo link with Enter.
+   */
+  goToHome() {
+    this.router.navigate(['/']);
+  }
+
   /**
    * Smoothly scrolls to an in-page anchor or opens an external URL in a new tab.
    *

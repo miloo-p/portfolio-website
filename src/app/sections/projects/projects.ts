@@ -117,6 +117,18 @@ export class Projects implements OnInit, AfterViewInit {
   }
 
   /**
+   * Whether a card is a duplicate created for the infinite loop. Only the first
+   * occurrence of each project in the middle copy is exposed to assistive technology
+   * and the Tab order, so every project is announced exactly once.
+   *
+   * @param index - Index of the card in {@link displayProjects}.
+   * @returns `true` if the card should be hidden from screen readers and keyboard focus.
+   */
+  public isDuplicate(index: number): boolean {
+    return index < this.baseSetLength || index >= this.baseSetLength + this.myProjects.length;
+  }
+
+  /**
    * Slides to the next card. Ignored while an animation is running.
    */
   public slideNext(): void {

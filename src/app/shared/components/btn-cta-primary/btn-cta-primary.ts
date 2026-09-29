@@ -21,6 +21,8 @@ export class BtnCtaPrimary {
   btnType = input<'button' | 'submit'>('button');
   /** Whether the button is disabled. */
   disabled = input(false);
+  /** Whether the button can be reached with Tab. Set to `false` for hidden duplicates. */
+  tabbable = input(true);
 
   /**
    * Smoothly scrolls to an in-page anchor or opens an external URL in a new tab.

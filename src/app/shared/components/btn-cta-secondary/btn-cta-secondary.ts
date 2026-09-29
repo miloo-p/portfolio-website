@@ -14,6 +14,8 @@ export class BtnCtaSecondary {
   btnText = input.required<string>();
   /** Link target: an anchor selector starting with `#` or an absolute URL. */
   btnUrl = input.required<string>();
+  /** Whether the button can be reached with Tab. Set to `false` for hidden duplicates. */
+  tabbable = input(true);
 
   /**
    * Smoothly scrolls to an in-page anchor or opens an external URL in a new tab.

@@ -2,7 +2,7 @@
   <div class="project__decor-layer">
     <div class="project__side-visual">
       <span class="handwritten">{{ 'PROJECTS.SO_FAR' | translate }}</span>
-      <svg
+      <svg aria-hidden="true"
         width="213"
         height="367"
         viewBox="0 0 213 367"
@@ -38,10 +38,11 @@
             class="project__item"
             [class.project__item--offset]="i % 2 !== 0"
             [class.project__item--active]="currentActiveIndex === i % myProjects.length"
+            [attr.aria-hidden]="isDuplicate(i) ? 'true' : null"
           >
             <span class="project__name">{{ project.name | translate }}</span>
             <div class="project__card">
-              <img [src]="project.iconUrl" [alt]="project.name | translate" class="project__icon" />
+              <img [src]="project.iconUrl" alt="" class="project__icon" />
 
               <div class="project__info">
                 <p>{{ project.description | translate }}</p>
@@ -49,10 +50,12 @@
                   <app-btn-cta-primary
                     [btnText]="'PROJECTS.LIVE_DEMO' | translate"
                     [btnUrl]="project.liveUrl"
+                    [tabbable]="!isDuplicate(i)"
                   ></app-btn-cta-primary>
                   <app-btn-cta-secondary
                     [btnText]="'HERO.BTN_GITHUB' | translate"
                     [btnUrl]="project.gitUrl"
+                    [tabbable]="!isDuplicate(i)"
                   ></app-btn-cta-secondary>
                 </div>
               </div>
@@ -63,12 +66,13 @@
             class="project__item project__item--wip"
             [class.project__item--offset]="i % 2 !== 0"
             [class.project__item--active]="currentActiveIndex === i % myProjects.length"
+            [attr.aria-hidden]="isDuplicate(i) ? 'true' : null"
           >
             <span class="project__name">{{ project.name | translate }}</span>
             <div class="project__card">
               <img
                 [src]="project.iconUrl"
-                [alt]="project.name"
+                alt=""
                 class="project__icon project__icon--blurred"
               />
               <span class="project__wip-badge">{{ 'PROJECTS.WIP' | translate }}</span>
@@ -89,7 +93,7 @@
         (click)="slidePrev()"
         [attr.aria-label]="'PROJECTS.PREVIOUS' | translate"
       >
-        <svg
+        <svg aria-hidden="true"
           width="78"
           height="70"
           viewBox="0 0 78 70"
@@ -132,6 +136,7 @@
             class="project__nav-dot"
             [class.project__nav-dot--active]="currentActiveIndex === i"
             (click)="scrollToProject(i)"
+            [attr.aria-current]="currentActiveIndex === i ? 'true' : null"
             [attr.aria-label]="'PROJECTS.GOTO' | translate: { name: (project.name | translate) }"
           ></button>
         }
@@ -142,7 +147,7 @@
         (click)="slideNext()"
         [attr.aria-label]="'PROJECTS.NEXT' | translate"
       >
-        <svg
+        <svg aria-hidden="true"
           width="78"
           height="70"
           viewBox="0 0 78 70"

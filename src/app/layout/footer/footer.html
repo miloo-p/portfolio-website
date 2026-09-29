@@ -14,6 +14,10 @@
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
             routerLink="/"
+            role="link"
+            tabindex="0"
+            [attr.aria-label]="'NAVIGATION.HOME' | translate"
+            (keydown.enter)="goToHome()"
           >
             <path
               d="M32.0398 48.7261C29.4472 44.2997 22.2032 42.3918 18.6956 42.4681C17.3231 43.2312 17.7806 48.4208 17.9331 49.8708C15.1117 68.1106 26.7784 56.2814 32.116 48.6497M19.7631 29.0363C22.2032 28.96 33.1073 18.8861 28.9897 17.7414C25.8633 18.7335 21.2882 16.0624 19.3056 19.1914C19.6106 21.4809 17.6281 27.6626 19.7631 28.96M47.8241 52.1603C44.0877 66.279 24.1858 67.0421 15.9505 78.3371C12.5954 79.9397 8.70652 79.1765 5.19891 80.4739C3.21634 79.4055 1.76755 76.8107 0.700011 74.9028C-2.12133 70.629 4.43638 69.408 5.35141 65.8211C5.35141 51.6261 7.79149 37.0496 8.0965 22.8546C7.86775 20.5651 9.31654 17.894 6.80021 16.444C3.67386 14.6124 0.852516 9.57544 4.81765 7.05698C4.8939 4.69115 7.79149 5.75959 9.31654 4.61484C13.6629 1.10426 12.5954 -3.01686 18.0093 3.24113C24.1858 9.88071 37.53 4.23325 46.1465 8.507C62.3883 19.4967 38.9788 27.8915 31.7348 34.5311C40.1988 39.1864 50.0354 37.4311 47.8241 52.2366"
@@ -61,8 +65,8 @@
             />
           </svg>
           <div class="footer__content__buttonbar">
-            <button (click)="goToLink('https://github.com/miloo-p')">
-              <svg
+            <button aria-label="GitHub" (click)="goToLink('https://github.com/miloo-p')">
+              <svg aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
                 height="30"
@@ -77,7 +81,7 @@
               href="mailto:hi@timo-boening.de"
               [attr.aria-label]="'FOOTER.WRITE_EMAIL' | translate"
             >
-              <svg
+              <svg aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
                 height="30"
@@ -87,8 +91,11 @@
                 <path
                   d="M1.5 3H30v27H0V3h1.5ZM27 9.357l-11.892 10.65L3 9.324V27h24V9.357ZM3.767 6l11.325 9.993L26.252 6H3.767Z"
                 /></svg></a
-            ><button (click)="goToLink('https://www.linkedin.com/in/timo-b%C3%B6ning-760a7827b/')">
-              <svg
+            ><button
+              aria-label="LinkedIn"
+              (click)="goToLink('https://www.linkedin.com/in/timo-b%C3%B6ning-760a7827b/')"
+            >
+              <svg aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
                 height="30"

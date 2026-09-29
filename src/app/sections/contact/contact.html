@@ -1,7 +1,7 @@
 <section class="contact" id="contact">
   <div class="contact__wrapper">
     <div class="contact__side-visual">
-      <svg
+      <svg aria-hidden="true"
         width="213"
         height="367"
         viewBox="0 0 213 367"
@@ -27,35 +27,49 @@
       <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="contact__form-row">
           <div class="contact__form-group">
+            <label for="firstName" class="visually-hidden">{{
+              'CONTACT.FORM.FIRST_NAME' | translate
+            }}</label>
             <input
               type="text"
               id="firstName"
               formControlName="firstName"
               class="contact__input"
+              autocomplete="given-name"
+              aria-required="true"
+              [attr.aria-invalid]="hasVisibleError('firstName')"
+              [attr.aria-describedby]="hasVisibleError('firstName') ? 'firstName-error' : null"
               [placeholder]="'CONTACT.FORM.FIRST_NAME' | translate"
             />
             @if (
               contactForm.controls.firstName.touched &&
               contactForm.controls.firstName.hasError('required')
             ) {
-              <span class="contact__error">{{
+              <span id="firstName-error" class="contact__error">{{
                 'CONTACT.FORM.ERRORS.FIRST_NAME_REQUIRED' | translate
               }}</span>
             }
           </div>
           <div class="contact__form-group">
+            <label for="lastName" class="visually-hidden">{{
+              'CONTACT.FORM.LAST_NAME' | translate
+            }}</label>
             <input
               type="text"
               id="lastName"
               formControlName="lastName"
               class="contact__input"
+              autocomplete="family-name"
+              aria-required="true"
+              [attr.aria-invalid]="hasVisibleError('lastName')"
+              [attr.aria-describedby]="hasVisibleError('lastName') ? 'lastName-error' : null"
               [placeholder]="'CONTACT.FORM.LAST_NAME' | translate"
             />
             @if (
               contactForm.controls.lastName.touched &&
               contactForm.controls.lastName.hasError('required')
             ) {
-              <span class="contact__error">{{
+              <span id="lastName-error" class="contact__error">{{
                 'CONTACT.FORM.ERRORS.LAST_NAME_REQUIRED' | translate
               }}</span>
             }
@@ -63,20 +77,25 @@
         </div>
 
         <div class="contact__form-group">
+          <label for="email" class="visually-hidden">{{ 'CONTACT.FORM.EMAIL' | translate }}</label>
           <input
             type="email"
             id="email"
             formControlName="email"
             class="contact__input"
+            autocomplete="email"
+            aria-required="true"
+            [attr.aria-invalid]="hasVisibleError('email')"
+            [attr.aria-describedby]="hasVisibleError('email') ? 'email-error' : null"
             [placeholder]="'CONTACT.FORM.EMAIL' | translate"
           />
           @if (contactForm.controls.email.touched) {
             @if (contactForm.controls.email.hasError('required')) {
-              <span class="contact__error">{{
+              <span id="email-error" class="contact__error">{{
                 'CONTACT.FORM.ERRORS.EMAIL_REQUIRED' | translate
               }}</span>
             } @else if (contactForm.controls.email.hasError('email')) {
-              <span class="contact__error">{{
+              <span id="email-error" class="contact__error">{{
                 'CONTACT.FORM.ERRORS.EMAIL_INVALID' | translate
               }}</span>
             }
@@ -84,20 +103,26 @@
         </div>
 
         <div class="contact__form-group">
+          <label for="message" class="visually-hidden">{{
+            'CONTACT.FORM.MESSAGE' | translate
+          }}</label>
           <textarea
             id="message"
             formControlName="message"
             class="contact__textarea"
+            aria-required="true"
+            [attr.aria-invalid]="hasVisibleError('message')"
+            [attr.aria-describedby]="hasVisibleError('message') ? 'message-error' : null"
             [placeholder]="'CONTACT.FORM.MESSAGE' | translate"
             rows="8"
           ></textarea>
           @if (contactForm.controls.message.touched) {
             @if (contactForm.controls.message.hasError('required')) {
-              <span class="contact__error">{{
+              <span id="message-error" class="contact__error">{{
                 'CONTACT.FORM.ERRORS.MESSAGE_REQUIRED' | translate
               }}</span>
             } @else if (contactForm.controls.message.hasError('minlength')) {
-              <span class="contact__error">{{
+              <span id="message-error" class="contact__error">{{
                 'CONTACT.FORM.ERRORS.MESSAGE_MINLENGTH' | translate
               }}</span>
             }
@@ -112,13 +137,17 @@
                 id="privacy"
                 formControlName="privacy"
                 class="contact__checkbox"
+                aria-required="true"
+                [attr.aria-invalid]="hasVisibleError('privacy')"
+                [attr.aria-describedby]="hasVisibleError('privacy') ? 'privacy-error' : null"
               />
 
               <div class="contact__checkbox-label-wrapper">
-                <span class="contact__checkbox-label">
+                <label for="privacy" class="contact__checkbox-label">
                   {{ 'CONTACT.FORM.PRIVACY_BEFORE' | translate }}
                   <a
                     href="#"
+                    aria-haspopup="dialog"
                     (click)="togglePrivacyModal($event)"
                     class="text-primary"
                     style="cursor: pointer"
@@ -126,7 +155,7 @@
                     {{ 'CONTACT.FORM.PRIVACY_LINK' | translate }}
                   </a>
                   {{ 'CONTACT.FORM.PRIVACY_AFTER' | translate }}
-                </span>
+                </label>
               </div>
             </div>
 
@@ -134,13 +163,13 @@
               contactForm.controls.privacy.touched &&
               contactForm.controls.privacy.hasError('required')
             ) {
-              <span class="contact__error">{{
+              <span id="privacy-error" class="contact__error">{{
                 'CONTACT.FORM.ERRORS.PRIVACY_REQUIRED' | translate
               }}</span>
             }
           </div>
 
-          <div (click)="onSubmit()" style="cursor: pointer">
+          <div style="cursor: pointer">
             <app-btn-cta-primary
               [btnText]="
                 isSending
@@ -148,22 +177,41 @@
                   : ('CONTACT.FORM.SUBMIT' | translate)
               "
               btnUrl=""
+              btnType="submit"
             ></app-btn-cta-primary>
           </div>
         </div>
 
         @if (showSuccessMessage) {
-          <p class="contact__success">{{ 'CONTACT.FORM.SUCCESS' | translate }}</p>
+          <p class="contact__success" aria-hidden="true">{{ 'CONTACT.FORM.SUCCESS' | translate }}</p>
         }
+        <div class="visually-hidden" role="status">
+          @if (showSuccessMessage) {
+            {{ 'CONTACT.FORM.SUCCESS' | translate }}
+          }
+        </div>
       </form>
     </div>
   </div>
 </section>
 
 <div class="modal-overlay" *ngIf="isPrivacyModalOpen" (click)="togglePrivacyModal()">
-  <div class="modal-content" (click)="$event.stopPropagation()">
-    <button class="modal__close-btn" (click)="togglePrivacyModal()">
-      <svg
+  <div
+    #privacyModal
+    class="modal-content"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="'PRIVACY_POLICY.TITLE' | translate"
+    (click)="$event.stopPropagation()"
+    (keydown)="trapFocus($event)"
+  >
+    <button
+      #privacyModalClose
+      class="modal__close-btn"
+      [attr.aria-label]="'CONTACT.FORM.CLOSE_PRIVACY' | translate"
+      (click)="togglePrivacyModal()"
+    >
+      <svg aria-hidden="true"
         class="close-icon"
         xmlns="http://www.w3.org/2000/svg"
         width="22"

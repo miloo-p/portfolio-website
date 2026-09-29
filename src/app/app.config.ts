@@ -1,10 +1,11 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, inject } from '@angular/core';
-import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import { provideRouter, TitleStrategy, withInMemoryScrolling } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { routes } from './app.routes';
+import { TranslatedTitleStrategy } from './translated-title-strategy';
 
 /**
  * Global application configuration.
@@ -23,6 +24,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled',
       }),
     ),
+    { provide: TitleStrategy, useClass: TranslatedTitleStrategy },
     provideHttpClient(),
     provideTranslateService({
       lang: 'de',
