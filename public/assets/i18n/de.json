@@ -58,6 +58,10 @@
       "KANMIND": {
         "NAME": "KanMind (WIP)",
         "DESCRIPTION": "Mein aktuelles Backend-Projekt: Für ein bestehendes Kanban-Frontend baue ich mit Python und Django eine eigene, abgesicherte REST-API zur Datenverwaltung."
+      },
+      "INCUSYNC": {
+        "NAME": "INCUSYNC",
+        "DESCRIPTION": "Ein inoffizielles Konfigurationstool für Equalizer APO, gebaut mit Angular, TypeScript und Canvas. Es übersetzt die Werte eines Hörtests in eine fertige Equalizer-Datei, damit Menschen mit Hörverlust ihren PC-Sound ohne Technikwissen anpassen können. Im Fokus: Barrierefreiheit und klare Nutzerführung. Die Preview ist aktuell nur am Desktop nutzbar."
       }
     }
   },

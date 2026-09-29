@@ -58,6 +58,10 @@
       "KANMIND": {
         "NAME": "KanMind (WIP)",
         "DESCRIPTION": "My current backend project: for an existing Kanban frontend, I’m building my own secured REST API for data management with Python and Django."
+      },
+      "INCUSYNC": {
+        "NAME": "INCUSYNC",
+        "DESCRIPTION": "An unofficial configuration tool for Equalizer APO, built with Angular, TypeScript and Canvas. It turns the results of a hearing test into a ready-to-use equalizer file, so people with hearing loss can adjust their PC sound without technical knowledge. The focus: accessibility and clear user guidance. The preview currently works on desktop only."
       }
     }
   },

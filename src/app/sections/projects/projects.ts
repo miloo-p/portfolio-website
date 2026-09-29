@@ -25,40 +25,44 @@ export class Projects implements OnInit, AfterViewInit {
 
   public myProjects: Project[] = [
     {
-      name: 'PROJECTS.ITEMS.LIGHT_DARK.NAME',
-      iconUrl: 'assets/images/project-thumbnails/project_light-shadow.webp',
-      description:
-        'PROJECTS.ITEMS.LIGHT_DARK.DESCRIPTION',
-      techStack: ['JavaScript', 'HTML5 Canvas', 'OOP'],
-      liveUrl: 'https://light-and-dark.timo-boening.de',
-      gitUrl: 'https://github.com/miloo-p/light-and-dark',
-    },
-    {
       name: 'PROJECTS.ITEMS.JOIN.NAME',
       iconUrl: 'assets/images/project-thumbnails/project_join.webp',
-      description:
-        'PROJECTS.ITEMS.JOIN.DESCRIPTION',
+      description: 'PROJECTS.ITEMS.JOIN.DESCRIPTION',
       techStack: ['Angular', 'TypeScript', 'SCSS'],
       liveUrl: 'https://join.timo-boening.de',
       gitUrl: 'https://github.com/miloo-p/join-app',
     },
     {
+      name: 'PROJECTS.ITEMS.LIGHT_DARK.NAME',
+      iconUrl: 'assets/images/project-thumbnails/project_light-shadow.webp',
+      description: 'PROJECTS.ITEMS.LIGHT_DARK.DESCRIPTION',
+      techStack: ['JavaScript', 'HTML5 Canvas', 'OOP'],
+      liveUrl: 'https://light-and-dark.timo-boening.de',
+      gitUrl: 'https://github.com/miloo-p/light-and-dark',
+    },
+    {
       name: 'PROJECTS.ITEMS.POKEDEX.NAME',
       iconUrl: 'assets/images/project-thumbnails/project_pokedex.webp',
-      description:
-        'PROJECTS.ITEMS.POKEDEX.DESCRIPTION',
+      description: 'PROJECTS.ITEMS.POKEDEX.DESCRIPTION',
       techStack: ['JavaScript', 'REST-API', 'HTML/CSS'],
       liveUrl: 'https://pokedex.timo-boening.de',
       gitUrl: 'https://github.com/miloo-p/da-pokedex',
     },
-    {
+    /*     {
       name: 'PROJECTS.ITEMS.KANMIND.NAME',
       iconUrl: 'assets/images/project-thumbnails/project_soon.webp',
-      description:
-        'PROJECTS.ITEMS.KANMIND.DESCRIPTION',
+      description: 'PROJECTS.ITEMS.KANMIND.DESCRIPTION',
       techStack: ['Python', 'Django', 'REST-API'],
       liveUrl: '',
       gitUrl: '',
+    }, */
+    {
+      name: 'PROJECTS.ITEMS.INCUSYNC.NAME',
+      iconUrl: 'assets/images/project-thumbnails/project_soon.webp',
+      description: 'PROJECTS.ITEMS.INCUSYNC.DESCRIPTION',
+      techStack: ['Angular', 'TypeScript', 'SCSS'],
+      liveUrl: 'https://miloo-p.github.io/incu-sync/',
+      gitUrl: 'https://github.com/miloo-p/incu-sync/blob/main/README.md',
     },
   ];
 
