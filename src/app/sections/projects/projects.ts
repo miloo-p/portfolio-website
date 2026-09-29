@@ -3,15 +3,31 @@ import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-p
 import { BtnCtaSecondary } from '../../shared/components/btn-cta-secondary/btn-cta-secondary';
 import { TranslatePipe } from '@ngx-translate/core';
 
+/**
+ * A portfolio project shown in the carousel.
+ */
 interface Project {
+  /** Translation key of the project name. */
   name: string;
+  /** Translation key of the project description. */
   description: string;
+  /** Technologies used in the project. */
   techStack: string[];
+  /** URL of the live demo. If empty, the project is shown as work in progress. */
   liveUrl: string;
+  /** Path to the project thumbnail. */
   iconUrl: string;
+  /** URL of the GitHub repository. */
   gitUrl: string;
 }
 
+/**
+ * Projects section with an infinite, horizontally scrolling carousel.
+ *
+ * The infinite loop works by rendering the project list three times. Whenever
+ * scrolling ends in the first or last copy, the carousel silently jumps to the
+ * matching card in the middle copy.
+ */
 @Component({
   selector: 'app-projects',
   imports: [BtnCtaPrimary, BtnCtaSecondary, TranslatePipe],
@@ -19,10 +35,13 @@ interface Project {
   styleUrl: './projects.scss',
 })
 export class Projects implements OnInit, AfterViewInit {
+  /** The horizontally scrollable carousel container. */
   @ViewChild('scrollGrid') scrollGrid!: ElementRef<HTMLDivElement>;
 
+  /** Index of the active project in {@link myProjects}. Used to highlight the card and navigation dot. */
   public currentActiveIndex: number = 0;
 
+  /** The projects to showcase. */
   public myProjects: Project[] = [
     {
       name: 'PROJECTS.ITEMS.JOIN.NAME',
@@ -66,12 +85,20 @@ export class Projects implements OnInit, AfterViewInit {
     },
   ];
 
+  /** The rendered cards: the base set repeated three times for the infinite loop. */
   public displayProjects: Project[] = [];
+  /** Number of cards in one copy of the base set. */
   private baseSetLength: number = 0;
 
+  /** ID of the running scroll animation frame, if any. */
   private animFrameId: number | null = null;
+  /** True while a programmatic scroll animation is running. */
   public isAnimating: boolean = false;
 
+  /**
+   * Builds {@link displayProjects}. An odd project count is doubled first
+   * so the alternating card offset stays consistent across the copies.
+   */
   ngOnInit(): void {
     const baseSet =
       this.myProjects.length % 2 !== 0 ? [...this.myProjects, ...this.myProjects] : this.myProjects;
@@ -80,24 +107,39 @@ export class Projects implements OnInit, AfterViewInit {
     this.displayProjects = [...baseSet, ...baseSet, ...baseSet];
   }
 
+  /**
+   * Centers the first card of the middle copy once the cards have been rendered.
+   */
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.jumpTo(this.baseSetLength, 'auto');
     }, 10);
   }
 
+  /**
+   * Slides to the next card. Ignored while an animation is running.
+   */
   public slideNext(): void {
     if (this.isAnimating) return;
     const currentIndex = this.getClosestIndex();
     this.slideToIndex(currentIndex + 1);
   }
 
+  /**
+   * Slides to the previous card. Ignored while an animation is running.
+   */
   public slidePrev(): void {
     if (this.isAnimating) return;
     const currentIndex = this.getClosestIndex();
     this.slideToIndex(currentIndex - 1);
   }
 
+  /**
+   * Slides to a specific project, choosing the copy of its card closest to the
+   * current scroll position. Ignored while an animation is running.
+   *
+   * @param realIndex - Index of the project in {@link myProjects}.
+   */
   public scrollToProject(realIndex: number): void {
     if (this.isAnimating) return;
     this.currentActiveIndex = realIndex;
@@ -125,6 +167,9 @@ export class Projects implements OnInit, AfterViewInit {
     this.slideToIndex(bestIndex);
   }
 
+  /**
+   * Updates {@link currentActiveIndex} to the card closest to the center while the user scrolls.
+   */
   public onScroll(): void {
     if (this.isAnimating) return;
 
@@ -136,6 +181,10 @@ export class Projects implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * Keeps the loop infinite: when scrolling stops in the first or last copy,
+   * jumps without animation to the same card in the middle copy.
+   */
   public onScrollEnd(): void {
     if (this.isAnimating) return;
 
@@ -146,6 +195,12 @@ export class Projects implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * Centers the card at the given index with an animated scroll.
+   * Out-of-range indices are ignored.
+   *
+   * @param index - Index of the card in {@link displayProjects}.
+   */
   private slideToIndex(index: number): void {
     const grid = this.scrollGrid.nativeElement;
     if (index < 0 || index >= grid.children.length) return;
@@ -161,6 +216,14 @@ export class Projects implements OnInit, AfterViewInit {
     this.animateToPosition(targetScrollLeft, 450);
   }
 
+  /**
+   * Scrolls the carousel to a horizontal position with an ease-in-out animation.
+   * Scroll snapping is disabled during the animation and re-enabled afterwards.
+   * A running animation is cancelled first.
+   *
+   * @param targetLeft - Target `scrollLeft` value in pixels.
+   * @param duration - Animation duration in milliseconds.
+   */
   private animateToPosition(targetLeft: number, duration: number): void {
     const grid = this.scrollGrid.nativeElement;
 
@@ -199,6 +262,11 @@ export class Projects implements OnInit, AfterViewInit {
     this.animFrameId = requestAnimationFrame(animate);
   }
 
+  /**
+   * Finds the card whose center is closest to the center of the carousel.
+   *
+   * @returns Index of that card in {@link displayProjects}.
+   */
   private getClosestIndex(): number {
     const grid = this.scrollGrid.nativeElement;
     const scrollCenter = grid.scrollLeft + grid.clientWidth / 2;
@@ -218,6 +286,12 @@ export class Projects implements OnInit, AfterViewInit {
     return closestIndex;
   }
 
+  /**
+   * Centers the card at the given index using the native `scrollTo`.
+   *
+   * @param index - Index of the card in {@link displayProjects}.
+   * @param behavior - Scroll behavior, e.g. `'auto'` for an instant jump.
+   */
   private jumpTo(index: number, behavior: ScrollBehavior): void {
     const grid = this.scrollGrid.nativeElement;
     const targetItem = grid.children[index] as HTMLElement;

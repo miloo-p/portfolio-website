@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
+/**
+ * A colleague's reference.
+ */
 interface Testimonial {
+  /** Name and role of the author. */
   name: string;
+  /** The reference text. */
   text: string;
 }
 
+/**
+ * Testimonials section showing references from former teammates.
+ */
 @Component({
   selector: 'app-testimonials',
   imports: [TranslatePipe],
@@ -13,6 +21,7 @@ interface Testimonial {
   styleUrl: './testimonials.scss',
 })
 export class Testimonials {
+  /** References displayed in the section. */
   public myTestemonials: Testimonial[] = [
     {
       name: 'Jermaine Jérôme Bärwolf, Fullstack Developer',

@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
+/**
+ * A technology or tool shown in the skills section.
+ */
 interface Skill {
+  /** Display name of the skill. */
   name: string;
+  /** Path to the skill's SVG icon. */
   iconUrl: string;
 }
 
+/**
+ * Skills section listing technologies, grouped into design, frontend and backend rows.
+ */
 @Component({
   selector: 'app-skills',
   imports: [TranslatePipe],
@@ -13,6 +21,7 @@ interface Skill {
   styleUrl: './skills.scss',
 })
 export class Skills {
+  /** Skills in display order: design & CMS, frontend & tools, backend. */
   public mySkills: Skill[] = [
     // --- ROW 1 (Design & CMS) ---
     { name: 'WordPress', iconUrl: 'assets/icons/skills/creative/wordpress-creative.svg' },

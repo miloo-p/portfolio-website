@@ -3,6 +3,10 @@ import { Header } from './layout/header/header';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './layout/footer/footer';
 
+/**
+ * Root component of the application.
+ * Renders the global header and footer around the routed page content.
+ */
 @Component({
   selector: 'app-root',
   imports: [Header, RouterOutlet, Footer],
@@ -10,5 +14,6 @@ import { Footer } from './layout/footer/footer';
   styleUrl: './app.scss',
 })
 export class App {
+  /** Application title. */
   protected readonly title = signal('personal-portfolio');
 }

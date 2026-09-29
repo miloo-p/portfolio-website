@@ -5,6 +5,10 @@ import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-p
 import { Router } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
+/**
+ * Global page header with logo, section navigation, language switch
+ * and a burger menu for smaller screens.
+ */
 @Component({
   selector: 'app-header',
   imports: [CommonModule, PageNavigation, BtnCtaPrimary, TranslatePipe],
@@ -16,9 +20,14 @@ export class Header implements OnDestroy {
   private translateService = inject(TranslateService);
   private renderer = inject(Renderer2);
 
+  /** Whether the mobile menu is open. */
   isMenuOpen = signal(false);
+  /** Currently active UI language. */
   currentLanguage = signal<'de' | 'en'>('de');
 
+  /**
+   * Restores the language saved in `localStorage` from a previous visit, if any.
+   */
   constructor() {
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage === 'de' || savedLanguage === 'en') {
@@ -27,6 +36,9 @@ export class Header implements OnDestroy {
     }
   }
 
+  /**
+   * Opens or closes the mobile menu and locks page scrolling while it is open.
+   */
   toggleMenu() {
     this.isMenuOpen.update((val) => {
       const next = !val;
@@ -35,6 +47,9 @@ export class Header implements OnDestroy {
     });
   }
 
+  /**
+   * Closes the mobile menu, if open, and releases the scroll lock.
+   */
   closeMenu() {
     if (this.isMenuOpen()) {
       this.isMenuOpen.set(false);
@@ -42,6 +57,11 @@ export class Header implements OnDestroy {
     }
   }
 
+  /**
+   * Adds or removes the `no-scroll` class on `<body>`.
+   *
+   * @param lock - `true` to prevent page scrolling, `false` to allow it again.
+   */
   private updateScrollLock(lock: boolean) {
     if (lock) {
       this.renderer.addClass(document.body, 'no-scroll');
@@ -50,6 +70,10 @@ export class Header implements OnDestroy {
     }
   }
 
+  /**
+   * Closes the mobile menu when the window grows beyond 1200 px,
+   * where the desktop navigation is shown instead.
+   */
   @HostListener('window:resize')
   onResize() {
     if (window.innerWidth > 1200 && this.isMenuOpen()) {
@@ -57,11 +81,20 @@ export class Header implements OnDestroy {
     }
   }
 
+  /**
+   * Closes the mobile menu and navigates to the landing page.
+   */
   goToHome() {
     this.closeMenu();
     this.router.navigate(['/']);
   }
 
+  /**
+   * Switches the UI language and saves the choice in `localStorage`.
+   *
+   * @param language - The language to activate.
+   * @param event - The triggering click event. Its default action is prevented.
+   */
   changeLanguage(language: 'de' | 'en', event: Event): void {
     event.preventDefault();
     if (this.currentLanguage() === language) {
@@ -73,6 +106,9 @@ export class Header implements OnDestroy {
     this.translateService.use(language);
   }
 
+  /**
+   * Releases the scroll lock so the page stays scrollable after the header is destroyed.
+   */
   ngOnDestroy() {
     this.updateScrollLock(false);
   }
