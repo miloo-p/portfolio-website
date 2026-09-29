@@ -8,7 +8,7 @@ import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
-  imports: [BtnCtaPrimary, ReactiveFormsModule, TranslatePipe, RouterLink, LegalNotes, NgIf],
+  imports: [BtnCtaPrimary, ReactiveFormsModule, TranslatePipe, LegalNotes, NgIf],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
