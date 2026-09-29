@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angula
 import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-primary';
 import { BtnCtaSecondary } from '../../shared/components/btn-cta-secondary/btn-cta-secondary';
 import { TranslatePipe } from '@ngx-translate/core';
+import { prefersReducedMotion } from '../../shared/utils/motion';
 
 /**
  * A portfolio project shown in the carousel.
@@ -225,7 +226,7 @@ export class Projects implements OnInit, AfterViewInit {
     const targetScrollLeft =
       targetItem.offsetLeft - grid.clientWidth / 2 + targetItem.clientWidth / 2;
 
-    this.animateToPosition(targetScrollLeft, 450);
+    this.animateToPosition(targetScrollLeft, prefersReducedMotion() ? 0 : 450);
   }
 
   /**
@@ -256,7 +257,7 @@ export class Projects implements OnInit, AfterViewInit {
     const animate = (currentTime: number) => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
+      const progress = duration > 0 ? Math.min(timeElapsed / duration, 1) : 1;
 
       grid.scrollLeft = startLeft + distance * easeInOutCubic(progress);
 

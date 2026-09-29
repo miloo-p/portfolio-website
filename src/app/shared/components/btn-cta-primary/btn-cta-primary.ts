@@ -1,5 +1,6 @@
 import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
+import { scrollBehavior } from '../../utils/motion';
 
 /**
  * Primary call-to-action button. Links to an in-page anchor or an external URL,
@@ -39,7 +40,7 @@ export class BtnCtaPrimary {
     if (url.startsWith('#')) {
       const targetElement = document.querySelector(url);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        targetElement.scrollIntoView({ behavior: scrollBehavior() });
       } else {
         this.router.navigate(['/'], { fragment: url.slice(1) });
       }

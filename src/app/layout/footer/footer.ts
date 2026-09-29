@@ -21,24 +21,4 @@ export class Footer {
   goToHome() {
     this.router.navigate(['/']);
   }
-
-  /**
-   * Smoothly scrolls to an in-page anchor or opens an external URL in a new tab.
-   *
-   * @param url - An anchor selector starting with `#` or an absolute URL. Empty values are ignored.
-   */
-  goToLink(url: string) {
-    if (!url) {
-      return;
-    }
-
-    if (url.startsWith('#')) {
-      const targetElement = document.querySelector(url);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.open(url, '_blank');
-    }
-  }
 }

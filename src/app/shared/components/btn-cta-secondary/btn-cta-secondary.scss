@@ -3,8 +3,11 @@
 
   font-family: var(--font-display);
   font-size: var(--fs-display-4);
-  appearance: var(--neutral-200);
-  background: BtnCtaSecondary;
+  appearance: none;
+  background: var(--neutral-200);
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
   padding: 0.3em 1em;
   border-radius: 5px;
   border: 2px solid var(--neutral-900);

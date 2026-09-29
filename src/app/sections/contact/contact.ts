@@ -12,6 +12,7 @@ import { BtnCtaPrimary } from '../../shared/components/btn-cta-primary/btn-cta-p
 import { TranslatePipe } from '@ngx-translate/core';
 import { LegalNotes } from '../../pages/legal-notes/legal-notes';
 import { NgIf } from '@angular/common';
+import { scrollBehavior } from '../../shared/utils/motion';
 
 /**
  * Contact section with a validated contact form that is sent via `mailer.php`,
@@ -45,6 +46,8 @@ export class Contact implements OnDestroy {
   public isSending = false;
   /** True for 5 seconds after the message was sent successfully. */
   public showSuccessMessage = false;
+  /** True after sending failed because of a server or network error. */
+  public showErrorMessage = false;
   /** Whether the privacy policy modal is open. */
   isPrivacyModalOpen = false;
 
@@ -129,7 +132,7 @@ export class Contact implements OnDestroy {
    * On success, resets the form and shows the success message for 5 seconds.
    * If the form is invalid, marks all fields as touched to show validation errors
    * and focuses the first invalid field so screen readers announce its error.
-   * Server and network errors are logged to the console.
+   * Server and network errors are logged to the console and shown to the user.
    *
    * @returns A promise that resolves once the request has finished.
    */
@@ -145,6 +148,7 @@ export class Contact implements OnDestroy {
     }
 
     this.isSending = true;
+    this.showErrorMessage = false;
     const formValues = this.contactForm.value;
     const fullName = `${formValues.firstName} ${formValues.lastName}`.trim();
 
@@ -168,9 +172,11 @@ export class Contact implements OnDestroy {
         setTimeout(() => (this.showSuccessMessage = false), 5000);
       } else {
         console.error('Server-Fehler:', result.message);
+        this.showErrorMessage = true;
       }
     } catch (error) {
       console.error('Netzwerk-Fehler:', error);
+      this.showErrorMessage = true;
     } finally {
       this.isSending = false;
     }
@@ -189,7 +195,7 @@ export class Contact implements OnDestroy {
     if (url.startsWith('#')) {
       const targetElement = document.querySelector(url);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        targetElement.scrollIntoView({ behavior: scrollBehavior() });
       }
     } else {
       window.open(url, '_blank');

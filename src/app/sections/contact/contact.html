@@ -185,9 +185,17 @@
         @if (showSuccessMessage) {
           <p class="contact__success" aria-hidden="true">{{ 'CONTACT.FORM.SUCCESS' | translate }}</p>
         }
+        @if (showErrorMessage) {
+          <p class="contact__submit-error" aria-hidden="true">
+            {{ 'CONTACT.FORM.ERROR' | translate }}
+          </p>
+        }
         <div class="visually-hidden" role="status">
           @if (showSuccessMessage) {
             {{ 'CONTACT.FORM.SUCCESS' | translate }}
+          }
+          @if (showErrorMessage) {
+            {{ 'CONTACT.FORM.ERROR' | translate }}
           }
         </div>
       </form>
@@ -201,7 +209,7 @@
     class="modal-content"
     role="dialog"
     aria-modal="true"
-    [attr.aria-label]="'PRIVACY_POLICY.TITLE' | translate"
+    aria-labelledby="privacy-title"
     (click)="$event.stopPropagation()"
     (keydown)="trapFocus($event)"
   >
@@ -227,6 +235,6 @@
         />
       </svg>
     </button>
-    <app-legal-notes></app-legal-notes>
+    <app-legal-notes [inModal]="true"></app-legal-notes>
   </div>
 </div>
