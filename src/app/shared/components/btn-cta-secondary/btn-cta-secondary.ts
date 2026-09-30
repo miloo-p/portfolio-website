@@ -1,7 +1,9 @@
 import { Component, input } from '@angular/core';
+import { scrollBehavior } from '../../utils/motion';
 
 /**
- * Secondary call-to-action button that links to an in-page anchor or an external URL.
+ * Secondary call-to-action link to an in-page anchor or an external URL.
+ * Rendered as a real `<a>` so middle click, context menu and link semantics work.
  */
 @Component({
   selector: 'app-btn-cta-secondary',
@@ -14,24 +16,33 @@ export class BtnCtaSecondary {
   btnText = input.required<string>();
   /** Link target: an anchor selector starting with `#` or an absolute URL. */
   btnUrl = input.required<string>();
+  /** Whether the button can be reached with Tab. Set to `false` for hidden duplicates. */
+  tabbable = input(true);
 
   /**
-   * Smoothly scrolls to an in-page anchor or opens an external URL in a new tab.
+   * Whether the link points to an in-page anchor.
    *
-   * @param url - An anchor selector starting with `#` or an absolute URL. Empty values are ignored.
+   * @returns `true` if {@link btnUrl} starts with `#`.
    */
-  goToLink(url: string) {
-    if (!url) {
+  isAnchor(): boolean {
+    return this.btnUrl().startsWith('#');
+  }
+
+  /**
+   * Scrolls to in-page anchors instead of navigating. External URLs are left to the
+   * browser, which opens them in a new tab via `target="_blank"`.
+   *
+   * @param event - The click event of the link.
+   */
+  onClick(event: Event) {
+    if (!this.isAnchor()) {
       return;
     }
 
-    if (url.startsWith('#')) {
-      const targetElement = document.querySelector(url);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.open(url, '_blank');
+    event.preventDefault();
+    const targetElement = document.querySelector(this.btnUrl());
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: scrollBehavior() });
     }
   }
 }

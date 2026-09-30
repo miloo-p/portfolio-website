@@ -10,3 +10,12 @@
   @include mixin.flexbox(column, start, start, 2rem);
   @include mixin.global_content_wrapper();
 }
+
+// Links im Fließtext müssen ohne Farbe erkennbar sein (WCAG 1.4.1)
+:host a {
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--secondary-600);
+  }
+}

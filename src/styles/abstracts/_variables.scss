@@ -7,6 +7,7 @@
 
   // --- SECONDARY (Orange/Braun) ---
   --secondary-500: hsl(15, 100%, 55%);
+  --secondary-600: hsl(15, 100%, 40%); // Text auf hellem Grund (≥ 4.5:1)
   --secondary-900: hsl(15, 60%, 35%);
   --secondary-300: hsl(15, 96%, 63%);
   --secondary-200: hsl(15, 81%, 72%);
@@ -36,6 +37,7 @@
 
   // --- FEEDBACK ---
   --feedback-error: hsl(349, 97%, 55%);
+  --feedback-error-text: hsl(349, 97%, 42%); // Fehlertext auf hellem Grund (≥ 4.5:1)
   --feedback-warning: hsl(37, 100%, 58%);
   --feedback-info: hsl(193, 100%, 40%);
   --feedback-success: hsl(166, 100%, 42%);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
 /**
@@ -10,4 +10,10 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './legal-notes.html',
   styleUrl: './legal-notes.scss',
 })
-export class LegalNotes {}
+export class LegalNotes {
+  /**
+   * Whether the component is shown inside the privacy modal. The title is then an
+   * `h2` (the landing page already has an `h1`), otherwise the page's `h1`.
+   */
+  inModal = input(false);
+}

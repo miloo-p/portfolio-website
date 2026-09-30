@@ -2,13 +2,13 @@
   <div class="testemonials__wrapper">
     <div class="testemonials__header">
       <h2>{{ 'TESTIMONIALS.TITLE' | translate }}</h2>
-      <h3 class="testemonials__header__subtext">{{ 'TESTIMONIALS.SUBTITLE' | translate }}</h3>
+      <p class="testemonials__header__subtext subtitle">{{ 'TESTIMONIALS.SUBTITLE' | translate }}</p>
     </div>
 
     <div class="testemonials__grid">
       @for (testemonial of myTestemonials; track $index; let i = $index) {
         <div class="testemonials__grid__item" [style.anchor-name]="'--zipfel-' + i">
-          <svg
+          <svg aria-hidden="true"
             class="testemonials__grid__item__zipfel"
             [style.position-anchor]="'--zipfel-' + i"
             width="163"
@@ -24,7 +24,7 @@
           </svg>
 
           <blockquote class="testemonials__grid__item__quote">
-            <svg
+            <svg aria-hidden="true"
               class="testemonials__grid__item__cite"
               width="35"
               height="29"

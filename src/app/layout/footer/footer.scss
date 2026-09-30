@@ -77,14 +77,6 @@
     @include mixin.respond-to(sm) {
       @include mixin.flexbox(column, center, center, 2rem);
     }
-
-    button {
-      background: none;
-      border: none;
-      cursor: pointer;
-
-      color: var(--neutral-200);
-    }
   }
 
   &__buttonbar {

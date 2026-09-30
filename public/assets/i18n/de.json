@@ -5,7 +5,10 @@
     "PROJECTS": "Projekte",
     "PARTNER": "Referenzen",
     "CONTACT": "Kontakt",
-    "TOGGLE_MENU": "Menü öffnen"
+    "TOGGLE_MENU": "Menü",
+    "HOME": "Zur Startseite",
+    "LANGUAGE": "Sprache",
+    "SKIP": "Zum Inhalt springen"
   },
   "HERO": {
     "SUBTITLE": "Frontend Developer auf dem Weg zum Fullstack. Leidenschaft für Tech, UI/UX & Design.",
@@ -107,7 +110,9 @@
         "MESSAGE_REQUIRED": "Bitte schreibe mir eine kurze Nachricht.",
         "MESSAGE_MINLENGTH": "Die Nachricht sollte mindestens 10 Zeichen lang sein.",
         "PRIVACY_REQUIRED": "Bitte bestätige die Datenschutzerklärung."
-      }
+      },
+      "CLOSE_PRIVACY": "Datenschutzerklärung schließen",
+      "ERROR": "Senden fehlgeschlagen – bitte versuche es erneut oder schreib mir direkt an hi@timo-boening.de."
     }
   },
   "FOOTER": {

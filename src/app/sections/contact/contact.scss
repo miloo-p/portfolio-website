@@ -116,15 +116,15 @@
   transition: border-color 0.3s ease;
 
   &::placeholder {
-    color: var(--neutral-600);
+    color: var(--neutral-700);
   }
 
   &:focus {
-    border-color: var(--primary-500);
+    border-color: var(--neutral-900);
   }
 
   &.ng-invalid.ng-touched {
-    border-color: var(--feedback-error);
+    border-color: var(--feedback-error-text);
   }
 }
 
@@ -164,12 +164,16 @@
   cursor: pointer;
 
   a {
-    color: var(--secondary-500);
+    color: var(--secondary-600);
+
+    &:hover {
+      color: var(--secondary-900);
+    }
   }
 }
 
 .contact__link {
-  color: var(--secondary-500);
+  color: var(--secondary-600);
   text-decoration: none;
   transition: opacity 0.2s ease;
 
@@ -202,7 +206,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  color: var(--feedback-error);
+  color: var(--feedback-error-text);
   font-size: 0.8rem;
   line-height: 1.2;
 
@@ -210,7 +214,14 @@
 }
 
 .contact__success {
-  color: var(--secondary-500);
+  color: var(--secondary-600);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+.contact__submit-error {
+  color: var(--feedback-error-text);
   font-weight: 600;
   margin-top: 1.5rem;
   text-align: right;

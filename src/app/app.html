@@ -1,6 +1,10 @@
+<a class="skip-link" href="#main" (click)="skipToMain($event)">{{
+  'NAVIGATION.SKIP' | translate
+}}</a>
+
 <app-header></app-header>
 
-<main>
+<main id="main" tabindex="-1" #main>
   <router-outlet></router-outlet>
 </main>
 

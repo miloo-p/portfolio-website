@@ -1,5 +1,9 @@
 <section class="legal_container">
-  <h2>{{ 'PRIVACY_POLICY.TITLE' | translate }}</h2>
+  @if (inModal()) {
+    <h2 id="privacy-title">{{ 'PRIVACY_POLICY.TITLE' | translate }}</h2>
+  } @else {
+    <h1 class="heading-2">{{ 'PRIVACY_POLICY.TITLE' | translate }}</h1>
+  }
 
   <div>
     <h3>{{ 'PRIVACY_POLICY.SEC_1.TITLE' | translate }}</h3>

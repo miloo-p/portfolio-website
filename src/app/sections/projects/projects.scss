@@ -176,7 +176,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus-within {
       .project__card {
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
       }
@@ -296,7 +297,7 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--secondary-500);
-    color: var(--bg-light, #fff);
+    color: var(--neutral-900);
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     font-weight: bold;

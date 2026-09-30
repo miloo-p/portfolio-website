@@ -54,6 +54,28 @@ h6 {
   font-size: var(--fs-h6);
 }
 
+// Untertitel, die wie h3 aussehen, aber keine Überschrift sind
+.subtitle {
+  font-family: var(--font-body);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  margin-bottom: var(--space-md);
+  font-size: var(--fs-h3);
+  text-wrap: balance;
+}
+
+// Überschrift (z. B. h1), die wie h2 aussieht
+.heading-2 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  margin-bottom: var(--space-md);
+  font-size: var(--fs-h2);
+  @include mixin.respond-to(md) {
+    font-size: 2.5rem;
+  }
+}
+
 // Standard-Links
 a {
   color: inherit;
@@ -111,4 +133,54 @@ a {
 
 body.no-scroll {
   overflow: hidden;
+}
+
+// ==========================================
+// BARRIEREFREIHEIT
+// ==========================================
+
+// Sichtbarer Fokus nur bei Tastaturbedienung
+:focus-visible {
+  outline: 3px solid var(--secondary-500);
+  outline-offset: 3px;
+}
+
+// Ziel des Skip-Links soll keinen Rahmen um den ganzen Inhalt zeigen
+main:focus {
+  outline: none;
+}
+
+// "Zum Inhalt springen" – erscheint nur bei Tastatur-Fokus
+.skip-link {
+  position: fixed;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 10000;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--primary-500);
+  color: var(--neutral-900);
+  font-weight: var(--fw-bold);
+  border: 2px solid var(--neutral-900);
+  border-radius: 5px;
+  transform: translateY(-200%);
+
+  &:focus {
+    transform: translateY(0);
+  }
+
+  &:hover {
+    color: var(--neutral-900);
+  }
+}
+
+// Animationen für Nutzer mit "Bewegung reduzieren" abschalten
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

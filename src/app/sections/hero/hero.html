@@ -1,7 +1,7 @@
 <section class="hero__container">
   <div class="hero__visuals-wrapper">
     <div class="hero__content-bg">
-      <svg
+      <svg aria-hidden="true"
         width="213"
         height="367"
         viewBox="0 0 213 367"
@@ -23,7 +23,7 @@
       <picture>
         <source media="(min-width: 1200px)" srcset="assets/images/its-a-me.webp" />
 
-        <img src="assets/images/its-a-me-top.webp" alt="Timo Böning" />
+        <img src="assets/images/its-a-me-top.webp" alt="Timo Böning" fetchpriority="high" />
       </picture>
     </div>
   </div>
@@ -31,7 +31,7 @@
   <div class="hero__wrapper">
     <div class="hero__content-left">
       <h1 class="hero__title display-1">Timo Böning</h1>
-      <h3 class="hero__subtext">{{ 'HERO.SUBTITLE' | translate }}</h3>
+      <p class="hero__subtext subtitle">{{ 'HERO.SUBTITLE' | translate }}</p>
       <div class="hero__actions">
         <app-btn-cta-primary
           [btnText]="'HERO.BTN_PROJECTS' | translate"

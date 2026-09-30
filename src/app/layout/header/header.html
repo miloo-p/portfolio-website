@@ -1,9 +1,15 @@
-<div class="header__overlay" [class.is-open]="isMenuOpen()"></div>
+<div class="header__overlay" [class.is-open]="isMenuOpen()" aria-hidden="true"></div>
 
 <header class="header__container" [class.header__container--menu-open]="isMenuOpen()">
   <section class="header__wrapper">
-    <div (click)="goToHome()">
-      <svg
+    <div
+      role="link"
+      tabindex="0"
+      [attr.aria-label]="'NAVIGATION.HOME' | translate"
+      (click)="goToHome()"
+      (keydown.enter)="goToHome()"
+    >
+      <svg aria-hidden="true"
         class="header__logo"
         xmlns="http://www.w3.org/2000/svg"
         width="182"
@@ -26,11 +32,11 @@
         />
       </svg>
     </div>
-    <div class="header__mobile-menu" [class.is-open]="isMenuOpen()">
+    <div id="header-menu" class="header__mobile-menu" [class.is-open]="isMenuOpen()">
       <app-page-navigation (linkClicked)="closeMenu()"></app-page-navigation>
 
       <!--     <button class="header__sound-btn">
-      <svg
+      <svg aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="30"
         height="30"
@@ -43,7 +49,7 @@
       </svg>
     </button>
     <div class="header__tranlate">
-      <svg
+      <svg aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="25"
         height="25"
@@ -59,7 +65,11 @@
         <p><a href="">DE</a> | <a href="">EN</a></p>
       </div>
     </div> -->
-      <div class="header__tranlate">
+      <div
+        class="header__tranlate"
+        role="group"
+        [attr.aria-label]="'NAVIGATION.LANGUAGE' | translate"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="25"
@@ -76,6 +86,9 @@
           <p>
             <a
               href="#"
+              lang="de"
+              aria-label="Deutsch"
+              [attr.aria-current]="currentLanguage() === 'de' ? 'true' : null"
               [class.active]="currentLanguage() === 'de'"
               (click)="changeLanguage('de', $event)"
               >DE</a
@@ -83,6 +96,9 @@
             |
             <a
               href="#"
+              lang="en"
+              aria-label="English"
+              [attr.aria-current]="currentLanguage() === 'en' ? 'true' : null"
               [class.active]="currentLanguage() === 'en'"
               (click)="changeLanguage('en', $event)"
               >EN</a
@@ -100,9 +116,11 @@
     <button
       class="header__burger-btn"
       (click)="toggleMenu()"
+      aria-controls="header-menu"
+      [attr.aria-expanded]="isMenuOpen()"
       [attr.aria-label]="'NAVIGATION.TOGGLE_MENU' | translate"
     >
-      <svg
+      <svg aria-hidden="true"
         class="burger-icon"
         width="34"
         height="23"
@@ -116,7 +134,7 @@
         />
       </svg>
 
-      <svg
+      <svg aria-hidden="true"
         class="close-icon"
         xmlns="http://www.w3.org/2000/svg"
         width="22"

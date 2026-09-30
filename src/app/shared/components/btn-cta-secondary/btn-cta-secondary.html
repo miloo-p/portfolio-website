@@ -1,6 +1,13 @@
-<button class="btn-secondary" (click)="goToLink(btnUrl())">
+<a
+  class="btn-secondary"
+  [attr.href]="btnUrl()"
+  [attr.target]="isAnchor() ? null : '_blank'"
+  [attr.rel]="isAnchor() ? null : 'noopener noreferrer'"
+  [attr.tabindex]="tabbable() ? null : -1"
+  (click)="onClick($event)"
+>
   <span class="btn-content"> {{ btnText() }} </span>
-  <div class="btn-cells">
+  <div class="btn-cells" aria-hidden="true">
     <span></span>
     <span></span>
     <span></span>
@@ -22,4 +29,4 @@
     <span></span>
     <span></span>
   </div>
-</button>
+</a>

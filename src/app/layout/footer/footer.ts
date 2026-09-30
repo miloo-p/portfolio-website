@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FooterWoodscene } from '../../shared/components/footer-woodscene/footer-woodscene';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 /**
@@ -13,23 +13,12 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './footer.scss',
 })
 export class Footer {
-  /**
-   * Smoothly scrolls to an in-page anchor or opens an external URL in a new tab.
-   *
-   * @param url - An anchor selector starting with `#` or an absolute URL. Empty values are ignored.
-   */
-  goToLink(url: string) {
-    if (!url) {
-      return;
-    }
+  private router = inject(Router);
 
-    if (url.startsWith('#')) {
-      const targetElement = document.querySelector(url);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.open(url, '_blank');
-    }
+  /**
+   * Navigates to the landing page. Lets keyboard users activate the logo link with Enter.
+   */
+  goToHome() {
+    this.router.navigate(['/']);
   }
 }
