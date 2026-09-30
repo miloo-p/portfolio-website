@@ -111,10 +111,13 @@
   max-width: 35rem;
   font-size: clamp(var(--fs-h4), 2.5vw, var(--fs-h3));
   @include mixin.respond-to(xl) {
-    max-width: 19rem;
+    max-width: 30rem;
   }
-  @include mixin.respond-to(xl) {
-    max-width: 15rem;
+  @include mixin.respond-to(lg) {
+    max-width: 25rem;
+  }
+  @include mixin.respond-to(md) {
+    max-width: 20rem;
   }
 }
 
@@ -206,14 +209,6 @@
     object-fit: contain;
     display: block;
     transform: translate(0, 5%);
-
-    -webkit-mask-image: linear-gradient(to right, black 75%, transparent 92%);
-    mask-image: linear-gradient(to right, black 75%, transparent 92%);
-
-    @media (min-width: 1500px) {
-      -webkit-mask-image: linear-gradient(to right, black 50%, transparent 90%);
-      mask-image: linear-gradient(to right, black 50%, transparent 90%);
-    }
 
     @include mixin.respond-to(xl) {
       height: min(80vh, 120vw);
