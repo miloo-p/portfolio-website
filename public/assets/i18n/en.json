@@ -19,13 +19,13 @@
     "TITLE": "That’s who I am!",
     "SOFT_SKILLS": {
       "TITLE": "Soft skills that stay.",
-      "P1": "Good software is built where people trust each other and talk openly. That’s the kind of team I’m looking for: people I can learn from and give something back to in return.",
-      "P2": "I’m a trained media designer and then spent four years working in after-school care. There, I made films with children, produced audiobooks and built a blog – and learned to explain things in a way that truly sticks. My team elected me as their team spokesperson. Humour and a genuine eagerness to learn something new every day simply come naturally to me."
+      "P1": "For four years I worked at primary schools, where the children and I made short films, recorded audiobooks and built a blog. That work taught me to explain things in a way that sticks.",
+      "P2": "My colleagues there elected me as their team spokesperson. During my frontend developer course, I was often the one people came to with layout questions. It matters to me that people on a team speak up when something isn’t working. And I’d rather ask one question too many than one too few."
     },
     "HARD_SKILLS": {
       "TITLE": "Hard skills that grow.",
-      "P1": "I completed my training as a frontend developer in September 2026. Angular, TypeScript and SCSS are my foundation, and I’m currently expanding it with Python and Django. Coming from a design background, I know how design, frontend and UX fit together.",
-      "P2": "I think in structures, would rather ask one question too many than one too few, and like to explore topics that go beyond the course – from modern CSS features to AI-assisted workflows."
+      "P1": "My favourite part of working at school was the media projects. At some point it became clear that I wanted to build digital things myself, not just design them. Tech and design each come with their own rules, but they often share the same goal. That interplay is exactly what I enjoy.",
+      "P2": "My training as a media designer taught me to look at an interface through the eyes of the people who will use it. Now I’m adding a developer’s perspective: on the frontend I work with Angular, TypeScript and SCSS, and on the backend I’m currently learning Python and Django. On the side, I like finding out where AI genuinely helps with coding and where it doesn’t."
     },
     "INFO": {
       "REMOTE": "Open to remote work",

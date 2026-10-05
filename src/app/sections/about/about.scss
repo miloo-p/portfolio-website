@@ -17,9 +17,6 @@
     flex-direction: column;
     gap: 0;
 
-    // ==========================================
-    // GRID-LAYOUT FÜR DIE REIHEN
-    // ==========================================
     &__top,
     &__bottom {
       display: grid;
@@ -41,9 +38,6 @@
       }
     }
 
-    // ==========================================
-    // DEINE BILDER & EDITOREN (VISUALS)
-    // ==========================================
     &__visuals {
       position: relative;
       width: 100%;
@@ -166,10 +160,6 @@
     }
   }
 }
-
-// ==========================================
-// DIE CODE-EDITOR KOMPONENTE
-// ==========================================
 
 @keyframes code-editor-float {
   from {
