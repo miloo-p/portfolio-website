@@ -163,10 +163,10 @@
 
 @keyframes code-editor-float {
   from {
-    translate: 0 0;
+    translate: -0.3rem 0;
   }
   to {
-    translate: 0 -0.75rem;
+    translate: 0 -0.7rem;
   }
 }
 
@@ -188,7 +188,7 @@
 
   transform: translate(-50%, -50%) perspective(1000px) rotateY(15deg) rotateX(-5deg);
 
-  animation: code-editor-float 12s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+  animation: code-editor-float 10s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
 
   @include mixin.respond-to(xl) {
     top: 60%;
