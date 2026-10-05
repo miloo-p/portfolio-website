@@ -19,12 +19,12 @@
     "TITLE": "That’s who I am!",
     "SOFT_SKILLS": {
       "TITLE": "Soft Skills, die bleiben.",
-      "P1": "Am meisten Spaß haben mir an der Schule die Medienprojekte gemacht. Ideen hatte ich schon immer mehr, als ich zeichnen konnte. Mit Code kann ich sie selbst umsetzen. Technik und Design bringen dabei jeweils eigene Regeln mit, verfolgen aber oft dasselbe Ziel. Genau dieses Zusammenspiel mag ich.",
+      "P1": "Vier Jahre lang habe ich an Grundschulen gearbeitet, mit Kindern Kurzfilme gedreht, Hörbücher aufgenommen und einen Blog aufgebaut. Dabei habe ich gelernt, Dinge so zu erklären, dass sie ankommen.",
       "P2": "Dort haben mich meine Kolleginnen und Kollegen zum Teamsprecher gewählt. In meiner Weiterbildung zum Frontend Developer war ich oft der, zu dem man mit Layoutfragen kam. Mir ist wichtig, dass man im Team offen sagt, wenn etwas hakt. Und ich frage selbst lieber einmal mehr nach als einmal zu wenig."
     },
     "HARD_SKILLS": {
       "TITLE": "Hard Skills, die wachsen.",
-      "P1": "Am meisten Spaß haben mir an der Schule die Medienprojekte gemacht. Irgendwann war klar, dass ich digitale Dinge nicht mehr nur gestalten, sondern selbst bauen will. Technik und Design bringen jeweils eigene Regeln mit, verfolgen aber oft dasselbe Ziel. Genau dieses Zusammenspiel mag ich.",
+      "P1": "Am meisten Spaß haben mir an der Schule die Medienprojekte gemacht. Ideen hatte ich schon immer mehr, als ich zeichnen konnte. Mit Code kann ich sie selbst umsetzen. Technik und Design bringen dabei jeweils eigene Regeln mit, verfolgen aber oft dasselbe Ziel. Genau dieses Zusammenspiel mag ich.",
       "P2": "Aus meiner Ausbildung zum Mediengestalter habe ich mitgenommen, eine Oberfläche mit den Augen der Menschen anzuschauen, die sie später benutzen. Jetzt kommt der Blick eines Entwicklers dazu: Im Frontend arbeite ich mit Angular, TypeScript und SCSS, im Backend lerne ich gerade Python und Django. Nebenbei finde ich gern heraus, wo KI beim Programmieren wirklich hilft und wo nicht."
     },
     "INFO": {
